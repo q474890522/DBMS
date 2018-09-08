@@ -1,5 +1,5 @@
 package com.partner541.database.model;
-
+//aaaaaa
 import java.sql.Timestamp;
 
 public class KPI {
