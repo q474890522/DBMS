@@ -1,7 +1,7 @@
 package com.partner541.database.model;
 
 import java.sql.Timestamp;
-
+//aaaadddgg
 public class PRB {
     private Timestamp START_TIME 	;//datetime not null,--起始时间
     private int CYCLE 		;//int not null,--周期
