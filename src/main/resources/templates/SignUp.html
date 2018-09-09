@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>注册</title>
+    <link href="/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <script src="/jquery/2.0.0/jquery.min.js"></script>
+    <script src="/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" media="screen" href="/bootstrap/3.3.0/css/style.css">
+    <link rel="stylesheet" media="screen" href="/bootstrap/3.3.0/css/master.css">
+</head>
+<body>
+<div id="particles-js" style="background-color: #6fb6fb; background-image: url(&quot;&quot;);
+background-size: cover; background-repeat: no-repeat; background-position: 50% 50%;">
+    <canvas class="particles-js-canvas-el" width="407" height="500" style="width: 100%; height: 100%;"></canvas>
+        <div class="panel" style="padding:35px 5px 15px;height:400px;width: 350px;margin-left: -180px;margin-top: -180px ">
+            <form action="/signup/" method="POST">
+
+                <h1 class="text-center lead"><strong>注册</strong></h1>
+                <hr>
+                <input style="font-size: larger;margin-top: 18px" type="text" name="username" class="form-control input-sm chat-input" data-toggle="tooltip" title="默认的 Tooltip" placeholder="用户名"/>
+                </br>
+                <input style="font-size: larger;margin-top: 10px" type="password" name="password" class="form-control input-sm chat-input" placeholder="密码"/>
+                </br>
+                <input style="font-size: larger;margin-top: 10px" type="password" name="password" class="form-control input-sm chat-input" placeholder="再次输入密码"/>
+                </br>
+
+                <button style="margin-top: 10px" type="submit" class="btn btn-primary btn-block">注册</button>
+                <br>
+                <div style="margin-top: 10px" class="text-center">
+                    <p3>已有帐号？</p3>
+                    <a href="/">登录</a>
+                </div>
+            </form>
+        </div>
+</div>
+<script src="/bootstrap/3.3.0/js/particles.js"></script>
+<script src="/bootstrap/3.3.0/js/app.js"></script>
+<script src="/bootstrap/3.3.0/js/stats.js"></script>
+{% if key == True %}
+<script>
+    alert("用户已存在！")
+</script>
+{% endif %}
+</body>
+</html>
