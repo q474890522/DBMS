@@ -46,7 +46,7 @@ public class CellService {
         SimpleDateFormat fmt = new SimpleDateFormat("yyyy-MM-dd");
         try {
             // 同时支持Excel 2003、2007
-            File excelFile = new File("G:\\大四上作业\\数据库系统原理课程设计\\数据库系统原理课程设计-18\\三门峡地区TD-LTE网络数据-2017-03\\表13 优化区17日-19日每PRB干扰 查询-15分钟.xlsx"); // 创建文件对象
+            File excelFile = new File("D:\\表13 优化区17日-19日每PRB干扰 查询-15分钟.xlsx"); // 创建文件对象
             FileInputStream is = new FileInputStream(excelFile); // 文件流
             checkExcelVaild(excelFile);
             Workbook workbook = getWorkbok(is, excelFile);

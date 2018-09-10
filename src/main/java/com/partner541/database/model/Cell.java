@@ -11,7 +11,7 @@ public class Cell {            //SQL 中对应的定义
     private int PSS	 		;//int not null,
     private int SSS			;//int not null,
     private int TAC	 		;//int not null,
-    private String ENDOR		;//nvarchar(10) not null,
+    private String VENDOR		;//nvarchar(10) not null,
     private String LONGITUDE 	;//float null,
     private String LATITUDE		;//float null,
     private String STYLE		;//nvarchar(10) not null,
@@ -101,12 +101,12 @@ public class Cell {            //SQL 中对应的定义
         this.TAC = TAC;
     }
 
-    public String getENDOR() {
-        return ENDOR;
+    public String getVENDOR() {
+        return VENDOR;
     }
 
-    public void setENDOR(String ENDOR) {
-        this.ENDOR = ENDOR;
+    public void setVENDOR(String VENDOR) {
+        this.VENDOR = VENDOR;
     }
 
     public String getLONGITUDE() {

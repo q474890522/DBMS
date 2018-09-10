@@ -1,7 +1,10 @@
 package com.partner541.database;
 
+import com.partner541.database.model.MROData;
 import com.partner541.database.model.TbCell;
+import com.partner541.database.service.C2Iservice;
 import com.partner541.database.service.CellService;
+import com.partner541.database.service.MROService;
 import com.partner541.database.service.ZuoYaoService;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -17,7 +20,10 @@ import java.util.List;
 public class DatabaseApplicationTests {
 
 	@Autowired
-	CellService cellService;
+	MROService mroService;
+
+	@Autowired
+	C2Iservice c2Iservice;
 
 	@Test
 	public void contextLoads() {
@@ -26,10 +32,8 @@ public class DatabaseApplicationTests {
 //		} catch (IOException e) {
 //			e.printStackTrace();
 //		}
-		List<Object> list = ZuoYaoService.readExcel("G:\\大四上作业\\数据库系统原理课程设计\\数据库系统原理课程设计-18\\三门峡地区TD-LTE网络数据-2017-03\\表13 优化区17日-19日每PRB干扰 查询-15分钟.xlsx");
-		for(Object obj : list) {
-			System.out.println(obj.toString());
-		}
+		mroService.comC2I();
+		//c2Iservice.re_tri(50);
 	}
 
 }
