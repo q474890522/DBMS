@@ -74,7 +74,7 @@ public class ImportExcelSmall {
             }
             tbCell.setRow(object);
             list.add(tbCell);
-            if(i % 500 == 0) {
+            if(i % 500 == 0 || sheet.getLastRowNum() < 500) {
                 succCount = succCount + insertIntoDB(tableType, list);
                 System.out.println("第" + i + "条已经导入");
                 list.clear();
