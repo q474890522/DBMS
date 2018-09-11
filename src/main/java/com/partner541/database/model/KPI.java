@@ -1,9 +1,10 @@
 package com.partner541.database.model;
 //aaaaaa
 import java.sql.Timestamp;
+import java.util.Date;
 
 public class KPI {
-    private Timestamp START_TIME				;//datetime not null, --起始时间
+    private Date START_TIME				;//datetime not null, --起始时间
     private int CYCLE					;//int not null, --周期
     private String NE_NAME					;//nvarchar(50) not null, --网元名称
     private String SECTOR					;//text not null,--小区
@@ -25,11 +26,36 @@ public class KPI {
     private Double WIRELESS_DROP_RATE		;//float not null,--无线掉线率 (%)
     private int eNodeB_IN_DIFF_FREQ_SWITCH_SUCC_TIME ;//int  not null,--eNodeB内异频切换出成功次数 (无)
 
-    public Timestamp getSTART_TIME() {
+    private int eNodeB_IN_DIFF_FREQ_SWITCH_TRY_TIME ;//int not null,--eNodeB内异频切换出尝试次数 (无)
+    private int eNodeB_IN_SAME_FREQ_SWITCH_SUCC_TIME ;//int not null,--eNodeB内同频切换出成功次数 (无)
+    private int eNodeB_IN_SAME_FREQ_SWITCH_TRY_TIME ;//int  not null,--eNodeB内同频切换出尝试次数 (无)
+    private int eNodeB_BETWEEN_DIFF_FREQ_SWITCH_SUCC_TIME ;//int not null,--eNodeB间异频切换出成功次数 (无)
+    private int eNodeB_BETWEEN_DIFF_FREQ_SWITCH_TRY_TIME ;//int not null,--eNodeB间异频切换出尝试次数 (无)
+    private int eNodeB_BETWEEN_SAME_FREQ_SWITCH_SUCC_TIME ;//int not null,--eNodeB间同频切换出成功次数 (无)
+    private int eNodeB_BETWEEN_SAME_FREQ_SWITCH_TRY_TIME ;//int  not null,--eNodeB间同频切换出尝试次数 (无)
+    private Double eNB_IN_SWITCH_SUCC_RATE ;//float null,--eNB内切换成功率 (%)
+    private Double eNB_BETWEEN_SWITCH_SUCC_RATE ;//float  null,--eNB间切换成功率 (%)
+    private Double SAME_FREQ_SWITCH_SUCC_ZSP ;//float  null,--同频切换成功率zsp (%)
+
+    private Double DIFF_FREQ_SWITCH_SUCC_ZSP ;//float null,--异频切换成功率zsp (%)
+    private Double SWITCH_SUCC_RATE ;//float not null,--切换成功率 (%)
+    private Long SECTOR_DPCP_RECV_UP_DATE_THROUGHPUT ;//bigint  not null,--小区PDCP层所接收到的上行数据的总吞吐量 (比特)
+    private Long SECTOR_DPCP_RECV_DOWN_DATE_THROUGHPUT ;//bigint not null,--小区PDCP层所发送的下行数据的总吞吐量 (比特)
+    private int RPC_RESET_REQUEST_TIME ;//int not null,--RRC重建请求次数 (无)
+    private Double RPC_CONN_RESET_RATE ;//float not null,--RRC连接重建比率 (%)
+    private int TO_ONE ;//int not null,--通过重建回源小区的eNodeB间同频切换出执行成功次数 (无)
+    private int TO_TWO ;//int  not null,--通过重建回源小区的eNodeB间异频切换出执行成功次数 (无)
+    private int TO_THREE ;//int not null,--通过重建回源小区的eNodeB内同频切换出执行成功次数 (无)
+    private int TO_FOUR ;//int not null,--通过重建回源小区的eNodeB内异频切换出执行成功次数 (无)
+
+    private int eNB_IN_SWITCH_SUCC_TIME ;//int not null,--eNB内切换出成功次数 (次)
+    private int eNB_IN_SWITCH_REQUEST_TIME ;//int not null,--eNB内切换出请求次数
+
+    public Date getSTART_TIME() {
         return START_TIME;
     }
 
-    public void setSTART_TIME(Timestamp START_TIME) {
+    public void setSTART_TIME(Date START_TIME) {
         this.START_TIME = START_TIME;
     }
 
@@ -361,30 +387,7 @@ public class KPI {
         this.eNB_IN_SWITCH_REQUEST_TIME = eNB_IN_SWITCH_REQUEST_TIME;
     }
 
-    private int eNodeB_IN_DIFF_FREQ_SWITCH_TRY_TIME ;//int not null,--eNodeB内异频切换出尝试次数 (无)
-    private int eNodeB_IN_SAME_FREQ_SWITCH_SUCC_TIME ;//int not null,--eNodeB内同频切换出成功次数 (无)
-    private int eNodeB_IN_SAME_FREQ_SWITCH_TRY_TIME ;//int  not null,--eNodeB内同频切换出尝试次数 (无)
-    private int eNodeB_BETWEEN_DIFF_FREQ_SWITCH_SUCC_TIME ;//int not null,--eNodeB间异频切换出成功次数 (无)
-    private int eNodeB_BETWEEN_DIFF_FREQ_SWITCH_TRY_TIME ;//int not null,--eNodeB间异频切换出尝试次数 (无)
-    private int eNodeB_BETWEEN_SAME_FREQ_SWITCH_SUCC_TIME ;//int not null,--eNodeB间同频切换出成功次数 (无)
-    private int eNodeB_BETWEEN_SAME_FREQ_SWITCH_TRY_TIME ;//int  not null,--eNodeB间同频切换出尝试次数 (无)
-    private Double eNB_IN_SWITCH_SUCC_RATE ;//float null,--eNB内切换成功率 (%)
-    private Double eNB_BETWEEN_SWITCH_SUCC_RATE ;//float  null,--eNB间切换成功率 (%)
-    private Double SAME_FREQ_SWITCH_SUCC_ZSP ;//float  null,--同频切换成功率zsp (%)
 
-    private Double DIFF_FREQ_SWITCH_SUCC_ZSP ;//float null,--异频切换成功率zsp (%)
-    private Double SWITCH_SUCC_RATE ;//float not null,--切换成功率 (%)
-    private Long SECTOR_DPCP_RECV_UP_DATE_THROUGHPUT ;//bigint  not null,--小区PDCP层所接收到的上行数据的总吞吐量 (比特)
-    private Long SECTOR_DPCP_RECV_DOWN_DATE_THROUGHPUT ;//bigint not null,--小区PDCP层所发送的下行数据的总吞吐量 (比特)
-    private int RPC_RESET_REQUEST_TIME ;//int not null,--RRC重建请求次数 (无)
-    private Double RPC_CONN_RESET_RATE ;//float not null,--RRC连接重建比率 (%)
-    private int TO_ONE ;//int not null,--通过重建回源小区的eNodeB间同频切换出执行成功次数 (无)
-    private int TO_TWO ;//int  not null,--通过重建回源小区的eNodeB间异频切换出执行成功次数 (无)
-    private int TO_THREE ;//int not null,--通过重建回源小区的eNodeB内同频切换出执行成功次数 (无)
-    private int TO_FOUR ;//int not null,--通过重建回源小区的eNodeB内异频切换出执行成功次数 (无)
-
-    private int eNB_IN_SWITCH_SUCC_TIME ;//int not null,--eNB内切换出成功次数 (次)
-    private int eNB_IN_SWITCH_REQUEST_TIME ;//int not null,--eNB内切换出请求次数
 
 
 }

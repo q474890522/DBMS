@@ -1,9 +1,11 @@
 package com.partner541.database.model;
 
 import java.sql.Timestamp;
+import java.util.Date;
+
 //aaaadddgg
 public class PRB {
-    private Timestamp START_TIME 	;//datetime not null,--起始时间
+    private Date START_TIME 	;//datetime not null,--起始时间
     private int CYCLE 		;//int not null,--周期
     private String NE_NAME 		;//nvarchar(50) not null,--网元名称
     private String SECTOR 		;//text not null,--小区
@@ -109,11 +111,11 @@ public class PRB {
     private int P98 ;//int not null,--第98个PRB上检测到的干扰噪声的平均值 (毫瓦分贝)
     private int P99 ;//int not null,--第99个PRB上检测到的干扰噪声的平均值 (毫瓦分贝)
 
-    public Timestamp getSTART_TIME() {
+    public Date getSTART_TIME() {
         return START_TIME;
     }
 
-    public void setSTART_TIME(Timestamp START_TIME) {
+    public void setSTART_TIME(Date START_TIME) {
         this.START_TIME = START_TIME;
     }
 
