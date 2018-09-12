@@ -18,14 +18,14 @@ background-size: cover; background-repeat: no-repeat; background-position: 50% 5
 
                 <h1 class="text-center lead"><strong>注册</strong></h1>
                 <hr>
-                <input style="font-size: larger;margin-top: 18px" type="text" name="username" class="form-control input-sm chat-input" data-toggle="tooltip" title="默认的 Tooltip" placeholder="用户名"/>
+                <input id = "username" style="font-size: larger;margin-top: 18px" type="text" name="username" class="form-control input-sm chat-input" data-toggle="tooltip" title="默认的 Tooltip" placeholder="用户名"/>
                 </br>
-                <input style="font-size: larger;margin-top: 10px" type="password" name="password" class="form-control input-sm chat-input" placeholder="密码"/>
+                <input id = "password1" style="font-size: larger;margin-top: 10px" type="password" name="password" class="form-control input-sm chat-input" placeholder="密码"/>
                 </br>
-                <input style="font-size: larger;margin-top: 10px" type="password" name="password" class="form-control input-sm chat-input" placeholder="再次输入密码"/>
+                <input id = "password2" style="font-size: larger;margin-top: 10px" type="password" name="password" class="form-control input-sm chat-input" placeholder="再次输入密码"/>
                 </br>
 
-                <button style="margin-top: 10px" type="submit" class="btn btn-primary btn-block">注册</button>
+                <button onclick="myFunction()" style="margin-top: 10px" class="btn btn-primary btn-block">注册</button>
                 <br>
                 <div style="margin-top: 10px" class="text-center">
                     <p3>已有帐号？</p3>
@@ -37,10 +37,17 @@ background-size: cover; background-repeat: no-repeat; background-position: 50% 5
 <script src="/bootstrap/3.3.0/js/particles.js"></script>
 <script src="/bootstrap/3.3.0/js/app.js"></script>
 <script src="/bootstrap/3.3.0/js/stats.js"></script>
-{% if key == True %}
 <script>
-    alert("用户已存在！")
+    function myFunction() {
+        var password1 = document.getElementById(password1);
+        var password2 = document.getElementById(password2);
+        if (password1 != password2){
+            alert("前后两次输入的密码不一致，请重新注册");
+        }
+        else {
+            alert("right");
+        }
+    }
 </script>
-{% endif %}
 </body>
 </html>
