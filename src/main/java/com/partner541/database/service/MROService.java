@@ -44,7 +44,7 @@ public class MROService {
             C2I_Mean = total / number;
             c2Inew.setSCELL(SCELL);
             c2Inew.setNCELL(NCELL);
-            c2Inew.setC2I_Mean(C2I_Mean);
+            c2Inew.setC2IMean(C2I_Mean);
 
             //标准差
             total = 0;

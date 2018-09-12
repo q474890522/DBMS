@@ -118,11 +118,11 @@ public class ImportExcelBig extends DefaultHandler{
 //        System.out.println(temp);
         if(curRow ==0) return;
         PRB prb = new PRB();
-        prb.setSTART_TIME(strToDate(rowList.get(0)));
+        prb.setSTARTTIME(strToDate(rowList.get(0)));
         prb.setCYCLE(strToInt(rowList.get(1)));
-        prb.setNE_NAME(rowList.get(2));
+        prb.setNENAME(rowList.get(2));
         prb.setSECTOR(rowList.get(3));
-        prb.setSECTOR_NAME(rowList.get(4));
+        prb.setSECTORNAME(rowList.get(4));
         prb.setP0(strToInt(rowList.get(5)));
         prb.setP1(strToInt(rowList.get(6)));
         prb.setP2(strToInt(rowList.get(7)));

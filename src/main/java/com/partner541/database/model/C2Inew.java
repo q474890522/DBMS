@@ -3,7 +3,7 @@ package com.partner541.database.model;
 public class C2Inew {
     private String SCELL;
     private String NCELL;
-    private Double C2I_Mean;
+    private Double C2IMean;
     private Double std;
     private Double Prb9;
     private Double PrbABS6;
@@ -24,12 +24,12 @@ public class C2Inew {
         this.NCELL = NCELL;
     }
 
-    public Double getC2I_Mean() {
-        return C2I_Mean;
+    public Double getC2IMean() {
+        return C2IMean;
     }
 
-    public void setC2I_Mean(Double c2I_Mean) {
-        C2I_Mean = c2I_Mean;
+    public void setC2IMean(Double c2IMean) {
+        C2IMean = c2IMean;
     }
 
     public Double getStd() {

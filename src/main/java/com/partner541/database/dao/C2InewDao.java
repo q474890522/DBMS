@@ -10,7 +10,7 @@ import java.util.List;
 @Mapper
 public interface C2InewDao {
 
-    @Insert("insert into tbC2Inew values(#{SCELL},#{NCELL},#{C2I_Mean},#{std},#{Prb9},#{PrbABS6})")
+    @Insert("insert into tbC2Inew values(#{SCELL},#{NCELL},#{C2IMean},#{std},#{Prb9},#{PrbABS6})")
     void addC2Inew(C2Inew c2Inew);
 
     @Select("select * from tbC2Inew")

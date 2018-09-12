@@ -2,10 +2,10 @@ package com.partner541.database.model;
 
 public class Cell {            //SQL 中对应的定义
     private String CITY 		;//nvarchar(10)	not null,
-    private String SECTOR_ID 	;//nvarchar(10)	not null,
-    private String SECTOR_NAME 	;//nvarchar(50) not null,
+    private String SECTORID 	;//nvarchar(10)	not null,
+    private String SECTORNAME 	;//nvarchar(50) not null,
     private int ENODEBID 	;//int not null,
-    private String ENODEB_NAME	;//nvarchar(50) not null,
+    private String ENODEBNAME	;//nvarchar(50) not null,
     private int EARFCN		;//int not null,
     private int PCI	 		;//int not null,
     private int PSS	 		;//int not null,
@@ -29,20 +29,20 @@ public class Cell {            //SQL 中对应的定义
         this.CITY = CITY;
     }
 
-    public String getSECTOR_ID() {
-        return SECTOR_ID;
+    public String getSECTORID() {
+        return SECTORID;
     }
 
-    public void setSECTOR_ID(String SECTOR_ID) {
-        this.SECTOR_ID = SECTOR_ID;
+    public void setSECTORID(String SECTORID) {
+        this.SECTORID = SECTORID;
     }
 
-    public String getSECTOR_NAME() {
-        return SECTOR_NAME;
+    public String getSECTORNAME() {
+        return SECTORNAME;
     }
 
-    public void setSECTOR_NAME(String SECTOR_NAME) {
-        this.SECTOR_NAME = SECTOR_NAME;
+    public void setSECTORNAME(String SECTORNAME) {
+        this.SECTORNAME = SECTORNAME;
     }
 
     public int getENODEBID() {
@@ -53,12 +53,12 @@ public class Cell {            //SQL 中对应的定义
         this.ENODEBID = ENODEBID;
     }
 
-    public String getENODEB_NAME() {
-        return ENODEB_NAME;
+    public String getENODEBNAME() {
+        return ENODEBNAME;
     }
 
-    public void setENODEB_NAME(String ENODEB_NAME) {
-        this.ENODEB_NAME = ENODEB_NAME;
+    public void setENODEBNAME(String ENODEBNAME) {
+        this.ENODEBNAME = ENODEBNAME;
     }
 
     public int getEARFCN() {
@@ -126,7 +126,7 @@ public class Cell {            //SQL 中对应的定义
     }
 
     public String getSTYLE() {
-        return STYLE;
+        System.out.println(STYLE);return STYLE;
     }
 
     public void setSTYLE(String STYLE) {

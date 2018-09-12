@@ -5,7 +5,7 @@ public class C2I {
     private String SCELL;
     private String NCELL;
     private int PrC2I9;
-    private Double C2I_Mean;
+    private Double C2IMean;
     private Double td;
     private int SampleCount;
     private int WeightedC2I;
@@ -42,12 +42,12 @@ public class C2I {
         PrC2I9 = prC2I9;
     }
 
-    public Double getC2I_Mean() {
-        return C2I_Mean;
+    public Double getC2IMean() {
+        return C2IMean;
     }
 
-    public void setC2I_Mean(Double c2I_Mean) {
-        C2I_Mean = c2I_Mean;
+    public void setC2IMean(Double c2IMean) {
+        C2IMean = c2IMean;
     }
 
     public Double getTd() {

@@ -4,59 +4,59 @@ import java.sql.Timestamp;
 import java.util.Date;
 
 public class KPI {
-    private Date START_TIME				;//datetime not null, --起始时间
+    private Date STARTTIME				;//datetime not null, --起始时间
     private int CYCLE					;//int not null, --周期
-    private String NE_NAME					;//nvarchar(50) not null, --网元名称
+    private String NENAME					;//nvarchar(50) not null, --网元名称
     private String SECTOR					;//text not null,--小区
-    private String SECTOR_NAME				;//nvarchar(100) not null,--小区名称
-    private int RRC_CONNECT_COMPLETE_TIME ;//int not null,-- RPC连接建立完成次数
-    private int RRC_CONNECT_REQUEST_TIME	;//int not null,--RPC连接请求次数（包括重发）
-    private Double RRC_SET_SUCC_RATE 		;//float not null,--RPC建立成功率
-    private int ERAB_SET_SUCCESS_TIME 		;//int not null,--ERAB建立成功总次数
-    private int ERAB_TRY_CONNECT_TIME		;//int not null,--ERAB建立尝试总次数
+    private String SECTORNAME				;//nvarchar(100) not null,--小区名称
+    private int RRCCONNECTCOMPLETETIME ;//int not null,-- RPC连接建立完成次数
+    private int RRCCONNECTREQUESTTIME	;//int not null,--RPC连接请求次数（包括重发）
+    private Double RRCSETSUCCRATE 		;//float not null,--RPC建立成功率
+    private int ERABSETSUCCESSTIME 		;//int not null,--ERAB建立成功总次数
+    private int ERABTRYCONNECTTIME		;//int not null,--ERAB建立尝试总次数
 
-    private Double ERAB_SET_SUCCESS_TWO		;//float not null,--建立成功率2
-    private int eNodeB_TRYGGER_EXCEP_RELE_TIME	;//int not null, --enode触发的ERAB异常释放总次数
-    private int SECTOR_SWITCH_ERAB_EXCEP_RELE_TIME	;//int not null, --小区切换出E-RAB异常释放总次数
-    private Double ERAB_DROP_RATE			;//float not null, --ERAB掉线率
-    private Double WIRELESS_CONN_RATE		;//float not null,--无线接通率
-    private int eNodeB_INIT_S1 ;//int not null,--eNodeB发起的S1 RESET导致的UE Context释放次数 (无)
-    private int UE_Context_EXCEP_RELE_TIME ;//int  not null,--UE Context异常释放次数 (无)
-    private int UE_Context_SET_SUCCESS_TIME ;//int not null,--UE Context建立成功总次数 (无)
-    private Double WIRELESS_DROP_RATE		;//float not null,--无线掉线率 (%)
-    private int eNodeB_IN_DIFF_FREQ_SWITCH_SUCC_TIME ;//int  not null,--eNodeB内异频切换出成功次数 (无)
+    private Double ERABSETSUCCESSTWO		;//float not null,--建立成功率2
+    private int eNodeBTRYGGEREXCEPRELETIME	;//int not null, --enode触发的ERAB异常释放总次数
+    private int SECTORSWITCHERABEXCEPRELETIME	;//int not null, --小区切换出E-RAB异常释放总次数
+    private Double ERABDROPRATE			;//float not null, --ERAB掉线率
+    private Double WIRELESSCONNRATE		;//float not null,--无线接通率
+    private int eNodeBINITS1 ;//int not null,--eNodeB发起的S1 RESET导致的UE Context释放次数 (无)
+    private int UEContextEXCEPRELETIME ;//int  not null,--UE Context异常释放次数 (无)
+    private int UEContextSETSUCCESSTIME ;//int not null,--UE Context建立成功总次数 (无)
+    private Double WIRELESSDROPRATE		;//float not null,--无线掉线率 (%)
+    private int eNodeBINDIFFFREQSWITCHSUCCTIME ;//int  not null,--eNodeB内异频切换出成功次数 (无)
 
-    private int eNodeB_IN_DIFF_FREQ_SWITCH_TRY_TIME ;//int not null,--eNodeB内异频切换出尝试次数 (无)
-    private int eNodeB_IN_SAME_FREQ_SWITCH_SUCC_TIME ;//int not null,--eNodeB内同频切换出成功次数 (无)
-    private int eNodeB_IN_SAME_FREQ_SWITCH_TRY_TIME ;//int  not null,--eNodeB内同频切换出尝试次数 (无)
-    private int eNodeB_BETWEEN_DIFF_FREQ_SWITCH_SUCC_TIME ;//int not null,--eNodeB间异频切换出成功次数 (无)
-    private int eNodeB_BETWEEN_DIFF_FREQ_SWITCH_TRY_TIME ;//int not null,--eNodeB间异频切换出尝试次数 (无)
-    private int eNodeB_BETWEEN_SAME_FREQ_SWITCH_SUCC_TIME ;//int not null,--eNodeB间同频切换出成功次数 (无)
-    private int eNodeB_BETWEEN_SAME_FREQ_SWITCH_TRY_TIME ;//int  not null,--eNodeB间同频切换出尝试次数 (无)
-    private Double eNB_IN_SWITCH_SUCC_RATE ;//float null,--eNB内切换成功率 (%)
-    private Double eNB_BETWEEN_SWITCH_SUCC_RATE ;//float  null,--eNB间切换成功率 (%)
-    private Double SAME_FREQ_SWITCH_SUCC_ZSP ;//float  null,--同频切换成功率zsp (%)
+    private int eNodeBINDIFFFREQSWITCHTRYTIME ;//int not null,--eNodeB内异频切换出尝试次数 (无)
+    private int eNodeBINSAMEFREQSWITCHSUCCTIME ;//int not null,--eNodeB内同频切换出成功次数 (无)
+    private int eNodeBINSAMEFREQSWITCHTRYTIME ;//int  not null,--eNodeB内同频切换出尝试次数 (无)
+    private int eNodeBBETWEENDIFFFREQSWITCHSUCCTIME ;//int not null,--eNodeB间异频切换出成功次数 (无)
+    private int eNodeBBETWEENDIFFFREQSWITCHTRYTIME ;//int not null,--eNodeB间异频切换出尝试次数 (无)
+    private int eNodeBBETWEENSAMEFREQSWITCHSUCCTIME ;//int not null,--eNodeB间同频切换出成功次数 (无)
+    private int eNodeBBETWEENSAMEFREQSWITCHTRYTIME ;//int  not null,--eNodeB间同频切换出尝试次数 (无)
+    private Double eNBINSWITCHSUCCRATE ;//float null,--eNB内切换成功率 (%)
+    private Double eNBBETWEENSWITCHSUCCRATE ;//float  null,--eNB间切换成功率 (%)
+    private Double SAMEFREQSWITCHSUCCZSP ;//float  null,--同频切换成功率zsp (%)
 
-    private Double DIFF_FREQ_SWITCH_SUCC_ZSP ;//float null,--异频切换成功率zsp (%)
-    private Double SWITCH_SUCC_RATE ;//float not null,--切换成功率 (%)
-    private Long SECTOR_DPCP_RECV_UP_DATE_THROUGHPUT ;//bigint  not null,--小区PDCP层所接收到的上行数据的总吞吐量 (比特)
-    private Long SECTOR_DPCP_RECV_DOWN_DATE_THROUGHPUT ;//bigint not null,--小区PDCP层所发送的下行数据的总吞吐量 (比特)
-    private int RPC_RESET_REQUEST_TIME ;//int not null,--RRC重建请求次数 (无)
-    private Double RPC_CONN_RESET_RATE ;//float not null,--RRC连接重建比率 (%)
-    private int TO_ONE ;//int not null,--通过重建回源小区的eNodeB间同频切换出执行成功次数 (无)
-    private int TO_TWO ;//int  not null,--通过重建回源小区的eNodeB间异频切换出执行成功次数 (无)
-    private int TO_THREE ;//int not null,--通过重建回源小区的eNodeB内同频切换出执行成功次数 (无)
-    private int TO_FOUR ;//int not null,--通过重建回源小区的eNodeB内异频切换出执行成功次数 (无)
+    private Double DIFFFREQSWITCHSUCCZSP ;//float null,--异频切换成功率zsp (%)
+    private Double SWITCHSUCCRATE ;//float not null,--切换成功率 (%)
+    private Long SECTORDPCPRECVUPDATETHROUGHPUT ;//bigint  not null,--小区PDCP层所接收到的上行数据的总吞吐量 (比特)
+    private Long SECTORDPCPRECVDOWNDATETHROUGHPUT ;//bigint not null,--小区PDCP层所发送的下行数据的总吞吐量 (比特)
+    private int RPCRESETREQUESTTIME ;//int not null,--RRC重建请求次数 (无)
+    private Double RPCCONNRESETRATE ;//float not null,--RRC连接重建比率 (%)
+    private int TOONE ;//int not null,--通过重建回源小区的eNodeB间同频切换出执行成功次数 (无)
+    private int TOTWO ;//int  not null,--通过重建回源小区的eNodeB间异频切换出执行成功次数 (无)
+    private int TOTHREE ;//int not null,--通过重建回源小区的eNodeB内同频切换出执行成功次数 (无)
+    private int TOFOUR ;//int not null,--通过重建回源小区的eNodeB内异频切换出执行成功次数 (无)
 
-    private int eNB_IN_SWITCH_SUCC_TIME ;//int not null,--eNB内切换出成功次数 (次)
-    private int eNB_IN_SWITCH_REQUEST_TIME ;//int not null,--eNB内切换出请求次数
+    private int eNBINSWITCHSUCCTIME ;//int not null,--eNB内切换出成功次数 (次)
+    private int eNBINSWITCHREQUESTTIME ;//int not null,--eNB内切换出请求次数
 
-    public Date getSTART_TIME() {
-        return START_TIME;
+    public Date getSTARTTIME() {
+        return STARTTIME;
     }
 
-    public void setSTART_TIME(Date START_TIME) {
-        this.START_TIME = START_TIME;
+    public void setSTARTTIME(Date STARTTIME) {
+        this.STARTTIME = STARTTIME;
     }
 
     public int getCYCLE() {
@@ -67,12 +67,12 @@ public class KPI {
         this.CYCLE = CYCLE;
     }
 
-    public String getNE_NAME() {
-        return NE_NAME;
+    public String getNENAME() {
+        return NENAME;
     }
 
-    public void setNE_NAME(String NE_NAME) {
-        this.NE_NAME = NE_NAME;
+    public void setNENAME(String NENAME) {
+        this.NENAME = NENAME;
     }
 
     public String getSECTOR() {
@@ -83,308 +83,308 @@ public class KPI {
         this.SECTOR = SECTOR;
     }
 
-    public String getSECTOR_NAME() {
-        return SECTOR_NAME;
+    public String getSECTORNAME() {
+        return SECTORNAME;
     }
 
-    public void setSECTOR_NAME(String SECTOR_NAME) {
-        this.SECTOR_NAME = SECTOR_NAME;
+    public void setSECTORNAME(String SECTORNAME) {
+        this.SECTORNAME = SECTORNAME;
     }
 
-    public int getRRC_CONNECT_COMPLETE_TIME() {
-        return RRC_CONNECT_COMPLETE_TIME;
+    public int getRRCCONNECTCOMPLETETIME() {
+        return RRCCONNECTCOMPLETETIME;
     }
 
-    public void setRRC_CONNECT_COMPLETE_TIME(int RRC_CONNECT_COMPLETE_TIME) {
-        this.RRC_CONNECT_COMPLETE_TIME = RRC_CONNECT_COMPLETE_TIME;
+    public void setRRCCONNECTCOMPLETETIME(int RRCCONNECTCOMPLETETIME) {
+        this.RRCCONNECTCOMPLETETIME = RRCCONNECTCOMPLETETIME;
     }
 
-    public int getRRC_CONNECT_REQUEST_TIME() {
-        return RRC_CONNECT_REQUEST_TIME;
+    public int getRRCCONNECTREQUESTTIME() {
+        return RRCCONNECTREQUESTTIME;
     }
 
-    public void setRRC_CONNECT_REQUEST_TIME(int RRC_CONNECT_REQUEST_TIME) {
-        this.RRC_CONNECT_REQUEST_TIME = RRC_CONNECT_REQUEST_TIME;
+    public void setRRCCONNECTREQUESTTIME(int RRCCONNECTREQUESTTIME) {
+        this.RRCCONNECTREQUESTTIME = RRCCONNECTREQUESTTIME;
     }
 
-    public Double getRRC_SET_SUCC_RATE() {
-        return RRC_SET_SUCC_RATE;
+    public Double getRRCSETSUCCRATE() {
+        return RRCSETSUCCRATE;
     }
 
-    public void setRRC_SET_SUCC_RATE(Double RRC_SET_SUCC_RATE) {
-        this.RRC_SET_SUCC_RATE = RRC_SET_SUCC_RATE;
+    public void setRRCSETSUCCRATE(Double RRCSETSUCCRATE) {
+        this.RRCSETSUCCRATE = RRCSETSUCCRATE;
     }
 
-    public int getERAB_SET_SUCCESS_TIME() {
-        return ERAB_SET_SUCCESS_TIME;
+    public int getERABSETSUCCESSTIME() {
+        return ERABSETSUCCESSTIME;
     }
 
-    public void setERAB_SET_SUCCESS_TIME(int ERAB_SET_SUCCESS_TIME) {
-        this.ERAB_SET_SUCCESS_TIME = ERAB_SET_SUCCESS_TIME;
+    public void setERABSETSUCCESSTIME(int ERABSETSUCCESSTIME) {
+        this.ERABSETSUCCESSTIME = ERABSETSUCCESSTIME;
     }
 
-    public int getERAB_TRY_CONNECT_TIME() {
-        return ERAB_TRY_CONNECT_TIME;
+    public int getERABTRYCONNECTTIME() {
+        return ERABTRYCONNECTTIME;
     }
 
-    public void setERAB_TRY_CONNECT_TIME(int ERAB_TRY_CONNECT_TIME) {
-        this.ERAB_TRY_CONNECT_TIME = ERAB_TRY_CONNECT_TIME;
+    public void setERABTRYCONNECTTIME(int ERABTRYCONNECTTIME) {
+        this.ERABTRYCONNECTTIME = ERABTRYCONNECTTIME;
     }
 
-    public Double getERAB_SET_SUCCESS_TWO() {
-        return ERAB_SET_SUCCESS_TWO;
+    public Double getERABSETSUCCESSTWO() {
+        return ERABSETSUCCESSTWO;
     }
 
-    public void setERAB_SET_SUCCESS_TWO(Double ERAB_SET_SUCCESS_TWO) {
-        this.ERAB_SET_SUCCESS_TWO = ERAB_SET_SUCCESS_TWO;
+    public void setERABSETSUCCESSTWO(Double ERABSETSUCCESSTWO) {
+        this.ERABSETSUCCESSTWO = ERABSETSUCCESSTWO;
     }
 
-    public int geteNodeB_TRYGGER_EXCEP_RELE_TIME() {
-        return eNodeB_TRYGGER_EXCEP_RELE_TIME;
+    public int geteNodeBTRYGGEREXCEPRELETIME() {
+        return eNodeBTRYGGEREXCEPRELETIME;
     }
 
-    public void seteNodeB_TRYGGER_EXCEP_RELE_TIME(int eNodeB_TRYGGER_EXCEP_RELE_TIME) {
-        this.eNodeB_TRYGGER_EXCEP_RELE_TIME = eNodeB_TRYGGER_EXCEP_RELE_TIME;
+    public void seteNodeBTRYGGEREXCEPRELETIME(int eNodeBTRYGGEREXCEPRELETIME) {
+        this.eNodeBTRYGGEREXCEPRELETIME = eNodeBTRYGGEREXCEPRELETIME;
     }
 
-    public int getSECTOR_SWITCH_ERAB_EXCEP_RELE_TIME() {
-        return SECTOR_SWITCH_ERAB_EXCEP_RELE_TIME;
+    public int getSECTORSWITCHERABEXCEPRELETIME() {
+        return SECTORSWITCHERABEXCEPRELETIME;
     }
 
-    public void setSECTOR_SWITCH_ERAB_EXCEP_RELE_TIME(int SECTOR_SWITCH_ERAB_EXCEP_RELE_TIME) {
-        this.SECTOR_SWITCH_ERAB_EXCEP_RELE_TIME = SECTOR_SWITCH_ERAB_EXCEP_RELE_TIME;
+    public void setSECTORSWITCHERABEXCEPRELETIME(int SECTORSWITCHERABEXCEPRELETIME) {
+        this.SECTORSWITCHERABEXCEPRELETIME = SECTORSWITCHERABEXCEPRELETIME;
     }
 
-    public Double getERAB_DROP_RATE() {
-        return ERAB_DROP_RATE;
+    public Double getERABDROPRATE() {
+        return ERABDROPRATE;
     }
 
-    public void setERAB_DROP_RATE(Double ERAB_DROP_RATE) {
-        this.ERAB_DROP_RATE = ERAB_DROP_RATE;
+    public void setERABDROPRATE(Double ERABDROPRATE) {
+        this.ERABDROPRATE = ERABDROPRATE;
     }
 
-    public Double getWIRELESS_CONN_RATE() {
-        return WIRELESS_CONN_RATE;
+    public Double getWIRELESSCONNRATE() {
+        return WIRELESSCONNRATE;
     }
 
-    public void setWIRELESS_CONN_RATE(Double WIRELESS_CONN_RATE) {
-        this.WIRELESS_CONN_RATE = WIRELESS_CONN_RATE;
+    public void setWIRELESSCONNRATE(Double WIRELESSCONNRATE) {
+        this.WIRELESSCONNRATE = WIRELESSCONNRATE;
     }
 
-    public int geteNodeB_INIT_S1() {
-        return eNodeB_INIT_S1;
+    public int geteNodeBINITS1() {
+        return eNodeBINITS1;
     }
 
-    public void seteNodeB_INIT_S1(int eNodeB_INIT_S1) {
-        this.eNodeB_INIT_S1 = eNodeB_INIT_S1;
+    public void seteNodeBINITS1(int eNodeBINITS1) {
+        this.eNodeBINITS1 = eNodeBINITS1;
     }
 
-    public int getUE_Context_EXCEP_RELE_TIME() {
-        return UE_Context_EXCEP_RELE_TIME;
+    public int getUEContextEXCEPRELETIME() {
+        return UEContextEXCEPRELETIME;
     }
 
-    public void setUE_Context_EXCEP_RELE_TIME(int UE_Context_EXCEP_RELE_TIME) {
-        this.UE_Context_EXCEP_RELE_TIME = UE_Context_EXCEP_RELE_TIME;
+    public void setUEContextEXCEPRELETIME(int UEContextEXCEPRELETIME) {
+        this.UEContextEXCEPRELETIME = UEContextEXCEPRELETIME;
     }
 
-    public int getUE_Context_SET_SUCCESS_TIME() {
-        return UE_Context_SET_SUCCESS_TIME;
+    public int getUEContextSETSUCCESSTIME() {
+        return UEContextSETSUCCESSTIME;
     }
 
-    public void setUE_Context_SET_SUCCESS_TIME(int UE_Context_SET_SUCCESS_TIME) {
-        this.UE_Context_SET_SUCCESS_TIME = UE_Context_SET_SUCCESS_TIME;
+    public void setUEContextSETSUCCESSTIME(int UEContextSETSUCCESSTIME) {
+        this.UEContextSETSUCCESSTIME = UEContextSETSUCCESSTIME;
     }
 
-    public Double getWIRELESS_DROP_RATE() {
-        return WIRELESS_DROP_RATE;
+    public Double getWIRELESSDROPRATE() {
+        return WIRELESSDROPRATE;
     }
 
-    public void setWIRELESS_DROP_RATE(Double WIRELESS_DROP_RATE) {
-        this.WIRELESS_DROP_RATE = WIRELESS_DROP_RATE;
+    public void setWIRELESSDROPRATE(Double WIRELESSDROPRATE) {
+        this.WIRELESSDROPRATE = WIRELESSDROPRATE;
     }
 
-    public int geteNodeB_IN_DIFF_FREQ_SWITCH_SUCC_TIME() {
-        return eNodeB_IN_DIFF_FREQ_SWITCH_SUCC_TIME;
+    public int geteNodeBINDIFFFREQSWITCHSUCCTIME() {
+        return eNodeBINDIFFFREQSWITCHSUCCTIME;
     }
 
-    public void seteNodeB_IN_DIFF_FREQ_SWITCH_SUCC_TIME(int eNodeB_IN_DIFF_FREQ_SWITCH_SUCC_TIME) {
-        this.eNodeB_IN_DIFF_FREQ_SWITCH_SUCC_TIME = eNodeB_IN_DIFF_FREQ_SWITCH_SUCC_TIME;
+    public void seteNodeBINDIFFFREQSWITCHSUCCTIME(int eNodeBINDIFFFREQSWITCHSUCCTIME) {
+        this.eNodeBINDIFFFREQSWITCHSUCCTIME = eNodeBINDIFFFREQSWITCHSUCCTIME;
     }
 
-    public int geteNodeB_IN_DIFF_FREQ_SWITCH_TRY_TIME() {
-        return eNodeB_IN_DIFF_FREQ_SWITCH_TRY_TIME;
+    public int geteNodeBINDIFFFREQSWITCHTRYTIME() {
+        return eNodeBINDIFFFREQSWITCHTRYTIME;
     }
 
-    public void seteNodeB_IN_DIFF_FREQ_SWITCH_TRY_TIME(int eNodeB_IN_DIFF_FREQ_SWITCH_TRY_TIME) {
-        this.eNodeB_IN_DIFF_FREQ_SWITCH_TRY_TIME = eNodeB_IN_DIFF_FREQ_SWITCH_TRY_TIME;
+    public void seteNodeBINDIFFFREQSWITCHTRYTIME(int eNodeBINDIFFFREQSWITCHTRYTIME) {
+        this.eNodeBINDIFFFREQSWITCHTRYTIME = eNodeBINDIFFFREQSWITCHTRYTIME;
     }
 
-    public int geteNodeB_IN_SAME_FREQ_SWITCH_SUCC_TIME() {
-        return eNodeB_IN_SAME_FREQ_SWITCH_SUCC_TIME;
+    public int geteNodeBINSAMEFREQSWITCHSUCCTIME() {
+        return eNodeBINSAMEFREQSWITCHSUCCTIME;
     }
 
-    public void seteNodeB_IN_SAME_FREQ_SWITCH_SUCC_TIME(int eNodeB_IN_SAME_FREQ_SWITCH_SUCC_TIME) {
-        this.eNodeB_IN_SAME_FREQ_SWITCH_SUCC_TIME = eNodeB_IN_SAME_FREQ_SWITCH_SUCC_TIME;
+    public void seteNodeBINSAMEFREQSWITCHSUCCTIME(int eNodeBINSAMEFREQSWITCHSUCCTIME) {
+        this.eNodeBINSAMEFREQSWITCHSUCCTIME = eNodeBINSAMEFREQSWITCHSUCCTIME;
     }
 
-    public int geteNodeB_IN_SAME_FREQ_SWITCH_TRY_TIME() {
-        return eNodeB_IN_SAME_FREQ_SWITCH_TRY_TIME;
+    public int geteNodeBINSAMEFREQSWITCHTRYTIME() {
+        return eNodeBINSAMEFREQSWITCHTRYTIME;
     }
 
-    public void seteNodeB_IN_SAME_FREQ_SWITCH_TRY_TIME(int eNodeB_IN_SAME_FREQ_SWITCH_TRY_TIME) {
-        this.eNodeB_IN_SAME_FREQ_SWITCH_TRY_TIME = eNodeB_IN_SAME_FREQ_SWITCH_TRY_TIME;
+    public void seteNodeBINSAMEFREQSWITCHTRYTIME(int eNodeBINSAMEFREQSWITCHTRYTIME) {
+        this.eNodeBINSAMEFREQSWITCHTRYTIME = eNodeBINSAMEFREQSWITCHTRYTIME;
     }
 
-    public int geteNodeB_BETWEEN_DIFF_FREQ_SWITCH_SUCC_TIME() {
-        return eNodeB_BETWEEN_DIFF_FREQ_SWITCH_SUCC_TIME;
+    public int geteNodeBBETWEENDIFFFREQSWITCHSUCCTIME() {
+        return eNodeBBETWEENDIFFFREQSWITCHSUCCTIME;
     }
 
-    public void seteNodeB_BETWEEN_DIFF_FREQ_SWITCH_SUCC_TIME(int eNodeB_BETWEEN_DIFF_FREQ_SWITCH_SUCC_TIME) {
-        this.eNodeB_BETWEEN_DIFF_FREQ_SWITCH_SUCC_TIME = eNodeB_BETWEEN_DIFF_FREQ_SWITCH_SUCC_TIME;
+    public void seteNodeBBETWEENDIFFFREQSWITCHSUCCTIME(int eNodeBBETWEENDIFFFREQSWITCHSUCCTIME) {
+        this.eNodeBBETWEENDIFFFREQSWITCHSUCCTIME = eNodeBBETWEENDIFFFREQSWITCHSUCCTIME;
     }
 
-    public int geteNodeB_BETWEEN_DIFF_FREQ_SWITCH_TRY_TIME() {
-        return eNodeB_BETWEEN_DIFF_FREQ_SWITCH_TRY_TIME;
+    public int geteNodeBBETWEENDIFFFREQSWITCHTRYTIME() {
+        return eNodeBBETWEENDIFFFREQSWITCHTRYTIME;
     }
 
-    public void seteNodeB_BETWEEN_DIFF_FREQ_SWITCH_TRY_TIME(int eNodeB_BETWEEN_DIFF_FREQ_SWITCH_TRY_TIME) {
-        this.eNodeB_BETWEEN_DIFF_FREQ_SWITCH_TRY_TIME = eNodeB_BETWEEN_DIFF_FREQ_SWITCH_TRY_TIME;
+    public void seteNodeBBETWEENDIFFFREQSWITCHTRYTIME(int eNodeBBETWEENDIFFFREQSWITCHTRYTIME) {
+        this.eNodeBBETWEENDIFFFREQSWITCHTRYTIME = eNodeBBETWEENDIFFFREQSWITCHTRYTIME;
     }
 
-    public int geteNodeB_BETWEEN_SAME_FREQ_SWITCH_SUCC_TIME() {
-        return eNodeB_BETWEEN_SAME_FREQ_SWITCH_SUCC_TIME;
+    public int geteNodeBBETWEENSAMEFREQSWITCHSUCCTIME() {
+        return eNodeBBETWEENSAMEFREQSWITCHSUCCTIME;
     }
 
-    public void seteNodeB_BETWEEN_SAME_FREQ_SWITCH_SUCC_TIME(int eNodeB_BETWEEN_SAME_FREQ_SWITCH_SUCC_TIME) {
-        this.eNodeB_BETWEEN_SAME_FREQ_SWITCH_SUCC_TIME = eNodeB_BETWEEN_SAME_FREQ_SWITCH_SUCC_TIME;
+    public void seteNodeBBETWEENSAMEFREQSWITCHSUCCTIME(int eNodeBBETWEENSAMEFREQSWITCHSUCCTIME) {
+        this.eNodeBBETWEENSAMEFREQSWITCHSUCCTIME = eNodeBBETWEENSAMEFREQSWITCHSUCCTIME;
     }
 
-    public int geteNodeB_BETWEEN_SAME_FREQ_SWITCH_TRY_TIME() {
-        return eNodeB_BETWEEN_SAME_FREQ_SWITCH_TRY_TIME;
+    public int geteNodeBBETWEENSAMEFREQSWITCHTRYTIME() {
+        return eNodeBBETWEENSAMEFREQSWITCHTRYTIME;
     }
 
-    public void seteNodeB_BETWEEN_SAME_FREQ_SWITCH_TRY_TIME(int eNodeB_BETWEEN_SAME_FREQ_SWITCH_TRY_TIME) {
-        this.eNodeB_BETWEEN_SAME_FREQ_SWITCH_TRY_TIME = eNodeB_BETWEEN_SAME_FREQ_SWITCH_TRY_TIME;
+    public void seteNodeBBETWEENSAMEFREQSWITCHTRYTIME(int eNodeBBETWEENSAMEFREQSWITCHTRYTIME) {
+        this.eNodeBBETWEENSAMEFREQSWITCHTRYTIME = eNodeBBETWEENSAMEFREQSWITCHTRYTIME;
     }
 
-    public Double geteNB_IN_SWITCH_SUCC_RATE() {
-        return eNB_IN_SWITCH_SUCC_RATE;
+    public Double geteNBINSWITCHSUCCRATE() {
+        return eNBINSWITCHSUCCRATE;
     }
 
-    public void seteNB_IN_SWITCH_SUCC_RATE(Double eNB_IN_SWITCH_SUCC_RATE) {
-        this.eNB_IN_SWITCH_SUCC_RATE = eNB_IN_SWITCH_SUCC_RATE;
+    public void seteNBINSWITCHSUCCRATE(Double eNBINSWITCHSUCCRATE) {
+        this.eNBINSWITCHSUCCRATE = eNBINSWITCHSUCCRATE;
     }
 
-    public Double geteNB_BETWEEN_SWITCH_SUCC_RATE() {
-        return eNB_BETWEEN_SWITCH_SUCC_RATE;
+    public Double geteNBBETWEENSWITCHSUCCRATE() {
+        return eNBBETWEENSWITCHSUCCRATE;
     }
 
-    public void seteNB_BETWEEN_SWITCH_SUCC_RATE(Double eNB_BETWEEN_SWITCH_SUCC_RATE) {
-        this.eNB_BETWEEN_SWITCH_SUCC_RATE = eNB_BETWEEN_SWITCH_SUCC_RATE;
+    public void seteNBBETWEENSWITCHSUCCRATE(Double eNBBETWEENSWITCHSUCCRATE) {
+        this.eNBBETWEENSWITCHSUCCRATE = eNBBETWEENSWITCHSUCCRATE;
     }
 
-    public Double getSAME_FREQ_SWITCH_SUCC_ZSP() {
-        return SAME_FREQ_SWITCH_SUCC_ZSP;
+    public Double getSAMEFREQSWITCHSUCCZSP() {
+        return SAMEFREQSWITCHSUCCZSP;
     }
 
-    public void setSAME_FREQ_SWITCH_SUCC_ZSP(Double SAME_FREQ_SWITCH_SUCC_ZSP) {
-        this.SAME_FREQ_SWITCH_SUCC_ZSP = SAME_FREQ_SWITCH_SUCC_ZSP;
+    public void setSAMEFREQSWITCHSUCCZSP(Double SAMEFREQSWITCHSUCCZSP) {
+        this.SAMEFREQSWITCHSUCCZSP = SAMEFREQSWITCHSUCCZSP;
     }
 
-    public Double getDIFF_FREQ_SWITCH_SUCC_ZSP() {
-        return DIFF_FREQ_SWITCH_SUCC_ZSP;
+    public Double getDIFFFREQSWITCHSUCCZSP() {
+        return DIFFFREQSWITCHSUCCZSP;
     }
 
-    public void setDIFF_FREQ_SWITCH_SUCC_ZSP(Double DIFF_FREQ_SWITCH_SUCC_ZSP) {
-        this.DIFF_FREQ_SWITCH_SUCC_ZSP = DIFF_FREQ_SWITCH_SUCC_ZSP;
+    public void setDIFFFREQSWITCHSUCCZSP(Double DIFFFREQSWITCHSUCCZSP) {
+        this.DIFFFREQSWITCHSUCCZSP = DIFFFREQSWITCHSUCCZSP;
     }
 
-    public Double getSWITCH_SUCC_RATE() {
-        return SWITCH_SUCC_RATE;
+    public Double getSWITCHSUCCRATE() {
+        return SWITCHSUCCRATE;
     }
 
-    public void setSWITCH_SUCC_RATE(Double SWITCH_SUCC_RATE) {
-        this.SWITCH_SUCC_RATE = SWITCH_SUCC_RATE;
+    public void setSWITCHSUCCRATE(Double SWITCHSUCCRATE) {
+        this.SWITCHSUCCRATE = SWITCHSUCCRATE;
     }
 
-    public Long getSECTOR_DPCP_RECV_UP_DATE_THROUGHPUT() {
-        return SECTOR_DPCP_RECV_UP_DATE_THROUGHPUT;
+    public Long getSECTORDPCPRECVUPDATETHROUGHPUT() {
+        return SECTORDPCPRECVUPDATETHROUGHPUT;
     }
 
-    public void setSECTOR_DPCP_RECV_UP_DATE_THROUGHPUT(Long SECTOR_DPCP_RECV_UP_DATE_THROUGHPUT) {
-        this.SECTOR_DPCP_RECV_UP_DATE_THROUGHPUT = SECTOR_DPCP_RECV_UP_DATE_THROUGHPUT;
+    public void setSECTORDPCPRECVUPDATETHROUGHPUT(Long SECTORDPCPRECVUPDATETHROUGHPUT) {
+        this.SECTORDPCPRECVUPDATETHROUGHPUT = SECTORDPCPRECVUPDATETHROUGHPUT;
     }
 
-    public Long getSECTOR_DPCP_RECV_DOWN_DATE_THROUGHPUT() {
-        return SECTOR_DPCP_RECV_DOWN_DATE_THROUGHPUT;
+    public Long getSECTORDPCPRECVDOWNDATETHROUGHPUT() {
+        return SECTORDPCPRECVDOWNDATETHROUGHPUT;
     }
 
-    public void setSECTOR_DPCP_RECV_DOWN_DATE_THROUGHPUT(Long SECTOR_DPCP_RECV_DOWN_DATE_THROUGHPUT) {
-        this.SECTOR_DPCP_RECV_DOWN_DATE_THROUGHPUT = SECTOR_DPCP_RECV_DOWN_DATE_THROUGHPUT;
+    public void setSECTORDPCPRECVDOWNDATETHROUGHPUT(Long SECTORDPCPRECVDOWNDATETHROUGHPUT) {
+        this.SECTORDPCPRECVDOWNDATETHROUGHPUT = SECTORDPCPRECVDOWNDATETHROUGHPUT;
     }
 
-    public int getRPC_RESET_REQUEST_TIME() {
-        return RPC_RESET_REQUEST_TIME;
+    public int getRPCRESETREQUESTTIME() {
+        return RPCRESETREQUESTTIME;
     }
 
-    public void setRPC_RESET_REQUEST_TIME(int RPC_RESET_REQUEST_TIME) {
-        this.RPC_RESET_REQUEST_TIME = RPC_RESET_REQUEST_TIME;
+    public void setRPCRESETREQUESTTIME(int RPCRESETREQUESTTIME) {
+        this.RPCRESETREQUESTTIME = RPCRESETREQUESTTIME;
     }
 
-    public Double getRPC_CONN_RESET_RATE() {
-        return RPC_CONN_RESET_RATE;
+    public Double getRPCCONNRESETRATE() {
+        return RPCCONNRESETRATE;
     }
 
-    public void setRPC_CONN_RESET_RATE(Double RPC_CONN_RESET_RATE) {
-        this.RPC_CONN_RESET_RATE = RPC_CONN_RESET_RATE;
+    public void setRPCCONNRESETRATE(Double RPCCONNRESETRATE) {
+        this.RPCCONNRESETRATE = RPCCONNRESETRATE;
     }
 
-    public int getTO_ONE() {
-        return TO_ONE;
+    public int getTOONE() {
+        return TOONE;
     }
 
-    public void setTO_ONE(int TO_ONE) {
-        this.TO_ONE = TO_ONE;
+    public void setTOONE(int TOONE) {
+        this.TOONE = TOONE;
     }
 
-    public int getTO_TWO() {
-        return TO_TWO;
+    public int getTOTWO() {
+        return TOTWO;
     }
 
-    public void setTO_TWO(int TO_TWO) {
-        this.TO_TWO = TO_TWO;
+    public void setTOTWO(int TOTWO) {
+        this.TOTWO = TOTWO;
     }
 
-    public int getTO_THREE() {
-        return TO_THREE;
+    public int getTOTHREE() {
+        return TOTHREE;
     }
 
-    public void setTO_THREE(int TO_THREE) {
-        this.TO_THREE = TO_THREE;
+    public void setTOTHREE(int TOTHREE) {
+        this.TOTHREE = TOTHREE;
     }
 
-    public int getTO_FOUR() {
-        return TO_FOUR;
+    public int getTOFOUR() {
+        return TOFOUR;
     }
 
-    public void setTO_FOUR(int TO_FOUR) {
-        this.TO_FOUR = TO_FOUR;
+    public void setTOFOUR(int TOFOUR) {
+        this.TOFOUR = TOFOUR;
     }
 
-    public int geteNB_IN_SWITCH_SUCC_TIME() {
-        return eNB_IN_SWITCH_SUCC_TIME;
+    public int geteNBINSWITCHSUCCTIME() {
+        return eNBINSWITCHSUCCTIME;
     }
 
-    public void seteNB_IN_SWITCH_SUCC_TIME(int eNB_IN_SWITCH_SUCC_TIME) {
-        this.eNB_IN_SWITCH_SUCC_TIME = eNB_IN_SWITCH_SUCC_TIME;
+    public void seteNBINSWITCHSUCCTIME(int eNBINSWITCHSUCCTIME) {
+        this.eNBINSWITCHSUCCTIME = eNBINSWITCHSUCCTIME;
     }
 
-    public int geteNB_IN_SWITCH_REQUEST_TIME() {
-        return eNB_IN_SWITCH_REQUEST_TIME;
+    public int geteNBINSWITCHREQUESTTIME() {
+        return eNBINSWITCHREQUESTTIME;
     }
 
-    public void seteNB_IN_SWITCH_REQUEST_TIME(int eNB_IN_SWITCH_REQUEST_TIME) {
-        this.eNB_IN_SWITCH_REQUEST_TIME = eNB_IN_SWITCH_REQUEST_TIME;
+    public void seteNBINSWITCHREQUESTTIME(int eNBINSWITCHREQUESTTIME) {
+        this.eNBINSWITCHREQUESTTIME = eNBINSWITCHREQUESTTIME;
     }
 
 
