@@ -321,12 +321,7 @@
                 type: "POST",
                 contentType: "application/JSON;charset-utf8",
             });
-            return false;
-        });
-    });
-</script>
-<script>
-    layui.use('table', function(){
+                layui.use('table', function(){
         var table = layui.table;
 
         //第一个实例
@@ -336,12 +331,35 @@
             ,url: '/celldata' //数据接口
             ,page: true //开启分页
             ,cols: [[ //表头
-                {field: 'username', title: 'ID', width:80, sort: true, fixed: 'left'}
-                ,{field: 'password', title: '用户名', width:80}
+                {field: 'CITY', title: 'ID', width:80, sort: true, fixed: 'left'}
+                ,{field: 'SECTORID', title: 'SECTORID', width:80}
+                ,{field: 'SECTORNAME', title: 'SECTORNAME', width:80, sort: true}
+                ,{field: 'ENODEBID', title: 'ENODEBID', width:80}
+                ,{field: 'ENODEBNAME', title: 'ENODEBNAME', width: 177}
+                ,{field: 'EARFCN', title: 'EARFCN', width: 80, sort: true}
+                ,{field: 'PCI', title: 'PCI', width: 80, sort: true}
+                ,{field: 'PSS', title: 'PSS', width: 80}
+                ,{field: 'SSS', title: 'SSS', width: 135, sort: true}
+                ,{field: 'TAC', title: 'TAC', width: 135, sort: true}
+                ,{field: 'VENDOR', title: 'VENDOR', width: 135, sort: true}
+                ,{field: 'LONGITUDE', title: 'LONGITUDE', width: 135, sort: true}
+                ,{field: 'LATITUDE', title: 'LATITUDE', width: 135, sort: true}
+                ,{field: 'STYLE', title: 'STYLE', width: 135, sort: true}
+                ,{field: 'AZIMUTH', title: 'AZIMUTH', width: 135, sort: true}
+                ,{field: 'HEIGHT', title: 'HEIGHT', width: 135, sort: true}
+                ,{field: 'ELECTTILT', title: 'ELECTTILT', width: 135, sort: true}
+                ,{field: 'MECHTILT', title: 'MECHTILT', width: 135, sort: true}
+                ,{field: 'TOTLETILT', title: 'TOTLETILT', width: 135, sort: true}
             ]]
         });
 
     });
+            return false;
+        });
+    });
+</script>
+<script>
+
 </script>
 
 
@@ -412,7 +430,7 @@
 
 
 <!-- 监听PRB的button-->
-<!-- 监听Cell的button -->
+<!-- PRB的图表-->
 <script>
     //Demo
     layui.use('form', function(){
@@ -426,6 +444,14 @@
                 data: JSON.stringify(data.field),
                 type: "POST",
                 contentType: "application/JSON;charset-utf8",
+                success:function (response) {
+                    if (response.success){
+                        window.location.href = "/query";
+                    }
+                    else {
+                        alert("用户名或密码错误，请重新输入");
+                    }
+                }
             });
             // 基于准备好的dom，初始化echarts实例
             var myChart = echarts.init(document.getElementById('main2'));
@@ -433,11 +459,11 @@
             // 指定图表的配置项和数据
             var option = {
                 title: {
-                    text: 'ECharts 入门示例'
+                    text: "毫瓦分贝"
                 },
                 tooltip: {},
                 legend: {
-                    data:['销量']
+                    data: data.field.properties
                 },
                 xAxis: {
                     data: ["衬衫","羊毛衫","雪纺衫","裤子","高跟鞋","袜子"]
@@ -452,7 +478,6 @@
 
             // 使用刚指定的配置项和数据显示图表。
             myChart.setOption(option);
-            return false;
             return false;
         });
 
