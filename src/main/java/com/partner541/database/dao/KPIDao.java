@@ -1,9 +1,13 @@
 package com.partner541.database.dao;
 
+import com.partner541.database.model.Cell;
 import com.partner541.database.model.KPI;
 import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Select;
+
+import java.util.List;
 
 @Mapper
 public interface KPIDao {
@@ -29,6 +33,11 @@ public interface KPIDao {
     @Insert({"insert into tbKPI (", INSERT_FIELDS, ") values( ", VALUES_FIELDS, " )"})
     int insertKPI(KPI kpi);
 
+    void insertKPIBatch(List<KPI> list);
+
     @Delete({"delete from tbKPI"})
     int deleteKPI();
+
+    @Select({"select * from tbKPI"})
+    List<KPI> selectKPIAll();
 }

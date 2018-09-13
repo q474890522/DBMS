@@ -24,7 +24,7 @@ public class ExportTest {
 
     @Test
     public void ImportTestMain() {
-        List<Cell> cells = cellDao.select();
+        List<Cell> cells = cellDao.selectCellAll();
         for(Cell cell : cells) {
             System.out.println("CITY:"+cell.getCITY() + " SECTOR_ID:" + cell.getSECTORID() + " SECTOR_NAME:" + cell.getSECTORNAME() + " ENODEB_NAME:" + cell.getENODEBNAME()+""+cell.getSTYLE());
         }

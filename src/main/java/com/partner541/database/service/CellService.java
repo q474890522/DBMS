@@ -47,15 +47,20 @@ public class CellService {
             return false;
         }
         int succCount = 0;
-        try {
+//        try {
             succCount = importExcelSmall.exportListFromExcel(TableType.Cell.getValue(), file);
-        } catch (Exception e) {
-            logger.error("导入Cell Excel时失败");
-            return false;
-        }
+//        } catch (Exception e) {
+//            logger.error("导入Cell Excel时失败");
+//            return false;
+//        }
         return true;
     }
 
+    public List<Cell> queryCells(String sectorId, String sectorName, String enodebId, String enodebName) throws Exception {
+        if(sectorId != null && sectorName != null && enodebId != null && enodebName != null)
+            return cellDao.selectCellByIdNameEnodeB(sectorId, sectorName, Integer.valueOf(enodebId), enodebName);
+        throw new Exception("参数为空");
+    }
     /**
      * 清空tbCell
      * @return 清空多少条数据
@@ -64,7 +69,7 @@ public class CellService {
         return cellDao.deleteCell();
     }
 
-    public void exportExcel(HttpServletResponse response, String path, String fileName) {
+    public void exportExcel(String path, String fileName) {
         //获取数据列表
         List<Cell> list =cellDao.selectCellAll();//list数据由数据库查询得到
         if(list!=null && list.size() > 0){
@@ -85,7 +90,7 @@ public class CellService {
             fontContent.setFontName("宋体");;
             fontContent.setFontHeightInPoints((short)10);//字体大小
             styleContent.setFont(fontContent);
-            styleContent.setWrapText(true);//自动换行
+            //styleContent.setWrapText(true);//自动换行
 
             //创建样式2(数据项样式)
             CellStyle style= wb.createCellStyle();
@@ -93,7 +98,7 @@ public class CellService {
             font.setFontName("宋体");
             font.setFontHeightInPoints((short)10);//字体大小
             style.setFont(font);
-            style.setWrapText(true);//自动换行
+           // style.setWrapText(true);//自动换行
 
             //创建样式3(数据项样式-日期)
             CellStyle style_date = wb.createCellStyle();
@@ -103,7 +108,7 @@ public class CellService {
             font_date.setFontName("宋体");
             font_date.setFontHeightInPoints((short)10);//字体大小
             style_date.setFont(font_date);
-            style_date.setWrapText(true);//自动换行
+            //style_date.setWrapText(true);//自动换行
 
             //第二步：在workbook添加sheet
             for(int m = 0; m < avg; m++){
@@ -188,7 +193,6 @@ public class CellService {
                         sheetcell = sheet_rows.createCell(1);
                         sheetcell.setCellValue(pct.getSECTORID());
                         sheetcell.setCellStyle(style);
-                        System.out.println(pct.getSECTORNAME());
                         sheetcell = sheet_rows.createCell(2);
                         sheetcell.setCellValue(pct.getSECTORNAME());
                         sheetcell.setCellStyle(style);
@@ -256,17 +260,15 @@ public class CellService {
 //                response.setContentType("applicatin/ms-excel");
 //                response.setHeader("Content-Disposition",
 //                        "attachment;filename="+new String(fileName.getBytes("gb2312"),"iso-8859-1"));
-                response.addHeader("Content-Disposition",
-                        "attachment;filename=" + new String(fileName.getBytes("UTF-8"), "ISO8859-1"));
-                wb.write(response.getOutputStream());
+//                response.addHeader("Content-Disposition",
+//                        "attachment;filename=" + new String(fileName.getBytes("UTF-8"), "ISO8859-1"));
+//                wb.write(response.getOutputStream());
                 FileOutputStream outputStream = new FileOutputStream(path + "\\" + fileName);
                 wb.write(outputStream);
                 wb.close();
             } catch (Exception e) {
                 e.printStackTrace();
             }
-            return;
-        }else{
         }
     }
 }
