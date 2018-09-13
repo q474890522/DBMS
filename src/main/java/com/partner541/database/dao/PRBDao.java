@@ -27,9 +27,15 @@ public interface PRBDao {
     @Insert({"insert into tbPRB ( ", INSERT_FIELDS, " ) values ( ", INSERT_VALUES, " )"})
     int insertPRB(PRB prb);
 
+    @Insert({"insert into tbPRBnew ( ", INSERT_FIELDS, " ,ave ) values ( ", INSERT_VALUES, " ,#{ave} )"})
+    int insertPRBnew(PRB prb);
+
     @Delete({"delete from tbPRB"})
     int deletePRB();
 
     @Select({"select * from tbPRB"})
     List<PRB> selectPRBAll();
+
+    @Select("select * from tbPRB")
+    List<PRB> getPRB();
 }

@@ -5,9 +5,7 @@ public class C2I3 {
     private String CELLb;
     private String CELLc;
 
-    public String getCELLa() {
-        return CELLa;
-    }
+    public String getCELLa() { return CELLa; }
 
     public void setCELLa(String CELLa) {
         this.CELLa = CELLa;
