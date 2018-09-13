@@ -26,43 +26,60 @@ public class QueryController {
     PRBService prbService;
 
 
-    public String SECTOR_ID, SECTOR_NAME, ENODEBID, ENODEB_NAME;
+    public List<Cell> alist = null;
 
     @RequestMapping(path = "/cellnewdata")
     @ResponseBody
     public Object cellnewdata(@RequestBody JSONObject params){
-        SECTOR_ID = params.getString("SECTOR_ID");
-        SECTOR_NAME = params.getString("SECTOR_NAME");
-        ENODEBID = params.getString("ENODEBID");
-        ENODEB_NAME = params.getString("ENODEB_NAME");
+        String SECTOR_ID = params.getString("SECTOR_ID");
+        String SECTOR_NAME = params.getString("SECTOR_NAME");
+        String ENODEBID = params.getString("ENODEBID");
+        String ENODEB_NAME = params.getString("ENODEB_NAME");
+
+        System.out.println(SECTOR_ID +" "+ SECTOR_NAME + " "+ ENODEBID +" "+  ENODEB_NAME + "before");
+        try {
+            alist = cellService.selectCell(SECTOR_ID,SECTOR_NAME,ENODEBID,ENODEB_NAME);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        if (alist != null) {
+            System.out.println(alist.size());
+        }
+        else {
+            System.out.println("alist is empty");
+        }
 
         Map<String,Object> map = new HashMap<>();
         map.put("success",true);
         return map;
     }
 
+    @RequestMapping(path = "/cellresult")
+    public String cellresult(){
+        return "CellResult";
+    }
+
     @RequestMapping(path = "/celldata")
     @ResponseBody
     public Object celldata() {
-        String sector_id = SECTOR_ID;
-        String sector_name = SECTOR_NAME;
-        String enodebid = ENODEBID;
-        String enode_name = ENODEB_NAME;
-
-        List<Cell> list = null;
-        try {
-            list = cellService.selectCell(sector_id,sector_name,enodebid,enode_name);
-        } catch (Exception e) {
-            e.printStackTrace();
+        if (alist != null) {
+            System.out.println(alist.size());
         }
-
-        System.out.println(list.size());
+        else {
+            System.out.println("alist is empty");
+        }
 
         Map<String,Object> map = new HashMap<>();
         map.put("code",0);
         map.put("msg",",");
-        map.put("count",list.size());
-        map.put("data",list);
+        if (alist == null){
+            map.put("count",0);
+        }
+        else {
+            map.put("count",alist.size());
+        }
+        map.put("data",alist);
 
         return map;
     }

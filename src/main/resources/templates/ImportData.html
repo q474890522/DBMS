@@ -52,7 +52,6 @@
                 <option value="0">tbCell</option>
                 <option value="1">tbKPI</option>
                 <option value="2">tbPRB</option>
-                <option value="3">tbMROData</option>
               </select>
             </div>
           </div>
@@ -76,15 +75,19 @@
 
 <script src="/layui/layui.js"></script>
 <script>
-//JavaScript代码区域
-layui.use('element', function(){
-  var element = layui.element;
+layui.use(['upload','form'], function(){
+  var upload = layui.upload, form = layui.form;
 
-});
-</script>
-<script>
-layui.use('upload', function(){
-  var upload = layui.upload;
+    //监听提交
+    form.on('submit(formDemo)', function(data){
+        layer.msg(JSON.stringify(data.field));
+        $.ajax({
+            url:"/willupload",
+            data: JSON.stringify(data.field),
+            type: "POST",
+            contentType: "application/JSON;charset=utf-8"
+        })
+    });
 
   //执行实例
   var uploadInst = upload.render({
@@ -97,18 +100,6 @@ layui.use('upload', function(){
     ,error: function(){
       //请求异常回调
     }
-  });
-});
-</script>
-<script>
-//Demo
-layui.use('form', function(){
-  var form = layui.form;
-
-  //监听提交
-  form.on('submit(formDemo)', function(data){
-    layer.msg(JSON.stringify(data.field));
-    return false;
   });
 });
 </script>

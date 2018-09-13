@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>layout 后台大布局 - Layui</title>
+    <link rel="stylesheet" href="/layui/css/layui.css">
+    <script src="/jquery/2.0.0/jquery.min.js"></script>
+</head>
+<body class="layui-layout-body">
+<div class="layui-layout layui-layout-admin">
+    <div class="layui-header">
+        <div class="layui-logo">layui 后台布局</div>
+        <ul class="layui-nav layui-layout-right">
+            <li class="layui-nav-item"><a href="/">退了</a></li>
+        </ul>
+    </div>
+
+    <div class="layui-side layui-bg-black">
+        <div class="layui-side-scroll">
+            <!-- 左侧导航区域（可配合layui已有的垂直导航） -->
+            <ul class="layui-nav layui-nav-tree"  lay-filter="test">
+                <li class="layui-nav-item layui-nav-itemed">
+                    <a class="" href="javascript:;">管理数据</a>
+                    <dl class="layui-nav-child">
+                        <dd><a href="/importdata">导入数据</a></dd>
+                        <dd><a href="/exportdata">导出数据</a></dd>
+                    </dl>
+                </li>
+                <li class="layui-nav-item">
+                    <a href="javascript:;">计算数据</a>
+                    <dl class="layui-nav-child">
+                        <dd><a href="/computedata">干扰分析计算C2I</a></dd>
+                        <dd><a href="/computedata">计算干扰计算三元组</a></dd>
+                    </dl>
+                </li>
+                <li class="layui-nav-item"><a href="/query">查询数据</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="layui-body">
+        <!-- 内容主体区域 -->
+        <div style="padding: 15px;">
+
+            <table id="Celltable"></table>
+
+        </div>
+    </div>
+</div>
+<script src="/layui/layui.js"></script>
+<script>
+    //JavaScript代码区域
+    layui.use('element', function(){
+        var element = layui.element;
+
+    });
+</script>
+
+
+<!-- 监听Cell的button -->
+<!-- Cell的数据表格 -->
+<script>
+    //Demo
+    layui.use('table', function(){
+
+        var table = layui.table;
+
+        //第一个实例
+        table.render({
+            elem: '#Celltable'
+            ,height: 312
+            ,url: '/celldata' //数据接口
+            ,page: true //开启分页
+            ,cols: [[ //表头
+                {field: 'CITY', title: 'ID', width:80, sort: true, fixed: 'left'}
+                ,{field: 'SECTORID', title: 'SECTORID', width:80}
+                ,{field: 'SECTORNAME', title: 'SECTORNAME', width:80, sort: true}
+                ,{field: 'ENODEBID', title: 'ENODEBID', width:80}
+                ,{field: 'ENODEBNAME', title: 'ENODEBNAME', width: 177}
+                ,{field: 'EARFCN', title: 'EARFCN', width: 80, sort: true}
+                ,{field: 'PCI', title: 'PCI', width: 80, sort: true}
+                ,{field: 'PSS', title: 'PSS', width: 80}
+                ,{field: 'SSS', title: 'SSS', width: 135, sort: true}
+                ,{field: 'TAC', title: 'TAC', width: 135, sort: true}
+                ,{field: 'VENDOR', title: 'VENDOR', width: 135, sort: true}
+                ,{field: 'LONGITUDE', title: 'LONGITUDE', width: 135, sort: true}
+                ,{field: 'LATITUDE', title: 'LATITUDE', width: 135, sort: true}
+                ,{field: 'STYLE', title: 'STYLE', width: 135, sort: true}
+                ,{field: 'AZIMUTH', title: 'AZIMUTH', width: 135, sort: true}
+                ,{field: 'HEIGHT', title: 'HEIGHT', width: 135, sort: true}
+                ,{field: 'ELECTTILT', title: 'ELECTTILT', width: 135, sort: true}
+                ,{field: 'MECHTILT', title: 'MECHTILT', width: 135, sort: true}
+                ,{field: 'TOTLETILT', title: 'TOTLETILT', width: 135, sort: true}
+            ]]
+        });
+    })
+</script>
+
+
+
+
+</body>
+</html>

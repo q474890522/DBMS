@@ -2,6 +2,7 @@ package com.partner541.database;
 
 import com.partner541.database.dao.CellDao;
 import com.partner541.database.model.Cell;
+import com.partner541.database.service.CellService;
 import com.partner541.database.utils.ExportExcel;
 import com.partner541.database.utils.ImportExcelSmall;
 import org.junit.Test;
@@ -22,11 +23,19 @@ public class ExportTest {
     @Autowired
     CellDao cellDao;
 
+    @Autowired
+    CellService cellService;
     @Test
     public void ImportTestMain() {
-        List<Cell> cells = cellDao.selectCellAll();
-        for(Cell cell : cells) {
-            System.out.println("CITY:"+cell.getCITY() + " SECTOR_ID:" + cell.getSECTORID() + " SECTOR_NAME:" + cell.getSECTORNAME() + " ENODEB_NAME:" + cell.getENODEBNAME()+""+cell.getSTYLE());
+        try {
+            System.out.println(Integer.valueOf("124672"));
+            List<Cell> cells = cellService.selectCell("124672-0","三门峡渑池刘果-HLHF-1", "124672", "三门峡渑池刘果-HLHF");
+
+            for(Cell cell : cells) {
+                System.out.println(cells.toString());
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 }

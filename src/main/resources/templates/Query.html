@@ -84,7 +84,7 @@
 
                     <div class="layui-form-item">
                         <div class="layui-input-block">
-                            <button class="layui-btn" lay-submit lay-filter="cellDemo">立即提交</button>
+                            <button class="layui-btn" lay-submit lay-filter="cellDemo" type="button">立即提交</button>
                         </div>
                     </div>
 
@@ -281,19 +281,11 @@
         </div>
     </div>
 </div>
-<script src="/layui/layui.js"></script>
-<script>
-    //JavaScript代码区域
-    layui.use('element', function(){
-        var element = layui.element;
-
-    });
-</script>
-
+<script src="/layui/layui.js"></script
 <!-- 监听select -->
 <script>
-    layui.use('form',function () {
-        var form = layui.form;
+    layui.use(['form', 'element', 'table'],function () {
+        var form = layui.form, element = layui.element, table = layui.table;
         form.on('select(choice)',function (data) {
             document.getElementById("Cell").style.display = "none";
             document.getElementById("KPI").style.display = "none";
@@ -301,18 +293,9 @@
             if (data.value != "") {
                 document.getElementById(data.value).style.display="";
             }
-        })
-    })
-</script>
+        });
 
-<!-- 监听Cell的button -->
-<!-- Cell的数据表格 -->
-<script>
-    //Demo
-    layui.use('form', function(){
-        var form = layui.form;
-
-        //监听提交
+        //监听cell提交
         form.on('submit(cellDemo)', function(data){
             layer.msg(JSON.stringify(data.field));
             $.ajax({
@@ -321,59 +304,38 @@
                 type: "POST",
                 contentType: "application/JSON;charset-utf8",
             });
-                layui.use('table', function(){
-        var table = layui.table;
-
-        //第一个实例
-        table.render({
-            elem: '#Celltable'
-            ,height: 312
-            ,url: '/celldata' //数据接口
-            ,page: true //开启分页
-            ,cols: [[ //表头
-                {field: 'CITY', title: 'ID', width:80, sort: true, fixed: 'left'}
-                ,{field: 'SECTORID', title: 'SECTORID', width:80}
-                ,{field: 'SECTORNAME', title: 'SECTORNAME', width:80, sort: true}
-                ,{field: 'ENODEBID', title: 'ENODEBID', width:80}
-                ,{field: 'ENODEBNAME', title: 'ENODEBNAME', width: 177}
-                ,{field: 'EARFCN', title: 'EARFCN', width: 80, sort: true}
-                ,{field: 'PCI', title: 'PCI', width: 80, sort: true}
-                ,{field: 'PSS', title: 'PSS', width: 80}
-                ,{field: 'SSS', title: 'SSS', width: 135, sort: true}
-                ,{field: 'TAC', title: 'TAC', width: 135, sort: true}
-                ,{field: 'VENDOR', title: 'VENDOR', width: 135, sort: true}
-                ,{field: 'LONGITUDE', title: 'LONGITUDE', width: 135, sort: true}
-                ,{field: 'LATITUDE', title: 'LATITUDE', width: 135, sort: true}
-                ,{field: 'STYLE', title: 'STYLE', width: 135, sort: true}
-                ,{field: 'AZIMUTH', title: 'AZIMUTH', width: 135, sort: true}
-                ,{field: 'HEIGHT', title: 'HEIGHT', width: 135, sort: true}
-                ,{field: 'ELECTTILT', title: 'ELECTTILT', width: 135, sort: true}
-                ,{field: 'MECHTILT', title: 'MECHTILT', width: 135, sort: true}
-                ,{field: 'TOTLETILT', title: 'TOTLETILT', width: 135, sort: true}
-            ]]
+            table.render({
+                elem: '#Celltable'
+                ,height: 312
+                ,url: '/celldata' //数据接口
+                ,page: true //开启分页
+                ,cols: [[ //表头
+                    {field: 'CITY', title: 'ID', width:80, sort: true, fixed: 'left'}
+                    ,{field: 'SECTORID', title: 'SECTORID', width:80}
+                    ,{field: 'SECTORNAME', title: 'SECTORNAME', width:80, sort: true}
+                    ,{field: 'ENODEBID', title: 'ENODEBID', width:80}
+                    ,{field: 'ENODEBNAME', title: 'ENODEBNAME', width: 177}
+                    ,{field: 'EARFCN', title: 'EARFCN', width: 80, sort: true}
+                    ,{field: 'PCI', title: 'PCI', width: 80, sort: true}
+                    ,{field: 'PSS', title: 'PSS', width: 80}
+                    ,{field: 'SSS', title: 'SSS', width: 135, sort: true}
+                    ,{field: 'TAC', title: 'TAC', width: 135, sort: true}
+                    ,{field: 'VENDOR', title: 'VENDOR', width: 135, sort: true}
+                    ,{field: 'LONGITUDE', title: 'LONGITUDE', width: 135, sort: true}
+                    ,{field: 'LATITUDE', title: 'LATITUDE', width: 135, sort: true}
+                    ,{field: 'STYLE', title: 'STYLE', width: 135, sort: true}
+                    ,{field: 'AZIMUTH', title: 'AZIMUTH', width: 135, sort: true}
+                    ,{field: 'HEIGHT', title: 'HEIGHT', width: 135, sort: true}
+                    ,{field: 'ELECTTILT', title: 'ELECTTILT', width: 135, sort: true}
+                    ,{field: 'MECHTILT', title: 'MECHTILT', width: 135, sort: true}
+                    ,{field: 'TOTLETILT', title: 'TOTLETILT', width: 135, sort: true}
+                ]]
+            });
         });
 
-    });
-            return false;
-        });
-    });
-</script>
-<script>
-
-</script>
 
 
-
-
-<!-- 监听KPI的button -->
-<!-- 图表 -->
-<script src="/echarts.min.js"></script>
-<script>
-    //Demo
-    layui.use('form', function(){
-        var form = layui.form;
-
-        //监听提交
+        //监听KPI提交
         form.on('submit(KPIDemo)', function(data){
             layer.msg(JSON.stringify(data.field));
             $.ajax({
@@ -409,8 +371,11 @@
             myChart.setOption(option);
             return false;
         });
-    });
+    })
 </script>
+<!-- 监听KPI的button -->
+<!-- 图表 -->
+<script src="/echarts.min.js"></script>
 <!-- KPI的日历插件 -->
 <script>
     layui.use('laydate', function(){
