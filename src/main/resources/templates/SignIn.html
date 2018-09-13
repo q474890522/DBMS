@@ -18,14 +18,14 @@ background-size: cover; background-repeat: no-repeat; background-position: 50% 5
 
             <h1 class="text-center lead"><strong>登录</strong></h1>
             <hr>
-            <input style="font-size: larger;margin-top: 18px" type="text" name="username" class="form-control input-sm chat-input" placeholder="用户名"/>
+            <input style="font-size: larger;margin-top: 18px" type="text" id="username" class="form-control input-sm chat-input" placeholder="用户名"/>
             </br>
-            <input style="font-size: larger;margin-top: 10px" type="password" name="password" class="form-control input-sm chat-input" placeholder="密码"/>
+            <input style="font-size: larger;margin-top: 10px" type="password" id="password" class="form-control input-sm chat-input" placeholder="密码"/>
             </br>
-            <input style="font-size: larger;margin-top: 10px" type="password" name="command" class="form-control input-sm chat-input" placeholder="口令"/>
+            <input style="font-size: larger;margin-top: 10px" type="password" id="command" class="form-control input-sm chat-input" placeholder="口令"/>
             </br>
 
-            <button style="margin-top: 10px" type="submit" class="btn btn-primary btn-block">登录</button>
+            <button style="margin-top: 10px" class="btn btn-primary btn-block" onclick="update()">登录</button>
             <br>
             <div style="margin-top: 10px" class="text-center">
                 <p3>没有帐号？</p3>
@@ -37,5 +37,24 @@ background-size: cover; background-repeat: no-repeat; background-position: 50% 5
 <script src="/bootstrap/3.3.0/js/particles.js"></script>
 <script src="/bootstrap/3.3.0/js/app.js"></script>
 <script src="/bootstrap/3.3.0/js/stats.js"></script>
+
+<script>
+    function update() {
+        var d = {};
+        d.username = document.getElementById("username").value;
+        d.password = document.getElementById("password").value;
+        $.ajax({
+            url: "/signin/update",
+            data: JSON.stringify(d),
+            type: "POST",
+            contentType: "application/JSON;charset=utf-8",
+            success:function (response) {
+                if (response.success){
+                    alert(response.message);
+                }
+            }
+        });
+    }
+</script>
 </body>
 </html>
