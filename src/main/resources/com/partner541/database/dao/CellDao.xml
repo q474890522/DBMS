@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.partner541.database.dao.CellDao">
+    <!-- 批量插入 -->
+    <insert id="insertCellBatch" parameterType="java.util.List">
+        insert into tbCell
+        (CITY, SECTOR_ID, SECTOR_NAME, ENODEBID, ENODEB_NAME, EARFCN,
+        PCI, PSS, SSS, TAC, VENDOR, LONGITUDE, LATITUDE, STYLE, AZIMUTH, HEIGHT, ELECTTILT,
+        MECHTILT, TOTLETILT)
+        values
+        <foreach collection="list" item="Cell" index="index" separator=",">
+            (
+            #{Cell.CITY}, #{Cell.SECTORID},
+            #{Cell.SECTORNAME},
+            #{Cell.ENODEBID}, #{Cell.ENODEBNAME}, #{Cell.EARFCN},
+            #{Cell.PCI}, #{Cell.PSS}, #{Cell.SSS}, #{Cell.TAC}, #{Cell.VENDOR}, #{Cell.LONGITUDE}, #{Cell.LATITUDE},
+            #{Cell.STYLE},
+            #{Cell.AZIMUTH}, #{Cell.HEIGHT}, #{Cell.ELECTTILT}, #{Cell.MECHTILT}, #{Cell.TOTLETILT}
+            )
+        </foreach>
+    </insert>
+</mapper>

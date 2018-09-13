@@ -126,7 +126,7 @@ public class Cell {            //SQL 中对应的定义
     }
 
     public String getSTYLE() {
-        System.out.println(STYLE);return STYLE;
+        return STYLE;
     }
 
     public void setSTYLE(String STYLE) {

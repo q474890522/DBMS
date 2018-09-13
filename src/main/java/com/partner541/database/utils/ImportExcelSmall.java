@@ -41,14 +41,20 @@ public class ImportExcelSmall {
 
     //由指定的Sheet导出至List
     //MultiFile
-    public int exportListFromExcel(int tableType, MultipartFile file) throws Exception {
+    public int exportListFromExcel(int tableType, MultipartFile file)  {
 
         // 同时支持Excel 2003、2007
         //File excelFile = new File("G:\\大四上作业\\数据库系统原理课程设计\\数据库系统原理课程设计-18\\三门峡地区TD-LTE网络数据-2017-03\\PRB.xlsx"); // 创建文件对象
-        InputStream is = file.getInputStream(); // 文件流
-        Workbook workbook = getWorkbok(is, file.getOriginalFilename());
+        InputStream is = null; // 文件流
+        Workbook workbook = null;
+        try {
+            is = file.getInputStream();
+            workbook = getWorkbok(is, file.getOriginalFilename());
+            is.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
         //Workbook workbook = getSXSSWorkbook(is, excelFile);
-        is.close();
         Sheet sheet = workbook.getSheetAt(0);   // 遍历第一个Sheet
         List<Object> list = new ArrayList<>();
         int succCount = 0;
@@ -74,7 +80,7 @@ public class ImportExcelSmall {
             }
             tbCell.setRow(object);
             list.add(tbCell);
-            if(i % 500 == 0 || sheet.getLastRowNum() < 500) {
+            if(i % 50 == 0 || sheet.getLastRowNum() < 50) {
                 succCount = succCount + insertIntoDB(tableType, list);
                 System.out.println("第" + i + "条已经导入");
                 list.clear();
@@ -108,20 +114,22 @@ public class ImportExcelSmall {
 
     private static Date strToDate(Object obj) {
         SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
-        Date date = null;
+        System.out.println(obj.toString());
         try {
-            date = sdf.parse((String) obj);
+            return sdf.parse(obj.toString());
         } catch (ParseException e) {
             e.printStackTrace();
         }
-        return date;
+        //System.out.println("****" + sdf.format(date));
+        return null;
     }
 
-    private int insertIntoDB(int tableType, List<Object> list) throws Exception {
+    private int insertIntoDB(int tableType, List<Object> list) {
         int succCount = 0;
         if(tableType == TableType.Cell.getValue()) {
+            List<com.partner541.database.model.Cell> cellList = new ArrayList<>();
             for (Object obj : list) {
-                //try {
+                try {
                     TbCell tbCell = (TbCell) obj;
                     Object[] objects = tbCell.getRow();
                     com.partner541.database.model.Cell cell = new com.partner541.database.model.Cell();
@@ -144,13 +152,16 @@ public class ImportExcelSmall {
                     cell.setELECTTILT(doubleToInt((Double) objects[16]));
                     cell.setMECHTILT(doubleToInt((Double) objects[17]));
                     cell.setTOTLETILT(doubleToInt((Double) objects[18]));
-                    cellDao.insertCell(cell);
+                    //cellDao.insertCell(cell);
+                    cellList.add(cell);
                     succCount++;
-                //} catch (Exception e){
-                    //logger.error(obj.toString()+ "----result: 没导进去----" + "why: " + e.getLocalizedMessage());
-                //}
+                } catch (Exception e){
+                    logger.error(obj.toString()+ "----result: 没导进去----" + "why: " + e.getLocalizedMessage());
+                }
             }
+            cellDao.insertCellBatch(cellList);
         } else if(tableType == TableType.KPI.getValue()) {
+            List<KPI> kpiList = new ArrayList<>();
             for (Object obj : list) {
                 try {
                     TbCell tbCell = (TbCell) obj;
@@ -163,7 +174,7 @@ public class ImportExcelSmall {
                     kpi.setSECTORNAME((String) objects[4]);
                     kpi.setRRCCONNECTCOMPLETETIME(doubleToInt((Double) objects[5]));
                     kpi.setRRCCONNECTREQUESTTIME(doubleToInt((Double) objects[6]));
-                    kpi.setRRCSETSUCCRATE((Double)objects[7]);
+                    kpi.setRRCSETSUCCRATE((Double) objects[7]);
                     kpi.setERABSETSUCCESSTIME(doubleToInt((Double) objects[8]));
                     kpi.setERABTRYCONNECTTIME(doubleToInt((Double) objects[9]));
                     kpi.setERABSETSUCCESSTWO((Double) objects[10]);
@@ -198,15 +209,18 @@ public class ImportExcelSmall {
                     kpi.setTOFOUR(doubleToInt((Double) objects[39]));
                     kpi.seteNBINSWITCHSUCCTIME(doubleToInt((Double) objects[40]));
                     kpi.seteNBINSWITCHREQUESTTIME(doubleToInt((Double) objects[41]));
-                    kpiDao.insertKPI(kpi);
+                    //kpiDao.insertKPI(kpi);
+                    kpiList.add(kpi);
                     succCount++;
-                } catch (Exception e){
-                    logger.error(obj.toString()+ "----result: 没导进去----" + "why: " + e.getLocalizedMessage());
+                } catch (Exception e) {
+                    logger.error(obj.toString() + "----result: 没导进去----" + "why: " + e.getLocalizedMessage());
                 }
             }
-        } else {
-            throw new Exception("目前没有该表可供导入");
+            kpiDao.insertKPIBatch(kpiList);
         }
+//        } else {
+//            throw new Exception("目前没有该表可供导入");
+//        }
         return succCount;
     }
 }

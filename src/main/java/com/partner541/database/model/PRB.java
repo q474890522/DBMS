@@ -5,6 +5,11 @@ import java.util.Date;
 
 //aaaadddgg
 public class PRB {
+    @Override
+    public String toString() {
+        return STARTTIME.toString() + " " + CYCLE + " " + NENAME + " "+ SECTOR + " " + SECTORNAME + " " + P0 + " " + P1;
+    }
+
     private Date STARTTIME 	;//datetime not null,--起始时间
     private int CYCLE 		;//int not null,--周期
     private String NENAME 		;//nvarchar(50) not null,--网元名称
@@ -110,6 +115,15 @@ public class PRB {
     private int P97 ;//int not null,--第97个PRB上检测到的干扰噪声的平均值 (毫瓦分贝)
     private int P98 ;//int not null,--第98个PRB上检测到的干扰噪声的平均值 (毫瓦分贝)
     private int P99 ;//int not null,--第99个PRB上检测到的干扰噪声的平均值 (毫瓦分贝)
+    private int ave ;
+
+    public int getAve() {
+        return ave;
+    }
+
+    public void setAve(int ave) {
+        this.ave = ave;
+    }
 
     public Date getSTARTTIME() {
         return STARTTIME;

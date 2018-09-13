@@ -1,10 +1,7 @@
 package com.partner541.database.dao;
 
 import com.partner541.database.model.Cell;
-import org.apache.ibatis.annotations.Delete;
-import org.apache.ibatis.annotations.Insert;
-import org.apache.ibatis.annotations.Mapper;
-import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.*;
 
 import java.util.List;
 
@@ -21,7 +18,9 @@ public interface CellDao {
             "values(#{CITY}, #{SECTORID}, #{SECTORNAME}, #{ENODEBID}, #{ENODEBNAME}, " +
             "#{EARFCN}, #{PCI}, #{PSS}, #{SSS}, #{TAC}, #{VENDOR}, #{LONGITUDE}, #{LATITUDE}, #{STYLE}, " +
             "#{AZIMUTH}, #{HEIGHT}, #{ELECTTILT}, #{MECHTILT}, #{TOTLETILT})"})
-    int insertCell(Cell cell);
+    int insertCell(@Param("list") Cell cell);
+
+    void insertCellBatch(List<Cell> list);
 
     @Delete({"delete from tbCell"})
     int deleteCell();
@@ -29,6 +28,51 @@ public interface CellDao {
     @Select({"select ", SELECT_FIELDS, " from tbCell" })
     List<Cell> selectCellAll();
 
-    @Select("select * from tbCell where SECTOR_ID = '1246720'")
-    List<Cell> select();
+    @Select("select * from tbCell where SECTOR_ID = #{sectorId} and SECTOR_NAME = #{sectorName} and ENODEB_ID = #{enodebId} and ENODEB_NAME = #{enodebName}")
+    List<Cell> selectCellByIdNameIdName(@Param("sectorId") String sectorId, @Param("sectorName") String sectorName,
+                                        @Param("enodebId") int enodebId, @Param("enodebName") String enodebName);
+
+    @Select("select * from tbCell where SECTOR_ID = #{sectorId} and SECTOR_NAME = #{sectorName} and ENODEB_ID = #{enodebId} and ENODEB_NAME = #{enodebName}")
+    List<Cell> selectCellByNameIdName(@Param("sectorName") String sectorName,
+                                        @Param("enodebId") int enodebId, @Param("enodebName") String enodebName);
+    @Select("select * from tbCell where SECTOR_ID = #{sectorId} and SECTOR_NAME = #{sectorName} and ENODEB_ID = #{enodebId} and ENODEB_NAME = #{enodebName}")
+    List<Cell> selectCellByIdIdName(@Param("sectorId") String sectorId,
+                                        @Param("enodebId") int enodebId, @Param("enodebName") String enodebName);
+    @Select("select * from tbCell where SECTOR_ID = #{sectorId} and SECTOR_NAME = #{sectorName} and ENODEB_ID = #{enodebId} and ENODEB_NAME = #{enodebName}")
+    List<Cell> selectCellByIdNameName(@Param("sectorId") String sectorId, @Param("sectorName") String sectorName,
+                                      @Param("enodebName") String enodebName);
+    @Select("select * from tbCell where SECTOR_ID = #{sectorId} and SECTOR_NAME = #{sectorName} and ENODEB_ID = #{enodebId} and ENODEB_NAME = #{enodebName}")
+    List<Cell> selectCellByIdNameId(@Param("sectorId") String sectorId, @Param("sectorName") String sectorName,
+                                        @Param("enodebId") int enodebId);
+    @Select("select * from tbCell where SECTOR_ID = #{sectorId} and SECTOR_NAME = #{sectorName} and ENODEB_ID = #{enodebId} and ENODEB_NAME = #{enodebName}")
+    List<Cell> selectCellByIdNameBack(@Param("enodebId") int enodebId, @Param("enodebName") String enodebName);
+
+    @Select("select * from tbCell where SECTOR_ID = #{sectorId} and SECTOR_NAME = #{sectorName} and ENODEB_ID = #{enodebId} and ENODEB_NAME = #{enodebName}")
+    List<Cell> selectCellByIdNameFront(@Param("sectorId") String sectorId, @Param("sectorName") String sectorName);
+
+    @Select("select * from tbCell where SECTOR_ID = #{sectorId} and SECTOR_NAME = #{sectorName} and ENODEB_ID = #{enodebId} and ENODEB_NAME = #{enodebName}")
+    List<Cell> selectCellByNameName(@Param("sectorName") String sectorName, @Param("enodebName") String enodebName);
+
+    @Select("select * from tbCell where SECTOR_ID = #{sectorId} and SECTOR_NAME = #{sectorName} and ENODEB_ID = #{enodebId} and ENODEB_NAME = #{enodebName}")
+    List<Cell> selectCellByIdId(@Param("sectorId") String sectorId,
+                                        @Param("enodebId") int enodebId);
+    @Select("select * from tbCell where SECTOR_ID = #{sectorId} and SECTOR_NAME = #{sectorName} and ENODEB_ID = #{enodebId} and ENODEB_NAME = #{enodebName}")
+    List<Cell> selectCellByIdName(@Param("sectorId") String sectorId, @Param("enodebName") String enodebName);
+
+//    @Select("select * from tbCell where SECTOR_ID = #{sectorId} and SECTOR_NAME = #{sectorName} and ENODEB_ID = #{enodebId} and ENODEB_NAME = #{enodebName}")
+//    List<Cell> selectCellByIdNameIdName( @Param("sectorName") String sectorName,
+//                                        @Param("enodebId") int enodebId);
+
+    @Select("select * from tbCell where SECTOR_ID = #{sectorId}")
+    List<Cell> selectCellByIdFront(@Param("sectorId") String sectorId);
+
+    @Select("select * from tbCell where SECTOR_NAME = #{sectorName}")
+    List<Cell> selectCellByNameFront(@Param("sectorName") String sectorName);
+
+    @Select("select * from tbCell where ENODEB_ID = #{enodebId}")
+    List<Cell> selectCellByIdBack(@Param("enodebId") int enodebId);
+
+    @Select("select * from tbCell where ENODEB_NAME = #{enodebName}")
+    List<Cell> selectCellByNameBack(@Param("enodebName") String enodebName);
+
 }
