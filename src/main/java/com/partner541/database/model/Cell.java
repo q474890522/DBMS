@@ -125,9 +125,7 @@ public class Cell {            //SQL 中对应的定义
         this.LATITUDE = LATITUDE;
     }
 
-    public String getSTYLE() {
-        System.out.println(STYLE);return STYLE;
-    }
+    public String getSTYLE() { return STYLE; }
 
     public void setSTYLE(String STYLE) {
         this.STYLE = STYLE;

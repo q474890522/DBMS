@@ -29,6 +29,6 @@ public interface CellDao {
     @Select({"select ", SELECT_FIELDS, " from tbCell" })
     List<Cell> selectCellAll();
 
-    @Select("select * from tbCell where SECTOR_ID = '1246720'")
+    @Select("select * from tbCell")
     List<Cell> select();
 }
