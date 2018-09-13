@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <title>layout 后台大布局 - Layui</title>
+  <link rel="stylesheet" href="/layui/css/layui.css">
+  <script src="/jquery/2.0.0/jquery.min.js"></script>
+</head>
+<body class="layui-layout-body">
+<div class="layui-layout layui-layout-admin">
+  <div class="layui-header">
+    <div class="layui-logo">layui 后台布局</div>
+
+    <ul class="layui-nav layui-layout-right">
+      <li class="layui-nav-item"><a href="/">退了</a></li>
+    </ul>
+  </div>
+
+  <div class="layui-side layui-bg-black">
+    <div class="layui-side-scroll">
+      <!-- 左侧导航区域（可配合layui已有的垂直导航） -->
+      <ul class="layui-nav layui-nav-tree"  lay-filter="test">
+        <li class="layui-nav-item layui-nav-itemed">
+          <a class="" href="javascript:;">管理数据</a>
+          <dl class="layui-nav-child">
+            <dd><a href="/importdata">导入数据</a></dd>
+            <dd><a href="/exportdata">导出数据</a></dd>
+          </dl>
+        </li>
+        <li class="layui-nav-item">
+          <a href="javascript:;">计算数据</a>
+          <dl class="layui-nav-child">
+            <dd><a href="/computedata">干扰分析计算C2I</a></dd>
+            <dd><a href="/computedata">计算干扰计算三元组</a></dd>
+          </dl>
+        </li>
+        <li class="layui-nav-item"><a href="/query">查询数据</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="layui-body">
+    <!-- 内容主体区域 -->
+    <div style="padding: 15px;">
+        <form class="layui-form" action="">
+          <div class="layui-form-item">
+            <label class="layui-form-label">请选择表</label>
+            <div class="layui-input-block">
+              <select name="city" lay-verify="required">
+                <option value=""></option>
+                <option value="0">tbCell</option>
+                <option value="1">tbKPI</option>
+                <option value="2">tbPRB</option>
+                <option value="3">tbMROData</option>
+              </select>
+            </div>
+          </div>
+          <div class="layui-form-item">
+            <div class="layui-input-block">
+              <button id="test1" type="button" class="layui-btn" lay-submit lay-filter="formDemo"><i class="layui-icon">&#xe67c;</i>导入数据</button>
+            </div>
+          </div>
+        </form>
+        <div class="layui-progress layui-progress-big" lay-showpercent="true" lay-filter="demo">
+            <div class="layui-progress-bar layui-bg-red" lay-percent="0%"></div>
+        </div>
+        <div class="site-demo-button" style="margin-top: 20px; margin-bottom: 0;">
+          <button class="layui-btn site-demo-active" data-type="loading">模拟loading</button>
+        </div>
+    </div>
+    </div>
+  </div>
+</div>
+
+
+<script src="/layui/layui.js"></script>
+<script>
+//JavaScript代码区域
+layui.use('element', function(){
+  var element = layui.element;
+
+});
+</script>
+<script>
+layui.use('upload', function(){
+  var upload = layui.upload;
+
+  //执行实例
+  var uploadInst = upload.render({
+    elem: '#test1' //绑定元素
+    ,url: '/upload' //上传接口
+    ,accept:'file'
+    ,done: function(res){
+      //上传完毕回调
+    }
+    ,error: function(){
+      //请求异常回调
+    }
+  });
+});
+</script>
+<script>
+//Demo
+layui.use('form', function(){
+  var form = layui.form;
+
+  //监听提交
+  form.on('submit(formDemo)', function(data){
+    layer.msg(JSON.stringify(data.field));
+    return false;
+  });
+});
+</script>
+<script>
+    layui.use('element', function(){
+      var $ = layui.jquery
+      ,element = layui.element; //Tab的切换功能，切换事件监听等，需要依赖element模块
+
+      //触发事件
+      var active = {
+        setPercent: function(){
+          //设置50%进度
+          element.progress('demo', '50%')
+        }
+        ,loading: function(othis){
+          var DISABLED = 'layui-btn-disabled';
+          if(othis.hasClass(DISABLED)) return;
+
+          //模拟loading
+          var n = 30, timer = setInterval(function(){
+              /*
+            n = n + Math.random()*10|0;
+            if(n>100){
+              n = 100;
+              clearInterval(timer);
+              othis.removeClass(DISABLED);
+            }*/
+              //n为百分之多少，n是整数
+            element.progress('demo', n+'%');
+          }, 300+Math.random()*1000);
+
+          othis.addClass(DISABLED);
+        }
+      };
+
+      $('.site-demo-active').on('click', function(){
+        var othis = $(this), type = $(this).data('type');
+        active[type] ? active[type].call(this, othis) : '';
+      });
+    });
+</script>
+</body>
+</html>
