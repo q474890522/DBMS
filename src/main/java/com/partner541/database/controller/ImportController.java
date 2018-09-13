@@ -4,9 +4,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-public class ComputedataController {
-    @RequestMapping(path = "/computedata")
-    public String demo() {
-        return "ComputeData";
+public class ImportController {
+    @RequestMapping(path = "/importdata")
+    public String importdata(){
+        return "ImportData";
     }
 }

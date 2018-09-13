@@ -54,6 +54,21 @@ public class QueryController {
     }
 
 
+    @RequestMapping(path = "/prbnewdata")
+    @ResponseBody
+    public Object prbnewdata(@RequestBody JSONObject params) {
+        String prbbegintime = params.getString("PRBbegintime");
+        Date prbendtime = params.getDate("PRBendtime");
+
+        System.out.println(prbbegintime);
+        System.out.println(prbendtime);
+
+        Map<String,Object> map = new HashMap<>();
+        map.put("success",true);
+        return map;
+    }
+
+
     @RequestMapping("/query")
     public String demo() {
         return "Query";

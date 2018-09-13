@@ -44,7 +44,7 @@
         <div style="padding: 15px;">
 
             <!-- Cell -->
-            <form class="layui-form" action="">
+            <form class="layui-form">
                 <div class="layui-form-item">
                     <label class="layui-form-label">请选择表</label>
                     <div class="layui-input-block">
@@ -171,13 +171,112 @@
             </form>
 
             <!-- PRB -->
-            <div class="layui-form-item" id="PRB"  style="display: none;">
-                <label class="layui-form-label">网元名称</label>
-                <div class="layui-input-block">
-                    <input name="NENAME" class="layui-input" type="text" placeholder="请输入网元名称" lay-verify="required">
+            <form class="layui-form">
+                <div class="layui-form-item" id="PRB"  style="display: none;">
+                    <label class="layui-form-label">网元名称</label>
+                    <div class="layui-input-block">
+                        <input name="NENAME" class="layui-input" type="text" placeholder="请输入网元名称" lay-verify="required">
+                    </div>
+                    <br>
+
+                    <label class="layui-form-label">查询属性</label>
+                    <div class="layui-input-block">
+                        <select name="properties" lay-verify="required">
+                            <option value=""></option>
+                            <option value="0">P0</option>
+                            <option value="1">P1</option>
+                            <option value="2">P2</option>
+                            <option value="3">P3</option>
+                            <option value="4">P4</option>
+                            <option value="5">P5</option>
+                            <option value="6">P6</option>
+                            <option value="7">P7</option>
+                            <option value="8">P8</option>
+                            <option value="9">P9</option>
+                            <option value="10">P10</option>
+                            <option value="11">P11</option>
+                            <option value="12">P12</option>
+                            <option value="13">P13</option>
+                            <option value="14">P14</option>
+                            <option value="15">P15</option>
+                            <option value="16">P16</option>
+                            <option value="17">P17</option>
+                            <option value="18">P18</option>
+                            <option value="19">P19</option>
+                            <option value="20">P20</option>
+                            <option value="21">P21</option>
+                            <option value="22">P22</option>
+                            <option value="23">P23</option>
+                            <option value="24">P24</option>
+                            <option value="25">P25</option>
+                            <option value="26">P26</option>
+                            <option value="27">P27</option>
+                            <option value="28">P28</option>
+                            <option value="29">P29</option>
+                            <option value="30">P30</option>
+                            <option value="31">P31</option>
+                            <option value="32">P32</option>
+                            <option value="33">P33</option>
+                            <option value="34">P34</option>
+                            <option value="35">P35</option>
+                            <option value="36">P36</option>
+                        </select>
+                    </div>
+                    <br>
+
+                    <label class="layui-form-label">时间粒度</label>
+                    <div class="layui-input-block">
+                        <select name="timesize" lay-verify="required">
+                            <option value=""></option>
+                            <option value="1">1小时</option>
+                            <option value="2">2小时</option>
+                            <option value="3">3小时</option>
+                            <option value="4">4小时</option>
+                            <option value="5">5小时</option>
+                            <option value="6">6小时</option>
+                            <option value="7">7小时</option>
+                            <option value="8">8小时</option>
+                            <option value="9">9小时</option>
+                            <option value="10">10小时</option>
+                            <option value="11">11小时</option>
+                            <option value="12">12小时</option>
+                            <option value="13">13小时</option>
+                            <option value="14">14小时</option>
+                            <option value="15">15小时</option>
+                            <option value="16">16小时</option>
+                            <option value="17">17小时</option>
+                            <option value="18">18小时</option>
+                            <option value="19">19小时</option>
+                            <option value="20">20小时</option>
+                            <option value="21">21小时</option>
+                            <option value="22">22小时</option>
+                            <option value="23">23小时</option>
+                            <option value="24">24小时</option>
+                        </select>
+                    </div>
+                    <br>
+
+                    <label class="layui-form-label">起始时间</label>
+                    <div class="layui-input-block">
+                        <input type="text" lay-verify="required" class="layui-input" name="PRBbegintime" id="PRBbegintime">
+                    </div>
+                    <br>
+
+                    <label class="layui-form-label">终止时间</label>
+                    <div class="layui-input-block">
+                        <input type="text" lay-verify="required" class="layui-input" name="PRBendtime" id="PRBendtime">
+                    </div>
+                    <br>
+
+                    <div class="layui-form-item">
+                    <div class="layui-input-block">
+                        <button class="layui-btn" lay-submit lay-filter="PRBDemo">立即提交</button>
+                    </div>
                 </div>
-                <br>
-            </div>
+
+                    <div id="main2" style="width: 600px;height:400px;"></div>
+                </div>
+            </form>
 
         </div>
     </div>
@@ -207,6 +306,7 @@
 </script>
 
 <!-- 监听Cell的button -->
+<!-- Cell的数据表格 -->
 <script>
     //Demo
     layui.use('form', function(){
@@ -224,7 +324,8 @@
             return false;
         });
     });
-
+</script>
+<script>
     layui.use('table', function(){
         var table = layui.table;
 
@@ -243,25 +344,8 @@
     });
 </script>
 
-<!-- Cell的数据表格 -->
-<script>
-    layui.use('table', function(){
-        var table = layui.table;
 
-        //第一个实例
-        table.render({
-            elem: '#Celltable'
-            ,height: 312
-            ,url: '/data' //数据接口
-            ,page: true //开启分页
-            ,cols: [[ //表头
-                {field: 'username', title: '用户名', width:80, sort: true, fixed: 'left'}
-                ,{field: 'password', title: '密码', width:80}
 
-            ]]
-        });
-    });
-</script>
 
 <!-- 监听KPI的button -->
 <!-- 图表 -->
@@ -309,10 +393,7 @@
         });
     });
 </script>
-
-
-
-<!-- 日历插件 -->
+<!-- KPI的日历插件 -->
 <script>
     layui.use('laydate', function(){
         var laydate1 = layui.laydate;
@@ -328,6 +409,76 @@
         })
     });
 </script>
+
+
+<!-- 监听PRB的button-->
+<!-- 监听Cell的button -->
+<script>
+    //Demo
+    layui.use('form', function(){
+        var form = layui.form;
+
+        //监听提交
+        form.on('submit(PRBDemo)', function(data){
+            layer.msg(JSON.stringify(data.field));
+            $.ajax({
+                url: "/prbnewdata",
+                data: JSON.stringify(data.field),
+                type: "POST",
+                contentType: "application/JSON;charset-utf8",
+            });
+            // 基于准备好的dom，初始化echarts实例
+            var myChart = echarts.init(document.getElementById('main2'));
+
+            // 指定图表的配置项和数据
+            var option = {
+                title: {
+                    text: 'ECharts 入门示例'
+                },
+                tooltip: {},
+                legend: {
+                    data:['销量']
+                },
+                xAxis: {
+                    data: ["衬衫","羊毛衫","雪纺衫","裤子","高跟鞋","袜子"]
+                },
+                yAxis: {},
+                series: [{
+                    name: '销量',
+                    type: 'bar',
+                    data: [5, 20, 36, 10, 10, 20]
+                }]
+            };
+
+            // 使用刚指定的配置项和数据显示图表。
+            myChart.setOption(option);
+            return false;
+            return false;
+        });
+
+    });
+
+</script>
+<!-- PRB的日历插件 -->
+<script>
+    layui.use('laydate', function(){
+        var laydate1 = layui.laydate;
+        var laydate2 = layui.laydate;
+
+        //执行一个laydate实例
+        laydate1.render({
+            elem: '#PRBbegintime', //指定元素
+            type: 'datetime'
+        });
+
+        laydate2.render({
+            elem:'#PRBendtime',
+            type: 'datetime'
+        })
+    });
+</script>
+
+
 
 
 </body>

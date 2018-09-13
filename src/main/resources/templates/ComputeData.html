@@ -5,59 +5,71 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <title>layout 后台大布局 - Layui</title>
   <link rel="stylesheet" href="/layui/css/layui.css">
+    <script src="/jquery/2.0.0/jquery.min.js"></script>
 </head>
 <body class="layui-layout-body">
 <div class="layui-layout layui-layout-admin">
-  <div class="layui-header">
-    <div class="layui-logo">layui 后台布局</div>
-    <ul class="layui-nav layui-layout-right">
-      <li class="layui-nav-item"><a href="/">退了</a></li>
-    </ul>
-  </div>
-
-  <div class="layui-side layui-bg-black">
-    <div class="layui-side-scroll">
-      <!-- 左侧导航区域（可配合layui已有的垂直导航） -->
-      <ul class="layui-nav layui-nav-tree"  lay-filter="test">
-        <li class="layui-nav-item layui-nav-itemed">
-          <a class="" href="javascript:;">管理数据</a>
-          <dl class="layui-nav-child">
-            <dd><a href="/importdata">导入数据</a></dd>
-            <dd><a href="/exportdata">导出数据</a></dd>
-          </dl>
-        </li>
-        <li class="layui-nav-item">
-          <a href="javascript:;">计算数据</a>
-          <dl class="layui-nav-child">
-            <dd><a href="/computedata">干扰分析计算C2I</a></dd>
-            <dd><a href="/computedata">计算干扰计算三元组</a></dd>
-          </dl>
-        </li>
-        <li class="layui-nav-item"><a href="/query">查询数据</a></li>
-      </ul>
+    <div class="layui-header">
+        <div class="layui-logo">layui 后台布局</div>
+        <ul class="layui-nav layui-layout-right">
+            <li class="layui-nav-item"><a href="/">退了</a></li>
+        </ul>
     </div>
-  </div>
 
-  <div class="layui-body">
-    <!-- 内容主体区域 -->
-    <div style="padding: 15px;">
-      <form class="layui-form" action="">
-        <div class="layui-form-item">
-          <lable class="layui-form-label">参数</lable>
-          <div class="layui-input-block">
-            <input name="parameter" type="text" layui-verify="required" class="layui-input" placeholder="请输入参数">
-          </div>
+    <div class="layui-side layui-bg-black">
+        <div class="layui-side-scroll">
+            <!-- 左侧导航区域（可配合layui已有的垂直导航） -->
+            <ul class="layui-nav layui-nav-tree"  lay-filter="test">
+                <li class="layui-nav-item layui-nav-itemed">
+                    <a class="" href="javascript:;">管理数据</a>
+                    <dl class="layui-nav-child">
+                        <dd><a href="/importdata">导入数据</a></dd>
+                        <dd><a href="/exportdata">导出数据</a></dd>
+                    </dl>
+                </li>
+                <li class="layui-nav-item">
+                    <a href="javascript:;">计算数据</a>
+                    <dl class="layui-nav-child">
+                        <dd><a href="/computedata">干扰分析计算C2I</a></dd>
+                        <dd><a href="/computedata">计算干扰计算三元组</a></dd>
+                    </dl>
+                </li>
+                <li class="layui-nav-item"><a href="/query">查询数据</a></li>
+            </ul>
         </div>
-
-        <div class="layui-form-item">
-          <div class="layui-input-block">
-            <button id="test1" type="button" class="layui-btn" lay-submit lay-filter="formDemo">确定</button>
-          </div>
-        </div>
-      </form>
     </div>
-  </div>
+
+    <div class="layui-body">
+        <!-- 内容主体区域 -->
+        <div style="padding: 15px;">
+
+
+            <form class="layui-form">
+
+                <div class="layui-form-item">
+                    <label class="layui-form-label">参数</label>
+                    <div class="layui-input-block">
+                        <input lay-verify="required" name="parameter" class="layui-input" type="text" placeholder="请输入参数">
+                    </div>
+                    <br>
+
+                    <div class="layui-form-item">
+                        <div class="layui-input-block">
+                            <button class="layui-btn" lay-submit lay-filter="Demo">立即提交</button>
+                        </div>
+                    </div>
+
+                    <table id="table"></table>
+
+                </div>
+            </form>
+
+        </div>
+    </div>
 </div>
+
+
+
 <script src="/layui/layui.js"></script>
 <script>
     //JavaScript代码区域
@@ -73,10 +85,35 @@
         var form = layui.form;
 
         //监听提交
-        form.on('submit(formDemo)', function(data){
+        form.on('submit(Demo)', function(data){
             layer.msg(JSON.stringify(data.field));
+            $.ajax({
+                url: "/newdata",
+                data: JSON.stringify(data.field),
+                type: "POST",
+                contentType: "application/JSON;charset-utf8",
+            });
             return false;
         });
+    });
+</script>
+
+<script>
+    layui.use('table', function(){
+        var table = layui.table;
+
+        //第一个实例
+        table.render({
+            elem: '#table'
+            ,height: 312
+            ,url: '/celldata' //数据接口
+            ,page: true //开启分页
+            ,cols: [[ //表头
+                {field: 'username', title: 'ID', width:80, sort: true, fixed: 'left'}
+                ,{field: 'password', title: '用户名', width:80}
+            ]]
+        });
+
     });
 </script>
 </body>

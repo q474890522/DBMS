@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <title>layout 后台大布局 - Layui</title>
+  <link rel="stylesheet" href="/layui/css/layui.css">
+    <script src="/jquery/2.0.0/jquery.min.js"></script>
+</head>
+<body class="layui-layout-body">
+<div class="layui-layout layui-layout-admin">
+  <div class="layui-header">
+    <div class="layui-logo">layui 后台布局</div>
+    <ul class="layui-nav layui-layout-right">
+      <li class="layui-nav-item"><a href="">退了</a></li>
+    </ul>
+  </div>
+
+  <div class="layui-side layui-bg-black">
+    <div class="layui-side-scroll">
+      <!-- 左侧导航区域（可配合layui已有的垂直导航） -->
+      <ul class="layui-nav layui-nav-tree"  lay-filter="test">
+        <li class="layui-nav-item layui-nav-itemed">
+          <a class="" href="javascript:;">管理数据</a>
+          <dl class="layui-nav-child">
+            <dd><a href="/importdata">导入数据</a></dd>
+            <dd><a href="/exportdata">导出数据</a></dd>
+          </dl>
+        </li>
+        <li class="layui-nav-item">
+          <a href="javascript:;">计算数据</a>
+          <dl class="layui-nav-child">
+            <dd><a href="/computedata">干扰分析计算C2I</a></dd>
+            <dd><a href="/computedata">计算干扰计算三元组</a></dd>
+          </dl>
+        </li>
+        <li class="layui-nav-item"><a href="/query">查询数据</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="layui-body">
+    <!-- 内容主体区域 -->
+    <div style="padding: 15px;">
+        <form class="layui-form">
+            <div class="layui-form-item">
+                <label class="layui-form-label">文件名</label>
+                <div class="layui-input-block">
+                    <input type="text" name="filename" lay-verify="required" placeholder="请输入文件名" class="layui-input">
+                </div>
+            </div>
+
+            <div class="layui-form-item">
+                <label class="layui-form-label">存放位置</label>
+                <div class="layui-input-block">
+                    <input type="text" name="path" lay-verify="required" placeholder="请输入存放位置" class="layui-input">
+                </div>
+            </div>
+
+            <div class="layui-form-item">
+                <label class="layui-form-label">请选择表</label>
+                <div class="layui-input-block">
+                  <select name="tables" lay-verify="required">
+                    <option value=""></option>
+                    <option value="tbCell">tbCell</option>
+                    <option value="tbKPI">tbKPI</option>
+                    <option value="tbPRB">tbPRB</option>
+                    <option value="tbMROData">tbMROData</option>
+                  </select>
+                </div>
+            </div>
+            <div class="layui-form-item">
+                <div class="layui-input-block">
+                    <br><button class="layui-btn" lay-submit lay-filter="formDemo">确定</button>
+                </div>
+            </div>
+        </form>
+    </div>
+  </div>
+</div>
+
+
+<script src="/layui/layui.js"></script>
+<script>
+//JavaScript代码区域
+layui.use('element', function(){
+  var element = layui.element;
+
+});
+</script>
+<script>
+    layui.use('form',function () {
+        var form = layui.form;
+        //监听提交
+        form.on('submit(formDemo)',function (data) {
+            layer.msg(JSON.stringify(data.field));
+
+            $.ajax({
+                url: "/exportnewdata",
+                data: JSON.stringify(data.field),
+                type: "POST",
+                contentType: "application/JSON;charset-utf8",
+            });
+            return false;
+
+            return false;
+        })
+    })
+</script>
+</body>
+</html>
