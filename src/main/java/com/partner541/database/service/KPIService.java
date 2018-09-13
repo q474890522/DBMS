@@ -6,6 +6,7 @@ import com.partner541.database.model.KPI;
 import com.partner541.database.utils.ImportExcelSmall;
 import com.partner541.database.utils.StaticFinalUtil;
 import com.partner541.database.utils.TableType;
+import org.apache.ibatis.annotations.Select;
 import org.apache.poi.ss.usermodel.CellStyle;
 import org.apache.poi.ss.usermodel.DataFormat;
 import org.apache.poi.ss.usermodel.Font;
@@ -22,6 +23,7 @@ import org.springframework.web.multipart.MultipartFile;
 import javax.servlet.http.HttpServletResponse;
 import java.io.FileOutputStream;
 import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 @Service
@@ -406,5 +408,174 @@ public class KPIService {
                 e.printStackTrace();
             }
         }
+    }
+
+    public List<Date> selectSTART_TIME() {
+        return kpiDao.selectSTART_TIME();
+    }
+
+    public List<Integer> selectCYCLE() {
+        return kpiDao.selectCYCLE();
+    }
+
+    public List<String> selectNE_NAME() {
+        return kpiDao.selectNE_NAME();
+    }
+
+    public List<String> selectSECTOR() {
+        return kpiDao.selectSECTOR();
+    }
+
+    public List<String> selectSECTOR_NAME() {
+        return kpiDao.selectSECTOR_NAME();
+    }
+
+    public List<Integer> selectRRC_CONNECT_COMPLETE_TIME() {
+        return kpiDao.selectRRC_CONNECT_COMPLETE_TIME();
+    }
+
+    public List<Integer>selectRRC_CONNECT_REQUEST_TIME() {
+        return kpiDao.selectRRC_CONNECT_REQUEST_TIME();
+    }
+
+    public List<Double> selectRRC_SET_SUCC_RATE() {
+        return kpiDao.selectRRC_SET_SUCC_RATE();
+    }
+
+    public List<Integer> selectERAB_SET_SUCCESS_TIME() {
+        return kpiDao.selectERAB_SET_SUCCESS_TIME();
+    }
+
+    public List<Double> selectERAB_TRY_CONNECT_TIME() {
+        return kpiDao.selectERAB_TRY_CONNECT_TIME();
+    }
+
+    public List<Integer> selectERAB_SET_SUCCESS_TWO() {
+        return kpiDao.selectERAB_SET_SUCCESS_TWO();
+    }
+
+    public List<Integer> selecteNodeB_TRYGGER_EXCEP_RELE_TIME() {
+        return kpiDao.selecteNodeB_TRYGGER_EXCEP_RELE_TIME();
+    }
+
+    public List<Double> selectSECTOR_SWITCH_ERAB_EXCEP_RELE_TIME() {
+        return kpiDao.selectSECTOR_SWITCH_ERAB_EXCEP_RELE_TIME();
+    }
+
+    public List<Double> selectERAB_DROP_RATE() {
+        return kpiDao.selectERAB_DROP_RATE();
+    }
+
+    public List<Integer> selectWIRELESS_CONN_RATE() {
+        return kpiDao.selectWIRELESS_CONN_RATE();
+    }
+
+    public List<Integer> selecteNodeB_INIT_S1() {
+        return kpiDao.selecteNodeB_INIT_S1();
+    }
+
+    public List<Integer> selectUE_Context_EXCEP_RELE_TIME() {
+        return kpiDao.selectUE_Context_EXCEP_RELE_TIME();
+    }
+
+    public List<Double> selectUE_Context_SET_SUCCESS_TIME() {
+        return kpiDao.selectUE_Context_SET_SUCCESS_TIME();
+    }
+
+    public List<Integer> selectWIRELESS_DROP_RATE() {
+        return kpiDao.selectWIRELESS_DROP_RATE();
+    }
+
+    public List<Integer> selecteNodeB_IN_DIFF_FREQ_SWITCH_SUCC_TIME() {
+        return kpiDao.selecteNodeB_IN_DIFF_FREQ_SWITCH_SUCC_TIME();
+    }
+
+    public List<Integer> selecteNodeB_IN_DIFF_FREQ_SWITCH_TRY_TIME() {
+        return kpiDao.selecteNodeB_IN_DIFF_FREQ_SWITCH_TRY_TIME();
+    }
+
+    public List<Integer> selecteNodeB_IN_SAME_FREQ_SWITCH_SUCC_TIME() {
+        return kpiDao.selecteeNodeB_IN_SAME_FREQ_SWITCH_SUCC_TIME();
+    }
+
+    public List<Integer> selecteNodeB_IN_SAME_FREQ_SWITCH_TRY_TIME() {
+        return kpiDao.selecteNodeB_IN_DIFF_FREQ_SWITCH_TRY_TIME();
+    }
+
+    public List<Integer> selecteNodeB_BETWEEN_DIFF_FREQ_SWITCH_SUCC_TIME() {
+        return kpiDao.selecteNodeB_BETWEEN_DIFF_FREQ_SWITCH_SUCC_TIME();
+    }
+
+    public List<Integer> selecteNodeB_BETWEEN_DIFF_FREQ_SWITCH_TRY_TIME() {
+        return kpiDao.selecteNodeB_BETWEEN_DIFF_FREQ_SWITCH_TRY_TIME();
+    }
+
+    public List<Integer> selecteNodeB_BETWEEN_SAME_FREQ_SWITCH_SUCC_TIME() {
+        return kpiDao.selecteNodeB_BETWEEN_SAME_FREQ_SWITCH_SUCC_TIME();
+    }
+
+    public List<Integer> selecteNodeB_BETWEEN_SAME_FREQ_SWITCH_TRY_TIME() {
+        return kpiDao.selecteNodeB_BETWEEN_SAME_FREQ_SWITCH_TRY_TIME();
+    }
+
+    public List<Double> selecteNB_IN_SWITCH_SUCC_RATE() {
+        return kpiDao.selecteNB_IN_SWITCH_SUCC_RATE();
+    }
+
+    public List<Double> selecteNB_BETWEEN_SWITCH_SUCC_RATE() {
+        return kpiDao.selecteNB_BETWEEN_SWITCH_SUCC_RATE();
+    }
+
+    public List<Double> selectSAME_FREQ_SWITCH_SUCC_ZSP() {
+        return kpiDao.selectSAME_FREQ_SWITCH_SUCC_ZSP();
+    }
+
+
+    public List<Double> selectDIFF_FREQ_SWITCH_SUCC_ZSP() {
+        return kpiDao.selectDIFF_FREQ_SWITCH_SUCC_ZSP();
+    }
+
+    public List<Double> selectSWITCH_SUCC_RATE() {
+        return kpiDao.selectSWITCH_SUCC_RATE();
+    }
+
+    public List<Long> selectSECTOR_DPCP_RECV_UP_DATE_THROUGHPUT() {
+        return kpiDao.selectSECTOR_DPCP_RECV_UP_DATE_THROUGHPUT();
+    }
+
+    public List<Long> selectSECTOR_DPCP_RECV_DOWN_DATE_THROUGHPUT() {
+        return kpiDao.selectSECTOR_DPCP_RECV_DOWN_DATE_THROUGHPUT();
+    }
+
+    public List<Integer> selectRPC_RESET_REQUEST_TIME() {
+        return kpiDao.selectRPC_RESET_REQUEST_TIME();
+    }
+
+    public List<Double> selectRPC_CONN_RESET_RATE() {
+        return kpiDao.selectRPC_CONN_RESET_RATE();
+    }
+
+    public List<Integer> selectTO_ONE() {
+        return kpiDao.selectTO_ONE();
+    }
+
+    public List<Integer> selectTO_TWO() {
+        return kpiDao.selectTO_TWO();
+    }
+
+    public List<Integer> selectTO_THREE() {
+        return kpiDao.selectTO_THREE();
+    }
+
+    public List<Integer> selectTO_FOUR() {
+        return kpiDao.selectTO_FOUR();
+    }
+
+    public List<Integer> selecteNB_IN_SWITCH_SUCC_TIME() {
+        return kpiDao.selecteNB_IN_SWITCH_SUCC_TIME();
+    }
+
+    public List<Integer> selecteNB_IN_SWITCH_REQUEST_TIME() {
+        return kpiDao.selecteNB_IN_SWITCH_REQUEST_TIME();
     }
 }
