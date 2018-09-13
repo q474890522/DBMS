@@ -27,7 +27,7 @@ public class ExportTest {
     public String exportCell (HttpServletRequest request, HttpServletResponse response) {
         cellService.exportExcel("D:\\SQL\\excel", "Cell.xlsx");
         return "1111";
-    }
+    } 
 
     @RequestMapping(path = "/exportKPI", method = {RequestMethod.GET})
     @ResponseBody
