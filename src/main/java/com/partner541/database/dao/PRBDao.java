@@ -38,4 +38,7 @@ public interface PRBDao {
 
     @Select("select * from tbPRB")
     List<PRB> getPRB();
+
+    @Select("select * from tbPRBnew")
+    List<PRB> getPRBnew();
 }

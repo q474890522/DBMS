@@ -56,11 +56,11 @@ public class CellService {
         return true;
     }
 
-    public List<Cell> queryCells(String sectorId, String sectorName, String enodebId, String enodebName) throws Exception {
-        if(sectorId != null && sectorName != null && enodebId != null && enodebName != null)
-            return cellDao.selectCellByIdNameEnodeB(sectorId, sectorName, Integer.valueOf(enodebId), enodebName);
-        throw new Exception("参数为空");
-    }
+//    public List<Cell> queryCells(String sectorId, String sectorName, String enodebId, String enodebName) throws Exception {
+//        if(sectorId != null && sectorName != null && enodebId != null && enodebName != null)
+//            return cellDao.selectCellByIdNameEnodeB(sectorId, sectorName, Integer.valueOf(enodebId), enodebName);
+//        throw new Exception("参数为空");
+ //   }
     /**
      * 清空tbCell
      * @return 清空多少条数据

@@ -59,9 +59,9 @@ public interface CellDao {
     @Select("select * from tbCell where SECTOR_ID = #{sectorId} and SECTOR_NAME = #{sectorName} and ENODEB_ID = #{enodebId} and ENODEB_NAME = #{enodebName}")
     List<Cell> selectCellByIdName(@Param("sectorId") String sectorId, @Param("enodebName") String enodebName);
 
-    @Select("select * from tbCell where SECTOR_ID = #{sectorId} and SECTOR_NAME = #{sectorName} and ENODEB_ID = #{enodebId} and ENODEB_NAME = #{enodebName}")
-    List<Cell> selectCellByIdNameIdName( @Param("sectorName") String sectorName,
-                                        @Param("enodebId") int enodebId);
+//    @Select("select * from tbCell where SECTOR_ID = #{sectorId} and SECTOR_NAME = #{sectorName} and ENODEB_ID = #{enodebId} and ENODEB_NAME = #{enodebName}")
+//    List<Cell> selectCellByIdNameIdName( @Param("sectorName") String sectorName,
+//                                        @Param("enodebId") int enodebId);
 
     @Select("select * from tbCell where SECTOR_ID = #{sectorId}")
     List<Cell> selectCellByIdFront(@Param("sectorId") String sectorId);
