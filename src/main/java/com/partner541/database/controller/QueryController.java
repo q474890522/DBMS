@@ -44,8 +44,19 @@ public class QueryController {
     @RequestMapping(path = "/celldata")
     @ResponseBody
     public Object celldata() {
-        List<Cell> list = null;
+        String sector_id = SECTOR_ID;
+        String sector_name = SECTOR_NAME;
+        String enodebid = ENODEBID;
+        String enode_name = ENODEB_NAME;
 
+        List<Cell> list = null;
+        try {
+            list = cellService.selectCell(sector_id,sector_name,enodebid,enode_name);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        System.out.println(list.size());
 
         Map<String,Object> map = new HashMap<>();
         map.put("code",0);

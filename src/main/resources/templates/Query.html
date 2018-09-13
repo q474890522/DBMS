@@ -321,12 +321,7 @@
                 type: "POST",
                 contentType: "application/JSON;charset-utf8",
             });
-            return false;
-        });
-    });
-</script>
-<script>
-    layui.use('table', function(){
+                layui.use('table', function(){
         var table = layui.table;
 
         //第一个实例
@@ -336,12 +331,35 @@
             ,url: '/celldata' //数据接口
             ,page: true //开启分页
             ,cols: [[ //表头
-                {field: 'username', title: 'ID', width:80, sort: true, fixed: 'left'}
-                ,{field: 'password', title: '用户名', width:80}
+                {field: 'CITY', title: 'ID', width:80, sort: true, fixed: 'left'}
+                ,{field: 'SECTORID', title: 'SECTORID', width:80}
+                ,{field: 'SECTORNAME', title: 'SECTORNAME', width:80, sort: true}
+                ,{field: 'ENODEBID', title: 'ENODEBID', width:80}
+                ,{field: 'ENODEBNAME', title: 'ENODEBNAME', width: 177}
+                ,{field: 'EARFCN', title: 'EARFCN', width: 80, sort: true}
+                ,{field: 'PCI', title: 'PCI', width: 80, sort: true}
+                ,{field: 'PSS', title: 'PSS', width: 80}
+                ,{field: 'SSS', title: 'SSS', width: 135, sort: true}
+                ,{field: 'TAC', title: 'TAC', width: 135, sort: true}
+                ,{field: 'VENDOR', title: 'VENDOR', width: 135, sort: true}
+                ,{field: 'LONGITUDE', title: 'LONGITUDE', width: 135, sort: true}
+                ,{field: 'LATITUDE', title: 'LATITUDE', width: 135, sort: true}
+                ,{field: 'STYLE', title: 'STYLE', width: 135, sort: true}
+                ,{field: 'AZIMUTH', title: 'AZIMUTH', width: 135, sort: true}
+                ,{field: 'HEIGHT', title: 'HEIGHT', width: 135, sort: true}
+                ,{field: 'ELECTTILT', title: 'ELECTTILT', width: 135, sort: true}
+                ,{field: 'MECHTILT', title: 'MECHTILT', width: 135, sort: true}
+                ,{field: 'TOTLETILT', title: 'TOTLETILT', width: 135, sort: true}
             ]]
         });
 
     });
+            return false;
+        });
+    });
+</script>
+<script>
+
 </script>
 
 

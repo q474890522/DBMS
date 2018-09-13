@@ -5,9 +5,9 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class PRBpor {
-    private Date STARTTIME;
-    private Date ENDTIME;
-    private int X;
+    public Date STARTTIME;
+    public Date ENDTIME;
+    public int X;
 
     public Date getSTARTTIME() {
         return STARTTIME;
