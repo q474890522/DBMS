@@ -56,41 +56,11 @@ public class CellService {
         return true;
     }
 
-    public List<Cell> queryCells(String sectorId, String sectorName, String enodebId, String enodebName) throws Exception {
-        if(sectorId != null && sectorName != null && enodebId != null && enodebName != null)
-            return cellDao.selectCellByIdNameIdName(sectorId, sectorName, Integer.valueOf(enodebId), enodebName);
-        else if(sectorId == null && sectorName != null && enodebId != null && enodebName != null)
-            return cellDao.selectCellByNameIdName(sectorName, Integer.valueOf(enodebId), enodebName);
-        else if(sectorId != null && sectorName == null && enodebId != null && enodebName != null)
-            return cellDao.selectCellByIdIdName(sectorId, Integer.valueOf(enodebId), enodebName);
-        else if(sectorId != null && sectorName != null && enodebId == null && enodebName != null)
-            return cellDao.selectCellByIdNameName(sectorId, sectorName, enodebName);
-        else if(sectorId != null && sectorName != null && enodebId != null && enodebName == null)
-            return cellDao.selectCellByIdNameId(sectorId, sectorName, Integer.valueOf(enodebId));
-        else if(sectorId == null && sectorName == null && enodebId != null && enodebName != null)
-            return cellDao.selectCellByIdNameBack(Integer.valueOf(enodebId), enodebName);
-        else if(sectorId != null && sectorName != null && enodebId == null && enodebName == null)
-            return cellDao.selectCellByIdNameFront(sectorId, sectorName);
-        else if(sectorId != null && sectorName == null && enodebId == null && enodebName != null)
-            return cellDao.selectCellByIdName(sectorId, enodebName);
-        else if(sectorId == null && sectorName != null && enodebId != null && enodebName == null)
-            return cellDao.selectCellByNameId(sectorName, Integer.valueOf(enodebId));
-        else if(sectorId != null && sectorName == null && enodebId != null && enodebName == null)
-            return cellDao.selectCellByIdId(sectorId, Integer.valueOf(enodebId));
-        else if(sectorId == null && sectorName != null && enodebId == null && enodebName != null)
-            return cellDao.selectCellByNameName(sectorName, enodebName);
-        else if(sectorId != null && sectorName == null && enodebId == null && enodebName == null)
-            return cellDao.selectCellByIdFront(sectorId);
-        else if(sectorId == null && sectorName != null && enodebId == null && enodebName == null)
-            return cellDao.selectCellByNameFront(sectorName);
-        else if(sectorId == null && sectorName == null && enodebId != null && enodebName == null)
-            return cellDao.selectCellByIdBack(Integer.valueOf(enodebId));
-        else if(sectorId == null && sectorName == null && enodebId == null && enodebName != null)
-            return cellDao.selectCellByNameBack(enodebName);
-        else if(sectorId == null && sectorName == null && enodebId == null && enodebName == null)
-            return cellDao.selectCellAll();
-        throw new Exception("参数错误");
-    }
+//    public List<Cell> queryCells(String sectorId, String sectorName, String enodebId, String enodebName) throws Exception {
+//        if(sectorId != null && sectorName != null && enodebId != null && enodebName != null)
+//            return cellDao.selectCellByIdNameEnodeB(sectorId, sectorName, Integer.valueOf(enodebId), enodebName);
+//        throw new Exception("参数为空");
+ //   }
     /**
      * 清空tbCell
      * @return 清空多少条数据
