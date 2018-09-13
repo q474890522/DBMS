@@ -1,6 +1,6 @@
 package com.partner541.database.model;
 
-public class MRODao {
+public class MROData {
     private String TimeStamp			;//nvarchar(50) not null,
     private String ServingSector		;//nvarchar(50) not null,
     private String InterferingSector	;//nvarchar(50) not null,

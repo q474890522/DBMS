@@ -2,18 +2,18 @@ package com.partner541.database.model;
 
 public class Cell {            //SQL 中对应的定义
     private String CITY 		;//nvarchar(10)	not null,
-    private String SECTOR_ID 	;//nvarchar(10)	not null,
-    private String SECTOR_NAME 	;//nvarchar(50) not null,
+    private String SECTORID 	;//nvarchar(10)	not null,
+    private String SECTORNAME 	;//nvarchar(50) not null,
     private int ENODEBID 	;//int not null,
-    private String ENODEB_NAME	;//nvarchar(50) not null,
+    private String ENODEBNAME	;//nvarchar(50) not null,
     private int EARFCN		;//int not null,
     private int PCI	 		;//int not null,
     private int PSS	 		;//int not null,
     private int SSS			;//int not null,
     private int TAC	 		;//int not null,
-    private String ENDOR		;//nvarchar(10) not null,
-    private String LONGITUDE 	;//float null,
-    private String LATITUDE		;//float null,
+    private String VENDOR		;//nvarchar(10) not null,
+    private double LONGITUDE 	;//float null,
+    private double LATITUDE		;//float null,
     private String STYLE		;//nvarchar(10) not null,
     private int AZIMUTH		;//int not null,
     private int HEIGHT		;//int null,
@@ -29,20 +29,20 @@ public class Cell {            //SQL 中对应的定义
         this.CITY = CITY;
     }
 
-    public String getSECTOR_ID() {
-        return SECTOR_ID;
+    public String getSECTORID() {
+        return SECTORID;
     }
 
-    public void setSECTOR_ID(String SECTOR_ID) {
-        this.SECTOR_ID = SECTOR_ID;
+    public void setSECTORID(String SECTORID) {
+        this.SECTORID = SECTORID;
     }
 
-    public String getSECTOR_NAME() {
-        return SECTOR_NAME;
+    public String getSECTORNAME() {
+        return SECTORNAME;
     }
 
-    public void setSECTOR_NAME(String SECTOR_NAME) {
-        this.SECTOR_NAME = SECTOR_NAME;
+    public void setSECTORNAME(String SECTORNAME) {
+        this.SECTORNAME = SECTORNAME;
     }
 
     public int getENODEBID() {
@@ -53,12 +53,12 @@ public class Cell {            //SQL 中对应的定义
         this.ENODEBID = ENODEBID;
     }
 
-    public String getENODEB_NAME() {
-        return ENODEB_NAME;
+    public String getENODEBNAME() {
+        return ENODEBNAME;
     }
 
-    public void setENODEB_NAME(String ENODEB_NAME) {
-        this.ENODEB_NAME = ENODEB_NAME;
+    public void setENODEBNAME(String ENODEBNAME) {
+        this.ENODEBNAME = ENODEBNAME;
     }
 
     public int getEARFCN() {
@@ -101,32 +101,32 @@ public class Cell {            //SQL 中对应的定义
         this.TAC = TAC;
     }
 
-    public String getENDOR() {
-        return ENDOR;
+    public String getVENDOR() {
+        return VENDOR;
     }
 
-    public void setENDOR(String ENDOR) {
-        this.ENDOR = ENDOR;
+    public void setVENDOR(String VENDOR) {
+        this.VENDOR = VENDOR;
     }
 
-    public String getLONGITUDE() {
+    public double getLONGITUDE() {
         return LONGITUDE;
     }
 
-    public void setLONGITUDE(String LONGITUDE) {
+    public void setLONGITUDE(double LONGITUDE) {
         this.LONGITUDE = LONGITUDE;
     }
 
-    public String getLATITUDE() {
+    public double getLATITUDE() {
         return LATITUDE;
     }
 
-    public void setLATITUDE(String LATITUDE) {
+    public void setLATITUDE(double LATITUDE) {
         this.LATITUDE = LATITUDE;
     }
 
     public String getSTYLE() {
-        return STYLE;
+        System.out.println(STYLE);return STYLE;
     }
 
     public void setSTYLE(String STYLE) {

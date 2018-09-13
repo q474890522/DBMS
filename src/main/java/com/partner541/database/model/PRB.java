@@ -1,13 +1,15 @@
 package com.partner541.database.model;
 
 import java.sql.Timestamp;
+import java.util.Date;
+
 //aaaadddgg
 public class PRB {
-    private Timestamp START_TIME 	;//datetime not null,--起始时间
+    private Date STARTTIME 	;//datetime not null,--起始时间
     private int CYCLE 		;//int not null,--周期
-    private String NE_NAME 		;//nvarchar(50) not null,--网元名称
+    private String NENAME 		;//nvarchar(50) not null,--网元名称
     private String SECTOR 		;//text not null,--小区
-    private String SECTOR_NAME ;//	nvarchar(100) not null,--小区名
+    private String SECTORNAME ;//	nvarchar(100) not null,--小区名
     private int P0 ;//int not null,--第0个PRB上检测到的干扰噪声的平均值 (毫瓦分贝)
     private int P1 ;//int not null,--第1个PRB上检测到的干扰噪声的平均值 (毫瓦分贝)
     private int P2 ;//int not null,--第2个PRB上检测到的干扰噪声的平均值 (毫瓦分贝)
@@ -109,12 +111,12 @@ public class PRB {
     private int P98 ;//int not null,--第98个PRB上检测到的干扰噪声的平均值 (毫瓦分贝)
     private int P99 ;//int not null,--第99个PRB上检测到的干扰噪声的平均值 (毫瓦分贝)
 
-    public Timestamp getSTART_TIME() {
-        return START_TIME;
+    public Date getSTARTTIME() {
+        return STARTTIME;
     }
 
-    public void setSTART_TIME(Timestamp START_TIME) {
-        this.START_TIME = START_TIME;
+    public void setSTARTTIME(Date STARTTIME) {
+        this.STARTTIME = STARTTIME;
     }
 
     public int getCYCLE() {
@@ -125,12 +127,12 @@ public class PRB {
         this.CYCLE = CYCLE;
     }
 
-    public String getNE_NAME() {
-        return NE_NAME;
+    public String getNENAME() {
+        return NENAME;
     }
 
-    public void setNE_NAME(String NE_NAME) {
-        this.NE_NAME = NE_NAME;
+    public void setNENAME(String NENAME) {
+        this.NENAME = NENAME;
     }
 
     public String getSECTOR() {
@@ -141,12 +143,12 @@ public class PRB {
         this.SECTOR = SECTOR;
     }
 
-    public String getSECTOR_NAME() {
-        return SECTOR_NAME;
+    public String getSECTORNAME() {
+        return SECTORNAME;
     }
 
-    public void setSECTOR_NAME(String SECTOR_NAME) {
-        this.SECTOR_NAME = SECTOR_NAME;
+    public void setSECTORNAME(String SECTORNAME) {
+        this.SECTORNAME = SECTORNAME;
     }
 
     public int getP0() {

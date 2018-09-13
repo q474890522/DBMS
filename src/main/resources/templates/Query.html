@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <title>layout 后台大布局 - Layui</title>
+  <link rel="stylesheet" href="/static/layui/css/layui.css">
+</head>
+<body class="layui-layout-body">
+<div class="layui-layout layui-layout-admin">
+  <div class="layui-header">
+    <div class="layui-logo">layui 后台布局</div>
+    <ul class="layui-nav layui-layout-right">
+      <li class="layui-nav-item"><a href="">退了</a></li>
+    </ul>
+  </div>
+
+  <div class="layui-side layui-bg-black">
+    <div class="layui-side-scroll">
+      <!-- 左侧导航区域（可配合layui已有的垂直导航） -->
+      <ul class="layui-nav layui-nav-tree"  lay-filter="test">
+        <li class="layui-nav-item layui-nav-itemed">
+          <a class="" href="javascript:;">管理数据</a>
+          <dl class="layui-nav-child">
+            <dd><a href="/importdata">导入数据</a></dd>
+            <dd><a href="/exportdata">导出数据</a></dd>
+          </dl>
+        </li>
+        <li class="layui-nav-item">
+          <a href="javascript:;">计算数据</a>
+          <dl class="layui-nav-child">
+            <dd><a href="/computedata">干扰分析计算C2I</a></dd>
+            <dd><a href="/computedata">计算干扰计算三元组</a></dd>
+          </dl>
+        </li>
+        <li class="layui-nav-item"><a href="/query">查询数据</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="layui-body">
+    <!-- 内容主体区域 -->
+    <div style="padding: 15px;">
+        <div class="layui-form" action="">
+            <div class="layui-form-item">
+                <label class="layui-form-label">请选择表</label>
+                <div class="layui-input-block">
+                    <select id="tables" lay-filter="choice" lay-verify="required">
+                        <option value=""></option>
+                        <option value="Cell">tbCell</option>
+                        <option value="KPI">tbKPI</option>
+                        <option value="PRB">tbPRB</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="layui-form-item" id="Cell" style="display: none;">
+                <label class="layui-form-label">小区ID</label>
+                <div class="layui-input-block">
+                    <input name="SECTOR_ID" class="layui-input" type="text" placeholder="请输入小区ID">
+                </div>
+                <br>
+
+                <label class="layui-form-label">小区姓名</label>
+                <div class="layui-input-block">
+                    <input name="SECTOR_NAME" class="layui-input" type="text" placeholder="请输入小区名称">
+                </div>
+                <br>
+
+                <label class="layui-form-label">基站ID</label>
+                <div class="layui-input-block">
+                    <input name="ENODEBID" class="layui-input" type="text" placeholder="请输入基站ID">
+                </div>
+                <br>
+
+                <label class="layui-form-label">基站名称</label>
+                <div class="layui-input-block">
+                    <input name="ENODEB_NAME" class="layui-input" type="text" placeholder="请输入基站名称">
+                </div>
+                <br>
+
+                <div class="layui-form-item">
+                    <div class="layui-input-block">
+                        <button class="layui-btn" lay-submit lay-filter="Cellgo">查询</button>
+                    </div>
+                </div>
+
+                <table id="Celldemo" lay-filter="Celltest" style="display: none;"></table>
+            </div>
+
+            <div class="layui-form-item" id="KPI" style="display: none;">
+
+            </div>
+
+            <div class="layui-form-item" id="PRB"  style="display: none;">
+                <p>PRB</p>
+            </div>
+        </div>
+
+    </div>
+</div>
+</div>
+<script src="/static/layui/layui.js"></script>
+<script>
+//JavaScript代码区域
+layui.use('element', function(){
+  var element = layui.element;
+
+});
+</script>
+<script>
+    layui.use('form',function () {
+        var form = layui.form;
+        form.on('select(choice)',function (data) {
+            document.getElementById("Cell").style.display = "none";
+            document.getElementById("KPI").style.display = "none";
+            document.getElementById("PRB").style.display = "none";
+            document.getElementById(data.value).style.display="";
+        })
+        form.on('submit(Cellgo)',function (data) {
+            console.log(data.field);
+            return false;
+        })
+    })
+</script>
+<script>
+layui.use('table', function(){
+  var table = layui.table;
+
+  //第一个实例
+  table.render({
+    elem: '#Celldemo'
+    ,height: 312
+    ,url: '/demo/table/user/' //数据接口
+    ,page: true //开启分页
+    ,cols: [[ //表头
+      {field: 'id', title: 'ID', width:80, sort: true, fixed: 'left'}
+      ,{field: 'username', title: '用户名', width:80}
+      ,{field: 'sex', title: '性别', width:80, sort: true}
+      ,{field: 'city', title: '城市', width:80}
+      ,{field: 'sign', title: '签名', width: 177}
+      ,{field: 'experience', title: '积分', width: 80, sort: true}
+      ,{field: 'score', title: '评分', width: 80, sort: true}
+      ,{field: 'classify', title: '职业', width: 80}
+      ,{field: 'wealth', title: '财富', width: 135, sort: true}
+    ]]
+  });
+});
+</script>
+</body>
+</html>
