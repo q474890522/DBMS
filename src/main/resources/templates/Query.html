@@ -5,13 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <title>layout 后台大布局 - Layui</title>
     <link rel="stylesheet" href="/layui/css/layui.css">
+    <script src="/jquery/2.0.0/jquery.min.js"></script>
 </head>
 <body class="layui-layout-body">
 <div class="layui-layout layui-layout-admin">
     <div class="layui-header">
         <div class="layui-logo">layui 后台布局</div>
         <ul class="layui-nav layui-layout-right">
-            <li class="layui-nav-item"><a href="">退了</a></li>
+            <li class="layui-nav-item"><a href="/">退了</a></li>
         </ul>
     </div>
 
@@ -41,15 +42,17 @@
     <div class="layui-body">
         <!-- 内容主体区域 -->
         <div style="padding: 15px;">
-            <div class="layui-form" action="">
+
+            <!-- Cell -->
+            <form class="layui-form" action="">
                 <div class="layui-form-item">
                     <label class="layui-form-label">请选择表</label>
                     <div class="layui-input-block">
-                        <select id="tables" lay-filter="choice" lay-verify="required">
+                        <select id="tables" lay-filter="choice" lay-verify="required" name="whichtable">
                             <option value=""></option>
                             <option value="Cell">tbCell</option>
                             <option value="KPI">tbKPI</option>
-                            <option value="PRB">tbPRBnew</option>
+                            <option value="PRB">tbPRB</option>
                         </select>
                     </div>
                 </div>
@@ -57,37 +60,41 @@
                 <div class="layui-form-item" id="Cell" style="display: none;">
                     <label class="layui-form-label">小区ID</label>
                     <div class="layui-input-block">
-                        <input name="SECTOR_ID" class="layui-input" type="text" placeholder="请输入小区ID">
+                        <input lay-verify="required" name="SECTOR_ID" class="layui-input" type="text" placeholder="请输入小区ID">
                     </div>
                     <br>
 
                     <label class="layui-form-label">小区姓名</label>
                     <div class="layui-input-block">
-                        <input name="SECTOR_NAME" class="layui-input" type="text" placeholder="请输入小区名称">
+                        <input lay-verify="required" name="SECTOR_NAME" class="layui-input" type="text" placeholder="请输入小区名称">
                     </div>
                     <br>
 
                     <label class="layui-form-label">基站ID</label>
                     <div class="layui-input-block">
-                        <input name="ENODEBID" class="layui-input" type="text" placeholder="请输入基站ID">
+                        <input lay-verify="required" name="ENODEBID" class="layui-input" type="text" placeholder="请输入基站ID">
                     </div>
                     <br>
 
                     <label class="layui-form-label">基站名称</label>
                     <div class="layui-input-block">
-                        <input name="ENODEB_NAME" class="layui-input" type="text" placeholder="请输入基站名称">
+                        <input lay-verify="required" name="ENODEB_NAME" class="layui-input" type="text" placeholder="请输入基站名称">
                     </div>
                     <br>
 
                     <div class="layui-form-item">
                         <div class="layui-input-block">
-                            <button class="layui-btn" lay-submit lay-filter="Cellgo">查询</button>
+                            <button class="layui-btn" lay-submit lay-filter="cellDemo">立即提交</button>
                         </div>
                     </div>
 
-                    <table id="Celltable" lay-filter="Celltest" style="display: none;"></table>
-                </div>
+                    <table id="Celltable"></table>
 
+                </div>
+            </form>
+
+            <!-- KPI -->
+            <form class="layui-form">
                 <div class="layui-form-item" id="KPI" style="display: none;">
                     <label class="layui-form-label">网元名称</label>
                     <div class="layui-input-block">
@@ -97,7 +104,7 @@
 
                     <label class="layui-form-label">查询属性</label>
                     <div class="layui-input-block">
-                        <select id="properties" lay-filter="KPIchoice" lay-verify="required">
+                        <select name="properties" lay-filter="KPIchoice" lay-verify="required">
                             <option value=""></option>
                             <option value="0">RRC连接建立完成次数 (无)</option>
                             <option value="1">RRC连接请求次数（包括重发）</option>
@@ -142,31 +149,34 @@
 
                     <label class="layui-form-label">起始时间</label>
                     <div class="layui-input-block">
-                        <input type="text" lay-verify="required" class="layui-input" id="KPIbegintime">
+                        <input type="text" lay-verify="required" class="layui-input" name="KPIbegintime" id="KPIbegintime">
                     </div>
                     <br>
 
                     <label class="layui-form-label">终止时间</label>
                     <div class="layui-input-block">
-                        <input type="text" lay-vertify="required" class="layui-input" id="KPIendtime">
+                        <input type="text" lay-verify="required" class="layui-input" name="KPIendtime" id="KPIendtime">
                     </div>
                     <br>
 
-                    <div class="layui-input-block">
-                        <button class="layui-btn" lay-submit layfilter="KPIgo">查询</button>
+                    <div class="layui-form-item">
+                        <div class="layui-input-block">
+                            <button class="layui-btn" lay-submit lay-filter="KPIDemo">立即提交</button>
+                        </div>
                     </div>
-                    <br>
+
 
                     <div id="main" style="width: 600px;height:400px;"></div>
                 </div>
+            </form>
 
-                <div class="layui-form-item" id="PRB"  style="display: none;">
-                    <label class="layui-form-label">网元名称</label>
-                    <div class="layui-input-block">
-                        <input name="NENAME" class="layui-input" type="text" placeholder="请输入网元名称" lay-verify="required">
-                    </div>
-                    <br>
+            <!-- PRB -->
+            <div class="layui-form-item" id="PRB"  style="display: none;">
+                <label class="layui-form-label">网元名称</label>
+                <div class="layui-input-block">
+                    <input name="NENAME" class="layui-input" type="text" placeholder="请输入网元名称" lay-verify="required">
                 </div>
+                <br>
             </div>
 
         </div>
@@ -181,7 +191,7 @@
     });
 </script>
 
-<!-- 监听 -->
+<!-- 监听select -->
 <script>
     layui.use('form',function () {
         var form = layui.form;
@@ -189,16 +199,51 @@
             document.getElementById("Cell").style.display = "none";
             document.getElementById("KPI").style.display = "none";
             document.getElementById("PRB").style.display = "none";
-            document.getElementById(data.value).style.display="";
-        })
-        form.on('submit(Cellgo)',function (data) {
-            console.log(data.field);
-            return false;
+            if (data.value != "") {
+                document.getElementById(data.value).style.display="";
+            }
         })
     })
 </script>
 
-<!-- 数据表格 -->
+<!-- 监听Cell的button -->
+<script>
+    //Demo
+    layui.use('form', function(){
+        var form = layui.form;
+
+        //监听提交
+        form.on('submit(cellDemo)', function(data){
+            layer.msg(JSON.stringify(data.field));
+            $.ajax({
+                url: "/cellnewdata",
+                data: JSON.stringify(data.field),
+                type: "POST",
+                contentType: "application/JSON;charset-utf8",
+            });
+            return false;
+        });
+    });
+
+    layui.use('table', function(){
+        var table = layui.table;
+
+        //第一个实例
+        table.render({
+            elem: '#Celltable'
+            ,height: 312
+            ,url: '/celldata' //数据接口
+            ,page: true //开启分页
+            ,cols: [[ //表头
+                {field: 'username', title: 'ID', width:80, sort: true, fixed: 'left'}
+                ,{field: 'password', title: '用户名', width:80}
+            ]]
+        });
+
+    });
+</script>
+
+<!-- Cell的数据表格 -->
 <script>
     layui.use('table', function(){
         var table = layui.table;
@@ -207,22 +252,65 @@
         table.render({
             elem: '#Celltable'
             ,height: 312
-            ,url: 'www.layui.com/demo/table/user' //数据接口
+            ,url: '/data' //数据接口
             ,page: true //开启分页
             ,cols: [[ //表头
-                {field: 'id', title: 'ID', width:80, sort: true, fixed: 'left'}
-                ,{field: 'username', title: '用户名', width:80}
-                ,{field: 'sex', title: '性别', width:80, sort: true}
-                ,{field: 'city', title: '城市', width:80}
-                ,{field: 'sign', title: '签名', width: 177}
-                ,{field: 'experience', title: '积分', width: 80, sort: true}
-                ,{field: 'score', title: '评分', width: 80, sort: true}
-                ,{field: 'classify', title: '职业', width: 80}
-                ,{field: 'wealth', title: '财富', width: 135, sort: true}
+                {field: 'username', title: '用户名', width:80, sort: true, fixed: 'left'}
+                ,{field: 'password', title: '密码', width:80}
+
             ]]
         });
     });
 </script>
+
+<!-- 监听KPI的button -->
+<!-- 图表 -->
+<script src="/echarts.min.js"></script>
+<script>
+    //Demo
+    layui.use('form', function(){
+        var form = layui.form;
+
+        //监听提交
+        form.on('submit(KPIDemo)', function(data){
+            layer.msg(JSON.stringify(data.field));
+            $.ajax({
+                url: "/kpinewdata",
+                data: JSON.stringify(data.field),
+                type: "POST",
+                contentType: "application/JSON;charset-utf8",
+            });
+            // 基于准备好的dom，初始化echarts实例
+            var myChart = echarts.init(document.getElementById('main'));
+
+            // 指定图表的配置项和数据
+            var option = {
+                title: {
+                    text: 'ECharts 入门示例'
+                },
+                tooltip: {},
+                legend: {
+                    data:['销量']
+                },
+                xAxis: {
+                    data: ["衬衫","羊毛衫","雪纺衫","裤子","高跟鞋","袜子"]
+                },
+                yAxis: {},
+                series: [{
+                    name: '销量',
+                    type: 'bar',
+                    data: [5, 20, 36, 10, 10, 20]
+                }]
+            };
+
+            // 使用刚指定的配置项和数据显示图表。
+            myChart.setOption(option);
+            return false;
+        });
+    });
+</script>
+
+
 
 <!-- 日历插件 -->
 <script>
@@ -239,36 +327,6 @@
             elem:'#KPIendtime'
         })
     });
-</script>
-
-<!-- 图表 -->
-<script src="/echarts.min.js"></script>
-<script>
-    // 基于准备好的dom，初始化echarts实例
-    var myChart = echarts.init(document.getElementById('main'));
-
-    // 指定图表的配置项和数据
-    var option = {
-        title: {
-            text: 'ECharts 入门示例'
-        },
-        tooltip: {},
-        legend: {
-            data:['销量']
-        },
-        xAxis: {
-            data: ["衬衫","羊毛衫","雪纺衫","裤子","高跟鞋","袜子"]
-        },
-        yAxis: {},
-        series: [{
-            name: '销量',
-            type: 'bar',
-            data: [5, 20, 36, 10, 10, 20]
-        }]
-    };
-
-    // 使用刚指定的配置项和数据显示图表。
-    myChart.setOption(option);
 </script>
 
 

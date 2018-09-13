@@ -14,18 +14,18 @@
 background-size: cover; background-repeat: no-repeat; background-position: 50% 50%;">
     <canvas class="particles-js-canvas-el" width="407" height="500" style="width: 100%; height: 100%;"></canvas>
         <div class="panel" style="padding:35px 5px 15px;height:400px;width: 350px;margin-left: -180px;margin-top: -180px ">
-            <form action="/signup/" method="POST">
+            <form>
 
                 <h1 class="text-center lead"><strong>注册</strong></h1>
                 <hr>
                 <input id = "username" style="font-size: larger;margin-top: 18px" type="text" name="username" class="form-control input-sm chat-input" data-toggle="tooltip" title="默认的 Tooltip" placeholder="用户名"/>
                 </br>
-                <input id = "password" style="font-size: larger;margin-top: 10px" type="password" name="password1" class="form-control input-sm chat-input" placeholder="密码"/>
+                <input id = "password1" style="font-size: larger;margin-top: 10px" type="password" name="password1" class="form-control input-sm chat-input" placeholder="密码"/>
                 </br>
                 <input id = "password2" style="font-size: larger;margin-top: 10px" type="password" name="password2" class="form-control input-sm chat-input" placeholder="再次输入密码"/>
                 </br>
 
-                <button style="margin-top: 10px" class="btn btn-primary btn-block">注册</button>
+                <button onclick="update()   " style="margin-top: 10px" class="btn btn-primary btn-block">注册</button>
                 <br>
                 <div style="margin-top: 10px" class="text-center">
                     <p3>已有帐号？</p3>
@@ -38,5 +38,34 @@ background-size: cover; background-repeat: no-repeat; background-position: 50% 5
 <script src="/bootstrap/3.3.0/js/app.js"></script>
 <script src="/bootstrap/3.3.0/js/stats.js"></script>
 
+<script>
+    function update() {
+        if ($("#password1").val() != $("#password2").val()) {
+            alert("两次输入的密码不一致,请重新输入");
+        }
+        else if ($("#username").val() == "" || $("#password1").val() == "") {
+            alert("用户名和密码不能为空，请重新输入");
+        }
+        else {
+            var d = {};
+            d.username = $("#username").val();
+            d.password = $("#password1").val();
+            $.ajax({
+                url: "/signupupdate",
+                data: JSON.stringify(d),
+                type: "POST",
+                contentType: "application/json;charset-utf8",
+                success: function (response) {
+                    if (response.success) {
+                        window.location.href = "/query";
+                    }
+                    else {
+                        alert("系统出错");
+                    }
+                }
+            });
+        }
+    }
+</script>
 </body>
 </html>

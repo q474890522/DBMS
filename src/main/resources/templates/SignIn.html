@@ -14,8 +14,7 @@
 background-size: cover; background-repeat: no-repeat; background-position: 50% 50%;">
     <canvas class="particles-js-canvas-el" width="407" height="500" style="width: 100%; height: 100%;"></canvas>
     <div class="panel" style="padding:35px 5px 15px;height:400px;width: 350px;margin-left: -180px;margin-top: -180px ">
-        <form action="/signin/home.html" method="POST">
-
+        <form>
             <h1 class="text-center lead"><strong>登录</strong></h1>
             <hr>
             <input style="font-size: larger;margin-top: 18px" type="text" id="username" class="form-control input-sm chat-input" placeholder="用户名"/>
@@ -44,13 +43,16 @@ background-size: cover; background-repeat: no-repeat; background-position: 50% 5
         d.username = document.getElementById("username").value;
         d.password = document.getElementById("password").value;
         $.ajax({
-            url: "/signin/update",
+            url: "/signinupdate",
             data: JSON.stringify(d),
             type: "POST",
             contentType: "application/JSON;charset=utf-8",
             success:function (response) {
                 if (response.success){
-                    alert(response.message);
+                    window.location.href = "/query";
+                }
+                else {
+                    alert("用户名或密码错误，请重新输入");
                 }
             }
         });

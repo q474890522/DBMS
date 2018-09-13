@@ -11,7 +11,7 @@ import java.util.Map;
 
 @Controller
 public class SignInController {
-    @RequestMapping("/signin/update")
+    @RequestMapping(path = "/signinupdate")
     @ResponseBody
     public Object siginupdate(@RequestBody JSONObject params) {
         String username = params.getString("username");
@@ -21,7 +21,12 @@ public class SignInController {
         * 密码和用户名正确
         * */
         Map<String,Object> map = new HashMap<>();
-        map.put("success",true);
+        if (username.equals("2015211439") && password.equals("123")) {
+            map.put("success",true);
+        }
+        else {
+            map.put("success",false);
+        }
         return map;
     }
 
