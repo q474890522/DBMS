@@ -49,13 +49,13 @@
                 <div class="layui-form-item">
                     <label class="layui-form-label">参数</label>
                     <div class="layui-input-block">
-                        <input lay-verify="required" name="parameter" class="layui-input" type="text" placeholder="请输入参数">
+                        <input lay-verify="required" name="parameter" class="layui-input" type="number" placeholder="请输入参数">
                     </div>
                     <br>
 
                     <div class="layui-form-item">
                         <div class="layui-input-block">
-                            <button class="layui-btn" lay-submit lay-filter="Demo">立即提交</button>
+                            <button class="layui-btn" lay-submit lay-filter="Demo" type="button">立即提交</button>
                         </div>
                     </div>
 
@@ -81,8 +81,8 @@
 
 <script>
     //Demo
-    layui.use('form', function(){
-        var form = layui.form;
+    layui.use(['form', 'element','table'], function(){
+        var form = layui.form, table = layui.table, element = layui.element;
 
         //监听提交
         form.on('submit(Demo)', function(data){
@@ -93,27 +93,21 @@
                 type: "POST",
                 contentType: "application/JSON;charset-utf8",
             });
+            //第一个实例
+            table.render({
+                elem: '#table'
+                ,height: 312
+                ,url: '/data' //数据接口
+                ,page: true //开启分页
+                ,cols: [[ //表头
+                    {field: 'CELLa', title: '小区A', width:80, sort: true, fixed: 'left'}
+                    ,{field: 'CELLb', title: '小区B', width:80}
+                    ,{field: 'CELLc', title: '小区C', width:80}
+
+                ]]
+                });
             return false;
         });
-    });
-</script>
-
-<script>
-    layui.use('table', function(){
-        var table = layui.table;
-
-        //第一个实例
-        table.render({
-            elem: '#table'
-            ,height: 312
-            ,url: '/celldata' //数据接口
-            ,page: true //开启分页
-            ,cols: [[ //表头
-                {field: 'username', title: 'ID', width:80, sort: true, fixed: 'left'}
-                ,{field: 'password', title: '用户名', width:80}
-            ]]
-        });
-
     });
 </script>
 </body>

@@ -96,11 +96,6 @@
             <!-- KPI -->
             <form class="layui-form">
                 <div class="layui-form-item" id="KPI" style="display: none;">
-                    <label class="layui-form-label">网元名称</label>
-                    <div class="layui-input-block">
-                        <input name="NENAME" class="layui-input" type="text" placeholder="请输入网元名称" lay-verify="required">
-                    </div>
-                    <br>
 
                     <label class="layui-form-label">查询属性</label>
                     <div class="layui-input-block">
@@ -147,6 +142,7 @@
                     </div>
                     <br>
 
+                    <!--
                     <label class="layui-form-label">起始时间</label>
                     <div class="layui-input-block">
                         <input type="text" lay-verify="required" class="layui-input" name="KPIbegintime" id="KPIbegintime">
@@ -158,15 +154,16 @@
                         <input type="text" lay-verify="required" class="layui-input" name="KPIendtime" id="KPIendtime">
                     </div>
                     <br>
+                    -->
 
                     <div class="layui-form-item">
                         <div class="layui-input-block">
-                            <button class="layui-btn" lay-submit lay-filter="KPIDemo">立即提交</button>
+                            <button class="layui-btn" lay-submit lay-filter="KPIDemo" type="button">立即提交</button>
                         </div>
                     </div>
 
 
-                    <div id="main" style="width: 600px;height:400px;"></div>
+                    <div id="main" style="height:400px;width: 100%;"></div>
                 </div>
             </form>
 
@@ -281,7 +278,7 @@
         </div>
     </div>
 </div>
-<script src="/layui/layui.js"></script
+<script src="/layui/layui.js"></script>
 <!-- 监听select -->
 <script>
     layui.use(['form', 'element', 'table'],function () {
@@ -333,8 +330,6 @@
             });
         });
 
-
-
         //监听KPI提交
         form.on('submit(KPIDemo)', function(data){
             layer.msg(JSON.stringify(data.field));
@@ -343,35 +338,40 @@
                 data: JSON.stringify(data.field),
                 type: "POST",
                 contentType: "application/JSON;charset-utf8",
+                success: function (response) {
+                    console.log(response);
+                    // 基于准备好的dom，初始化echarts实例
+                    var myChart = echarts.init(document.getElementById('main'));
+
+                    // 指定图表的配置项和数据
+                    var option = {
+                        title: {
+                            text: 'ECharts 入门示例'
+                        },
+                        tooltip: {},
+                        legend: {
+                            data:['销量']
+                        },
+                        xAxis: {
+                            data: ["衬衫","羊毛衫","雪纺衫","裤子","高跟鞋","袜子"]
+                        },
+                        yAxis: {},
+                        series: [{
+                            name: '销量',
+                            type: 'bar',
+                            data: response
+                        }]
+                    };
+
+                    // 使用刚指定的配置项和数据显示图表。
+                    myChart.setOption(option);
+                }
+
             });
-            // 基于准备好的dom，初始化echarts实例
-            var myChart = echarts.init(document.getElementById('main'));
 
-            // 指定图表的配置项和数据
-            var option = {
-                title: {
-                    text: 'ECharts 入门示例'
-                },
-                tooltip: {},
-                legend: {
-                    data:['销量']
-                },
-                xAxis: {
-                    data: ["衬衫","羊毛衫","雪纺衫","裤子","高跟鞋","袜子"]
-                },
-                yAxis: {},
-                series: [{
-                    name: '销量',
-                    type: 'bar',
-                    data: [5, 20, 36, 10, 10, 20]
-                }]
-            };
-
-            // 使用刚指定的配置项和数据显示图表。
-            myChart.setOption(option);
             return false;
         });
-    })
+    });
 </script>
 <!-- 监听KPI的button -->
 <!-- 图表 -->
@@ -401,6 +401,8 @@
     layui.use('form', function(){
         var form = layui.form;
 
+
+
         //监听提交
         form.on('submit(PRBDemo)', function(data){
             layer.msg(JSON.stringify(data.field));
@@ -410,39 +412,57 @@
                 type: "POST",
                 contentType: "application/JSON;charset-utf8",
                 success:function (response) {
-                    if (response.success){
-                        window.location.href = "/query";
+                    console.log(response);
+
+                    var barData1 = [];
+                    var barData2 = [];
+
+                    for (var i=0;i<response.length;i++){
+                        console.log(response[i]);
+                        console.log(response[i].x)
+                        console.log(response[i].starttime)
+
+                        barData1.push(response[i].x);
+                        barData2.push(response[i].starttime);
                     }
-                    else {
-                        alert("用户名或密码错误，请重新输入");
+
+                    for (var i=0;i<barData1.length;i++){
+                        console.log(barData1[i]);
+                        console.log(barData2[i]);
                     }
+
+                    // 基于准备好的dom，初始化echarts实例
+                    var myChart = echarts.init(document.getElementById('main2'));
+
+                    // 指定图表的配置项和数据
+                    var option = {
+                        title: {
+                            text: "毫瓦分贝"
+                        },
+                        tooltip: {},
+                        legend: {
+                            data: ['xiaoliang']
+                        },
+                        xAxis: {
+                            data: barData2
+                        },
+                        yAxis: {},
+                        series: [{
+                            name: '销量',
+                            type: 'bar',
+                            data: barData1
+                        }]
+                    };
+
+                    // 使用刚指定的配置项和数据显示图表。
+                    myChart.setOption(option);
                 }
             });
-            // 基于准备好的dom，初始化echarts实例
-            var myChart = echarts.init(document.getElementById('main2'));
 
-            // 指定图表的配置项和数据
-            var option = {
-                title: {
-                    text: "毫瓦分贝"
-                },
-                tooltip: {},
-                legend: {
-                    data: data.field.properties
-                },
-                xAxis: {
-                    data: ["衬衫","羊毛衫","雪纺衫","裤子","高跟鞋","袜子"]
-                },
-                yAxis: {},
-                series: [{
-                    name: '销量',
-                    type: 'bar',
-                    data: [5, 20, 36, 10, 10, 20]
-                }]
-            };
 
-            // 使用刚指定的配置项和数据显示图表。
-            myChart.setOption(option);
+
+
+
             return false;
         });
 

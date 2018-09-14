@@ -8,7 +8,6 @@ import org.apache.commons.math3.distribution.NormalDistribution;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.math.BigInteger;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -21,7 +20,7 @@ public class MROService {
     @Autowired
     C2InewDao c2InewDao;
 
-    public Map<String ,Object> comC2I(){
+    public void comC2I(){
 
         int number = 0;
         double total = 0,C2I_Mean,std,Prb9,PrbABS6;
@@ -30,8 +29,8 @@ public class MROService {
         String SCELL;
         String NCELL;
         int m = list.size();
-        Map<String,Object> map = new HashMap<>();
-        map.put("length", m);
+        //Map<String,Object> map = new HashMap<>();
+        //map.put("length", m);
 
         while( m > 0 ) {
             number = 0;
@@ -95,10 +94,10 @@ public class MROService {
 
             //插入数据库
             c2InewDao.addC2Inew(c2Inew);
-            map.put("m", m);
+//            map.put("m", m);
             //System.out.println("还有"+m+"条数据");
 
         }
-        return map;
+        //return map;
     }
 }

@@ -1,6 +1,10 @@
 package com.partner541.database.controller;
 
 import com.alibaba.fastjson.JSONObject;
+import com.partner541.database.model.C2I3;
+import com.partner541.database.service.C2Iservice;
+import com.partner541.database.service.CellService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -13,30 +17,53 @@ import java.util.Map;
 
 @Controller
 public class DataController {
+    @Autowired
+    C2Iservice c2Iservice;
+
+    public List<C2I3> list = null;
     @RequestMapping(path = "/newdata")
     @ResponseBody
-    public Object newdata(@RequestBody JSONObject params) {
-        System.out.println("fhkjhkwkhkjjkhk");
+    public void newdata(@RequestBody JSONObject params) {
+        double parameter = params.getDouble("parameter");
+        list = c2Iservice.re_tri(parameter);
 
-        Map<String, Object> map = new HashMap<>();
-        map.put("success",true);
+        System.out.println(parameter);
+
+        if (list != null) {
+            System.out.println(list.size());
+        }
+        else {
+            System.out.println("list is empty");
+        }
+    }
+
+    @RequestMapping(path = "/data")
+    @ResponseBody
+    public Object data() {
+        if (list != null) {
+            System.out.println(list.size());
+        }
+        else {
+            System.out.println("list is empty");
+        }
+
+        Map<String,Object> map = new HashMap<>();
+        map.put("code",0);
+        map.put("msg",",");
+        if (list == null){
+            map.put("count",0);
+        }
+        else {
+            map.put("count",list.size());
+        }
+        map.put("data",list);
 
         return map;
     }
 
     @RequestMapping(path = "/computedata")
-    public String demo() {
+    public String demo(){
         return "ComputeData";
-    }
-
-    class person2{
-        public String username;
-        public String password;
-
-        public person2(String username,String password){
-            this.username = username;
-            this.password = password;
-        }
     }
 
 }

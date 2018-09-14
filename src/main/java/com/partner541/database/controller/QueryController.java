@@ -85,26 +85,98 @@ public class QueryController {
     }
 
 
-    public String NENAME, parameter;
-    public Date kpibegintime, kpiendtime;
     @RequestMapping(path = "/kpinewdata")
     @ResponseBody
     public Object kpinewdata(@RequestBody JSONObject params) {
-        NENAME = params.getString("NENAME");
-        parameter = params.getString("properties");
-        kpibegintime = params.getDate("KPIbegintime");
-        kpiendtime   = params.getDate("KPIendtime");
+        //String NENAME = params.getString("NENAME");
+        String parameter = params.getString("properties");
+        //Date kpibegintime = params.getDate("KPIbegintime");
+        //Date kpiendtime   = params.getDate("KPIendtime");
 
-        System.out.println(NENAME);
+        //System.out.println(NENAME);
         System.out.println(parameter);
-        System.out.println(kpibegintime);
-        System.out.println(kpiendtime);
+        //System.out.println(kpibegintime);
+        //System.out.println(kpiendtime);
 
-        kpiService.selectRPC_CONN_RESET_RATE();
+        switch (parameter){
+            case "0":
+                return kpiService.selectRRC_CONNECT_COMPLETE_TIME();
+            case "1":
+                return kpiService.selectRRC_CONNECT_REQUEST_TIME();
+            case "2":
+                return kpiService.selectRRC_SET_SUCC_RATE();
+            case "3":
+                return kpiService.selectERAB_SET_SUCCESS_TIME();
+            case "4":
+                return kpiService.selectERAB_TRY_CONNECT_TIME();
 
-        Map<String,Object> map = new HashMap<>();
-        map.put("success",true);
-        return map;
+            case "5":
+                return kpiService.selectERAB_SET_SUCCESS_TWO();
+            case "6":
+                return kpiService.selecteNodeB_TRYGGER_EXCEP_RELE_TIME();
+            case "7":
+                return kpiService.selectSECTOR_SWITCH_ERAB_EXCEP_RELE_TIME();
+            case "8":
+                return kpiService.selectERAB_DROP_RATE();
+            case "9":
+                return kpiService.selectWIRELESS_CONN_RATE();
+            case "10":
+                return kpiService.selecteNodeB_INIT_S1();
+            case "11":
+                return kpiService.selectUE_Context_EXCEP_RELE_TIME();
+            case "12":
+                return kpiService.selectUE_Context_SET_SUCCESS_TIME();
+            case "13":
+                return kpiService.selectWIRELESS_DROP_RATE();
+            case "14":
+                return kpiService.selecteNodeB_IN_DIFF_FREQ_SWITCH_SUCC_TIME();
+            case "15":
+                return kpiService.selecteNodeB_IN_DIFF_FREQ_SWITCH_TRY_TIME();
+            case "16":
+                return kpiService.selecteNodeB_IN_SAME_FREQ_SWITCH_SUCC_TIME();
+            case "17":
+                return kpiService.selecteNodeB_IN_SAME_FREQ_SWITCH_TRY_TIME();
+            case "18":
+                return kpiService.selecteNodeB_BETWEEN_DIFF_FREQ_SWITCH_SUCC_TIME();
+            case "19":
+                return kpiService.selecteNodeB_BETWEEN_DIFF_FREQ_SWITCH_TRY_TIME();
+            case "20":
+                return kpiService.selecteNodeB_BETWEEN_SAME_FREQ_SWITCH_SUCC_TIME();
+            case "21":
+                return kpiService.selecteNodeB_BETWEEN_SAME_FREQ_SWITCH_TRY_TIME();
+            case "22":
+                return kpiService.selecteNB_IN_SWITCH_SUCC_RATE();
+            case "23":
+                return kpiService.selecteNB_BETWEEN_SWITCH_SUCC_RATE();
+            case "24":
+                return kpiService.selectSAME_FREQ_SWITCH_SUCC_ZSP();
+            case "25":
+                return kpiService.selectDIFF_FREQ_SWITCH_SUCC_ZSP();
+            case "26":
+                return kpiService.selectSWITCH_SUCC_RATE();
+            case "27":
+                return kpiService.selectSECTOR_DPCP_RECV_UP_DATE_THROUGHPUT();
+            case "28":
+                return kpiService.selectSECTOR_DPCP_RECV_DOWN_DATE_THROUGHPUT();
+            case "29":
+                return kpiService.selectRPC_RESET_REQUEST_TIME();
+            case "30":
+                return kpiService.selectRPC_CONN_RESET_RATE();
+            case "31":
+                return kpiService.selectTO_ONE();
+            case "32":
+                return kpiService.selectTO_TWO();
+            case "33":
+                return kpiService.selectTO_THREE();
+            case "34":
+                return kpiService.selectTO_FOUR();
+            case "35":
+                return kpiService.selecteNB_IN_SWITCH_SUCC_TIME();
+            case "36":
+                return kpiService.selecteNB_IN_SWITCH_REQUEST_TIME();
+                default:break;
+        }
+        return null;
     }
 
 
@@ -117,10 +189,18 @@ public class QueryController {
         Date prbbegintime = params.getDate("PRBbegintime");
         Date prbendtime = params.getDate("PRBendtime");
 
+        System.out.println(NENAME);
+        System.out.println(properties);
         System.out.println(timesize);
+        System.out.println(prbbegintime);
+        System.out.println(prbendtime);
 
-        //List<PRBpor> list = prbService.getXPRB(NENAME,prbbegintime,prbendtime,timesize,properties);
 
+        List<PRBpor> list = prbService.getXPRB(NENAME,prbbegintime,prbendtime,timesize,properties);
+
+        System.out.println(list.size());
+
+        /*
         List<PRBpor> list = new LinkedList<>();
         PRBpor temp1 = new PRBpor();
         PRBpor temp2 = new PRBpor();
@@ -129,11 +209,10 @@ public class QueryController {
         temp1.setSTARTTIME(prbbegintime);
         temp2.setSTARTTIME(prbendtime);
         list.add(temp1);
-        list.add(temp2);
+        list.add(temp2);*/
 
-        Map<String,Object> map = new HashMap<>();
-        map.put("data",list);
-        return map;
+
+        return list;
     }
 
 
