@@ -1,9 +1,9 @@
 package com.partner541.database.model;
 
 public class C2I3 {
-    private String CELLa;
-    private String CELLb;
-    private String CELLc;
+    public String CELLa;
+    public String CELLb;
+    public String CELLc;
 
     public String getCELLa() { return CELLa; }
 

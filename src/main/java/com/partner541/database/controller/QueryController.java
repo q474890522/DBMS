@@ -55,11 +55,6 @@ public class QueryController {
         return map;
     }
 
-    @RequestMapping(path = "/cellresult")
-    public String cellresult(){
-        return "CellResult";
-    }
-
     @RequestMapping(path = "/celldata")
     @ResponseBody
     public Object celldata() {
@@ -196,9 +191,17 @@ public class QueryController {
         System.out.println(prbendtime);
 
 
+        System.out.println("PRB计算中");
         List<PRBpor> list = prbService.getXPRB(NENAME,prbbegintime,prbendtime,timesize,properties);
+        System.out.println("计算结束");
 
-        System.out.println(list.size());
+        if (list == null){
+            System.out.println("PRB空");
+        }
+        else {
+            System.out.println(list.size());
+        }
+
 
         /*
         List<PRBpor> list = new LinkedList<>();

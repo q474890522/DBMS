@@ -25,9 +25,13 @@ public class DataController {
     @ResponseBody
     public void newdata(@RequestBody JSONObject params) {
         double parameter = params.getDouble("parameter");
-        list = c2Iservice.re_tri(parameter);
-
+        System.out.println("dataController");
         System.out.println(parameter);
+
+        System.out.println("计算中");
+        list = c2Iservice.re_tri(parameter);
+        System.out.println("计算结束");
+
 
         if (list != null) {
             System.out.println(list.size());
@@ -40,6 +44,7 @@ public class DataController {
     @RequestMapping(path = "/data")
     @ResponseBody
     public Object data() {
+        System.out.println("dataController.table");
         if (list != null) {
             System.out.println(list.size());
         }

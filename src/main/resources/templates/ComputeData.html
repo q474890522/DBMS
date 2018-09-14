@@ -3,14 +3,14 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <title>layout 后台大布局 - Layui</title>
+  <title>TDLTE数据管理系统</title>
   <link rel="stylesheet" href="/layui/css/layui.css">
     <script src="/jquery/2.0.0/jquery.min.js"></script>
 </head>
 <body class="layui-layout-body">
 <div class="layui-layout layui-layout-admin">
     <div class="layui-header">
-        <div class="layui-logo">layui 后台布局</div>
+        <div class="layui-logo">TDLTE数据管理系统</div>
         <ul class="layui-nav layui-layout-right">
             <li class="layui-nav-item"><a href="/">退了</a></li>
         </ul>
@@ -30,7 +30,6 @@
                 <li class="layui-nav-item">
                     <a href="javascript:;">计算数据</a>
                     <dl class="layui-nav-child">
-                        <dd><a href="/computedata">干扰分析计算C2I</a></dd>
                         <dd><a href="/computedata">计算干扰计算三元组</a></dd>
                     </dl>
                 </li>
@@ -56,6 +55,7 @@
                     <div class="layui-form-item">
                         <div class="layui-input-block">
                             <button class="layui-btn" lay-submit lay-filter="Demo" type="button">立即提交</button>
+                            <button class="layui-btn" lay-submit lay-filter="Refresh" type="button">刷新</button>
                         </div>
                     </div>
 
@@ -71,18 +71,11 @@
 
 
 <script src="/layui/layui.js"></script>
-<script>
-    //JavaScript代码区域
-    layui.use('element', function(){
-        var element = layui.element;
-
-    });
-</script>
 
 <script>
     //Demo
-    layui.use(['form', 'element','table'], function(){
-        var form = layui.form, table = layui.table, element = layui.element;
+    layui.use(['form', 'element', 'table'], function(){
+        var form = layui.form, element = layui.element ,table = layui.table;
 
         //监听提交
         form.on('submit(Demo)', function(data){
@@ -100,15 +93,52 @@
                 ,url: '/data' //数据接口
                 ,page: true //开启分页
                 ,cols: [[ //表头
-                    {field: 'CELLa', title: '小区A', width:80, sort: true, fixed: 'left'}
-                    ,{field: 'CELLb', title: '小区B', width:80}
-                    ,{field: 'CELLc', title: '小区C', width:80}
+                    {field: 'CELLa', title: 'CELLa', width:430, sort: true, fixed: 'left'}
+                    ,{field: 'CELLb', title: 'CELLb', width:430}
+                    ,{field: 'CELLc', title: 'CELLc', width:430}
 
                 ]]
-                });
-            return false;
+            });
+        });
+
+        form.on('submit(Refresh)', function () {
+            //第一个实例
+            table.render({
+                elem: '#table'
+                ,height: 312
+                ,url: '/data' //数据接口
+                ,page: true //开启分页
+                ,cols: [[ //表头
+                    {field: 'CELLa', title: 'CELLa', width:80, sort: true, fixed: 'left'}
+                    ,{field: 'CELLb', title: 'CELLb', width:80}
+                    ,{field: 'CELLc', title: 'CELLc', width:80}
+
+                ]]
+            });
         });
     });
 </script>
+<!--
+<script>
+    layui.use('table', function(){
+        var table = layui.table;
+
+        //第一个实例
+        table.render({
+            elem: '#table'
+            ,height: 312
+            ,url: '/data' //数据接口
+            ,page: true //开启分页
+            ,cols: [[ //表头
+                {field: 'CELLa', title: 'ID', width:80, sort: true, fixed: 'left'}
+                ,{field: 'CELLb', title: '用户名', width:80}
+                ,{field: 'CELLc', title: '用户名', width:80}
+
+            ]]
+        });
+
+    });
+</script>
+-->
 </body>
 </html>
