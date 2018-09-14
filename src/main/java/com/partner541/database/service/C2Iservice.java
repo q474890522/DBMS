@@ -22,14 +22,18 @@ public class C2Iservice {
     MROService mroService;
 
     public List<C2I3> re_tri(double x){
+        System.out.println("here1");
         c2I3Dao.deleteC2I3();
+        System.out.println("here2");
         mroService.comC2I();
         C2I3 c2I3 = null;
         List<C2Inew> list = c2InewDao.getC2Inew();
         List<C2I3> listnew = new ArrayList<>();
         String a,b,c;
+        System.out.println("here3"+list.size());
         for(int m = 0 ; m < list.size() ; m++)
         {
+            System.out.println("m:"+m);
             a = list.get(m).getSCELL();
             b = list.get(m).getNCELL();
             if(list.get(m).getPrbABS6() >= x)

@@ -89,6 +89,7 @@
             //第一个实例
             table.render({
                 elem: '#table'
+                ,toolbar: '#toolbarDemo'
                 ,height: 312
                 ,url: '/data' //数据接口
                 ,page: true //开启分页
@@ -105,13 +106,14 @@
             //第一个实例
             table.render({
                 elem: '#table'
+                ,toolbar: '#toolbarDemo'
                 ,height: 312
                 ,url: '/data' //数据接口
                 ,page: true //开启分页
                 ,cols: [[ //表头
-                    {field: 'CELLa', title: 'CELLa', width:80, sort: true, fixed: 'left'}
-                    ,{field: 'CELLb', title: 'CELLb', width:80}
-                    ,{field: 'CELLc', title: 'CELLc', width:80}
+                    {field: 'CELLa', title: 'CELLa', width:430, sort: true, fixed: 'left'}
+                    ,{field: 'CELLb', title: 'CELLb', width:430}
+                    ,{field: 'CELLc', title: 'CELLc', width:430}
 
                 ]]
             });

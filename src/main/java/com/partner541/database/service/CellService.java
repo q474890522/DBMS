@@ -47,12 +47,11 @@ public class CellService {
             return false;
         }
         int succCount = 0;
-//        try {
+        try {
             succCount = importExcelSmall.exportListFromExcel(TableType.Cell.getValue(), file);
-//        } catch (Exception e) {
-//            logger.error("导入Cell Excel时失败");
-//            return false;
-//        }
+        } catch (Exception e) {
+
+        }
         return true;
     }
 

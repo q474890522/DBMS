@@ -159,7 +159,11 @@ public class ImportExcelSmall {
                     logger.error(obj.toString()+ "----result: 没导进去----" + "why: " + e.getLocalizedMessage());
                 }
             }
-            cellDao.insertCellBatch(cellList);
+            try {
+                cellDao.insertCellBatch(cellList);
+            } catch (Exception e) {
+
+            }
         } else if(tableType == TableType.KPI.getValue()) {
             List<KPI> kpiList = new ArrayList<>();
             for (Object obj : list) {
@@ -216,7 +220,12 @@ public class ImportExcelSmall {
                     logger.error(obj.toString() + "----result: 没导进去----" + "why: " + e.getLocalizedMessage());
                 }
             }
-            kpiDao.insertKPIBatch(kpiList);
+            try{
+                kpiDao.insertKPIBatch(kpiList);
+            } catch (Exception e) {
+
+            }
+
         }
 //        } else {
 //            throw new Exception("目前没有该表可供导入");

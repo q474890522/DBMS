@@ -39,14 +39,12 @@ public class ImportController {
 
     @RequestMapping(path = "/upload")
     public void upload(MultipartFile file){
-        if (null != file){
-            if (whichtable.equals("0")){
+        if (null != file) {
+            if (whichtable.equals("0")) {
                 cellService.importTbCell(file);
-            }
-            else if (whichtable.equals("1")){
+            } else if (whichtable.equals("1")) {
                 kpiService.importTbKPI(file);
-            }
-            else if (whichtable.equals("2")){
+            } else if (whichtable.equals("2")) {
                 prbService.importPRB(file);
             }
         }

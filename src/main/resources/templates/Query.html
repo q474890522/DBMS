@@ -304,6 +304,7 @@
             });
             table.render({
                 elem: '#Celltable'
+                ,toolbar: '#toolbarDemo'
                 ,height: 312
                 ,url: '/celldata' //数据接口
                 ,page: true //开启分页
@@ -334,6 +335,7 @@
         form.on('submit(cellRefresh)',function () {
             table.render({
                 elem: '#Celltable'
+                ,toolbar: '#toolbarDemo'
                 ,height: 312
                 ,url: '/celldata' //数据接口
                 ,page: true //开启分页
@@ -381,6 +383,16 @@
 
                     // 指定图表的配置项和数据
                     var option = {
+                        toolbox: {
+                            show: true,
+                            feature: {
+                                saveAsImage: {
+                                    show:true,
+                                    excludeComponents :['toolbox'],
+                                    pixelRatio: 2
+                                }
+                            }
+                        },
                         title: {
                             text: ''
                         },
@@ -471,6 +483,16 @@
 
                     // 指定图表的配置项和数据
                     var option = {
+                        toolbox: {
+                            show: true,
+                            feature: {
+                                saveAsImage: {
+                                    show:true,
+                                    excludeComponents :['toolbox'],
+                                    pixelRatio: 2
+                                }
+                            }
+                        },
                         title: {
                             text: "毫瓦分贝"
                         },
