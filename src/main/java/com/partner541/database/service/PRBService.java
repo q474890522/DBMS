@@ -76,8 +76,9 @@ public class PRBService {
         Date start2 = new Date();//终止时间
         start2.setTime(endT.getTime());
         long gran = granularity;//粒度
+        System.out.println("gran:" + gran);
         String cell1, cell2;
-        int rank = (int) (gran / (1000 * 60 * 15));
+        int rank = (int) (4*gran);
 
         while(start0.getTime() < start2.getTime()+gran ) {
             for (int i = 0; i < m; i++) {
@@ -218,115 +219,115 @@ public class PRBService {
                             t--;
                         }
                     }
-                    p0 = (int) (p0 / (gran / (1000 * 60 * 15)));
-                    p1 = (int) (p1 / (gran / (1000 * 60 * 15)));
-                    p2 = (int) (p2 / (gran / (1000 * 60 * 15)));
-                    p3 = (int) (p3 / (gran / (1000 * 60 * 15)));
-                    p4 = (int) (p4 / (gran / (1000 * 60 * 15)));
-                    p5 = (int) (p5 / (gran / (1000 * 60 * 15)));
-                    p6 = (int) (p6 / (gran / (1000 * 60 * 15)));
-                    p7 = (int) (p7 / (gran / (1000 * 60 * 15)));
-                    p8 = (int) (p8 / (gran / (1000 * 60 * 15)));
-                    p9 = (int) (p9 / (gran / (1000 * 60 * 15)));
+                    p0 = (int) (p0 / (4*gran));
+                    p1 = (int) (p1 / (4*gran));
+                    p2 = (int) (p2 / (4*gran));
+                    p3 = (int) (p3 / (4*gran));
+                    p4 = (int) (p4 / (4*gran));
+                    p5 = (int) (p5 / (4*gran));
+                    p6 = (int) (p6 / (4*gran));
+                    p7 = (int) (p7 / (4*gran));
+                    p8 = (int) (p8 / (4*gran));
+                    p9 = (int) (p9 / (4*gran));
 
-                    p10 = (int) (p10 / (gran / (1000 * 60 * 15)));
-                    p11 = (int) (p11 / (gran / (1000 * 60 * 15)));
-                    p12 = (int) (p12 / (gran / (1000 * 60 * 15)));
-                    p13 = (int) (p13 / (gran / (1000 * 60 * 15)));
-                    p14 = (int) (p14 / (gran / (1000 * 60 * 15)));
-                    p15 = (int) (p15 / (gran / (1000 * 60 * 15)));
-                    p16 = (int) (p16 / (gran / (1000 * 60 * 15)));
-                    p17 = (int) (p17 / (gran / (1000 * 60 * 15)));
-                    p18 = (int) (p18 / (gran / (1000 * 60 * 15)));
-                    p19 = (int) (p19 / (gran / (1000 * 60 * 15)));
+                    p10 = (int) (p10 / (4*gran));
+                    p11 = (int) (p11 / (4*gran));
+                    p12 = (int) (p12 / (4*gran));
+                    p13 = (int) (p13 / (4*gran));
+                    p14 = (int) (p14 / (4*gran));
+                    p15 = (int) (p15 / (4*gran));
+                    p16 = (int) (p16 / (4*gran));
+                    p17 = (int) (p17 / (4*gran));
+                    p18 = (int) (p18 / (4*gran));
+                    p19 = (int) (p19 / (4*gran));
 
-                    p20 = (int) (p20 / (gran / (1000 * 60 * 15)));
-                    p21 = (int) (p21 / (gran / (1000 * 60 * 15)));
-                    p22 = (int) (p22 / (gran / (1000 * 60 * 15)));
-                    p23 = (int) (p23 / (gran / (1000 * 60 * 15)));
-                    p24 = (int) (p24 / (gran / (1000 * 60 * 15)));
-                    p25 = (int) (p25 / (gran / (1000 * 60 * 15)));
-                    p26 = (int) (p26 / (gran / (1000 * 60 * 15)));
-                    p27 = (int) (p27 / (gran / (1000 * 60 * 15)));
-                    p28 = (int) (p28 / (gran / (1000 * 60 * 15)));
-                    p29 = (int) (p29 / (gran / (1000 * 60 * 15)));
+                    p20 = (int) (p20 / (4*gran));
+                    p21 = (int) (p21 / (4*gran));
+                    p22 = (int) (p22 / (4*gran));
+                    p23 = (int) (p23 / (4*gran));
+                    p24 = (int) (p24 / (4*gran));
+                    p25 = (int) (p25 / (4*gran));
+                    p26 = (int) (p26 / (4*gran));
+                    p27 = (int) (p27 / (4*gran));
+                    p28 = (int) (p28 / (4*gran));
+                    p29 = (int) (p29 / (4*gran));
 
-                    p30 = (int) (p30 / (gran / (1000 * 60 * 15)));
-                    p31 = (int) (p31 / (gran / (1000 * 60 * 15)));
-                    p32 = (int) (p32 / (gran / (1000 * 60 * 15)));
-                    p33 = (int) (p33 / (gran / (1000 * 60 * 15)));
-                    p34 = (int) (p34 / (gran / (1000 * 60 * 15)));
-                    p35 = (int) (p35 / (gran / (1000 * 60 * 15)));
-                    p36 = (int) (p36 / (gran / (1000 * 60 * 15)));
-                    p37 = (int) (p37 / (gran / (1000 * 60 * 15)));
-                    p38 = (int) (p38 / (gran / (1000 * 60 * 15)));
-                    p39 = (int) (p39 / (gran / (1000 * 60 * 15)));
+                    p30 = (int) (p30 / (4*gran));
+                    p31 = (int) (p31 / (4*gran));
+                    p32 = (int) (p32 / (4*gran));
+                    p33 = (int) (p33 / (4*gran));
+                    p34 = (int) (p34 / (4*gran));
+                    p35 = (int) (p35 / (4*gran));
+                    p36 = (int) (p36 / (4*gran));
+                    p37 = (int) (p37 / (4*gran));
+                    p38 = (int) (p38 / (4*gran));
+                    p39 = (int) (p39 / (4*gran));
 
-                    p40 = (int) (p40 / (gran / (1000 * 60 * 15)));
-                    p41 = (int) (p41 / (gran / (1000 * 60 * 15)));
-                    p42 = (int) (p42 / (gran / (1000 * 60 * 15)));
-                    p43 = (int) (p43 / (gran / (1000 * 60 * 15)));
-                    p44 = (int) (p44 / (gran / (1000 * 60 * 15)));
-                    p45 = (int) (p45 / (gran / (1000 * 60 * 15)));
-                    p46 = (int) (p46 / (gran / (1000 * 60 * 15)));
-                    p47 = (int) (p47 / (gran / (1000 * 60 * 15)));
-                    p48 = (int) (p48 / (gran / (1000 * 60 * 15)));
-                    p49 = (int) (p49 / (gran / (1000 * 60 * 15)));
+                    p40 = (int) (p40 / (4*gran));
+                    p41 = (int) (p41 / (4*gran));
+                    p42 = (int) (p42 / (4*gran));
+                    p43 = (int) (p43 / (4*gran));
+                    p44 = (int) (p44 / (4*gran));
+                    p45 = (int) (p45 / (4*gran));
+                    p46 = (int) (p46 / (4*gran));
+                    p47 = (int) (p47 / (4*gran));
+                    p48 = (int) (p48 / (4*gran));
+                    p49 = (int) (p49 / (4*gran));
 
-                    p50 = (int) (p50 / (gran / (1000 * 60 * 15)));
-                    p51 = (int) (p51 / (gran / (1000 * 60 * 15)));
-                    p52 = (int) (p52 / (gran / (1000 * 60 * 15)));
-                    p53 = (int) (p53 / (gran / (1000 * 60 * 15)));
-                    p54 = (int) (p54 / (gran / (1000 * 60 * 15)));
-                    p55 = (int) (p55 / (gran / (1000 * 60 * 15)));
-                    p56 = (int) (p56 / (gran / (1000 * 60 * 15)));
-                    p57 = (int) (p57 / (gran / (1000 * 60 * 15)));
-                    p58 = (int) (p58 / (gran / (1000 * 60 * 15)));
-                    p59 = (int) (p59 / (gran / (1000 * 60 * 15)));
+                    p50 = (int) (p50 / (4*gran));
+                    p51 = (int) (p51 / (4*gran));
+                    p52 = (int) (p52 / (4*gran));
+                    p53 = (int) (p53 / (4*gran));
+                    p54 = (int) (p54 / (4*gran));
+                    p55 = (int) (p55 / (4*gran));
+                    p56 = (int) (p56 / (4*gran));
+                    p57 = (int) (p57 / (4*gran));
+                    p58 = (int) (p58 / (4*gran));
+                    p59 = (int) (p59 / (4*gran));
 
-                    p60 = (int) (p60 / (gran / (1000 * 60 * 15)));
-                    p61 = (int) (p61 / (gran / (1000 * 60 * 15)));
-                    p62 = (int) (p62 / (gran / (1000 * 60 * 15)));
-                    p63 = (int) (p63 / (gran / (1000 * 60 * 15)));
-                    p64 = (int) (p64 / (gran / (1000 * 60 * 15)));
-                    p65 = (int) (p65 / (gran / (1000 * 60 * 15)));
-                    p66 = (int) (p66 / (gran / (1000 * 60 * 15)));
-                    p67 = (int) (p67 / (gran / (1000 * 60 * 15)));
-                    p68 = (int) (p68 / (gran / (1000 * 60 * 15)));
-                    p69 = (int) (p69 / (gran / (1000 * 60 * 15)));
+                    p60 = (int) (p60 / (4*gran));
+                    p61 = (int) (p61 / (4*gran));
+                    p62 = (int) (p62 / (4*gran));
+                    p63 = (int) (p63 / (4*gran));
+                    p64 = (int) (p64 / (4*gran));
+                    p65 = (int) (p65 / (4*gran));
+                    p66 = (int) (p66 / (4*gran));
+                    p67 = (int) (p67 / (4*gran));
+                    p68 = (int) (p68 / (4*gran));
+                    p69 = (int) (p69 / (4*gran));
 
-                    p70 = (int) (p70 / (gran / (1000 * 60 * 15)));
-                    p71 = (int) (p71 / (gran / (1000 * 60 * 15)));
-                    p72 = (int) (p72 / (gran / (1000 * 60 * 15)));
-                    p73 = (int) (p73 / (gran / (1000 * 60 * 15)));
-                    p74 = (int) (p74 / (gran / (1000 * 60 * 15)));
-                    p75 = (int) (p75 / (gran / (1000 * 60 * 15)));
-                    p76 = (int) (p76 / (gran / (1000 * 60 * 15)));
-                    p77 = (int) (p77 / (gran / (1000 * 60 * 15)));
-                    p78 = (int) (p78 / (gran / (1000 * 60 * 15)));
-                    p79 = (int) (p79 / (gran / (1000 * 60 * 15)));
+                    p70 = (int) (p70 / (4*gran));
+                    p71 = (int) (p71 / (4*gran));
+                    p72 = (int) (p72 / (4*gran));
+                    p73 = (int) (p73 / (4*gran));
+                    p74 = (int) (p74 / (4*gran));
+                    p75 = (int) (p75 / (4*gran));
+                    p76 = (int) (p76 / (4*gran));
+                    p77 = (int) (p77 / (4*gran));
+                    p78 = (int) (p78 / (4*gran));
+                    p79 = (int) (p79 / (4*gran));
 
-                    p80 = (int) (p80 / (gran / (1000 * 60 * 15)));
-                    p81 = (int) (p81 / (gran / (1000 * 60 * 15)));
-                    p82 = (int) (p82 / (gran / (1000 * 60 * 15)));
-                    p83 = (int) (p83 / (gran / (1000 * 60 * 15)));
-                    p84 = (int) (p84 / (gran / (1000 * 60 * 15)));
-                    p85 = (int) (p85 / (gran / (1000 * 60 * 15)));
-                    p86 = (int) (p86 / (gran / (1000 * 60 * 15)));
-                    p87 = (int) (p87 / (gran / (1000 * 60 * 15)));
-                    p88 = (int) (p88 / (gran / (1000 * 60 * 15)));
-                    p89 = (int) (p89 / (gran / (1000 * 60 * 15)));
+                    p80 = (int) (p80 / (4*gran));
+                    p81 = (int) (p81 / (4*gran));
+                    p82 = (int) (p82 / (4*gran));
+                    p83 = (int) (p83 / (4*gran));
+                    p84 = (int) (p84 / (4*gran));
+                    p85 = (int) (p85 / (4*gran));
+                    p86 = (int) (p86 / (4*gran));
+                    p87 = (int) (p87 / (4*gran));
+                    p88 = (int) (p88 / (4*gran));
+                    p89 = (int) (p89 / (4*gran));
 
-                    p90 = (int) (p90 / (gran / (1000 * 60 * 15)));
-                    p91 = (int) (p91 / (gran / (1000 * 60 * 15)));
-                    p92 = (int) (p92 / (gran / (1000 * 60 * 15)));
-                    p93 = (int) (p93 / (gran / (1000 * 60 * 15)));
-                    p94 = (int) (p94 / (gran / (1000 * 60 * 15)));
-                    p95 = (int) (p95 / (gran / (1000 * 60 * 15)));
-                    p96 = (int) (p96 / (gran / (1000 * 60 * 15)));
-                    p97 = (int) (p97 / (gran / (1000 * 60 * 15)));
-                    p98 = (int) (p98 / (gran / (1000 * 60 * 15)));
-                    p99 = (int) (p99 / (gran / (1000 * 60 * 15)));
+                    p90 = (int) (p90 / (4*gran));
+                    p91 = (int) (p91 / (4*gran));
+                    p92 = (int) (p92 / (4*gran));
+                    p93 = (int) (p93 / (4*gran));
+                    p94 = (int) (p94 / (4*gran));
+                    p95 = (int) (p95 / (4*gran));
+                    p96 = (int) (p96 / (4*gran));
+                    p97 = (int) (p97 / (4*gran));
+                    p98 = (int) (p98 / (4*gran));
+                    p99 = (int) (p99 / (4*gran));
 
                     ave = ( p0 + p1 + p2 + p3 + p4 + p5 + p6 + p7 + p8 + p9 +
                             p10 + p11 + p12 + p13 + p14 + p15 + p16 + p17 + p18 + p19 +
@@ -462,7 +463,7 @@ public class PRBService {
 
                 }
             }
-            start0.setTime(start0.getTime() + gran);
+            start0.setTime(start0.getTime() + gran*(1000*60*15));
         }
 
 //        for (PRB c : list)
@@ -502,12 +503,13 @@ public class PRBService {
         Date start2 = new Date();//终止时间
         start2.setTime(endT.getTime());
         long gran = granularity;//粒度
+        System.out.println("gran:" + gran);
         String cell1, cell2;
-        int rank = (int) (gran / (1000 * 60 * 15));
-        while(start0.getTime() < start2.getTime()+gran ) {
+        int rank = (int) (4*gran);
+        while(start0.getTime() < start2.getTime()+gran*(1000*60*15) ) {
             for (int i = 0; i < m; i++) {
                 if (list.get(i).getSTARTTIME().getTime() >= start0.getTime()
-                        && list.get(i).getSTARTTIME().getTime() < start0.getTime() + gran
+                        && list.get(i).getSTARTTIME().getTime() < start0.getTime() + gran*(1000*60*15)
                         && list.get(i).getSTARTTIME().getTime() <= start2.getTime()
                         && list.get(i).getNENAME().equals(name)) {
                     System.out.println("****");
@@ -528,7 +530,7 @@ public class PRBService {
                     for (int t = i; t < m; t++) {
                         if (list.get(t).getSECTOR().equals(cell1) && list.get(t).getSECTORNAME().equals(cell2)
                                 && list.get(t).getSTARTTIME().getTime() >= start0.getTime()
-                                && list.get(t).getSTARTTIME().getTime() < start0.getTime() + gran
+                                && list.get(t).getSTARTTIME().getTime() < start0.getTime() + gran*(1000*60*15)
                                 && list.get(t).getSTARTTIME().getTime() <= start2.getTime()
                                 && list.get(i).getNENAME().equals(name)) {
                             p0 = list.get(t).getP0() + p0;
@@ -646,115 +648,115 @@ public class PRBService {
                             t--;
                         }
                     }
-                    p0 = (int) (p0 / (gran / (1000 * 60 * 15)));
-                    p1 = (int) (p1 / (gran / (1000 * 60 * 15)));
-                    p2 = (int) (p2 / (gran / (1000 * 60 * 15)));
-                    p3 = (int) (p3 / (gran / (1000 * 60 * 15)));
-                    p4 = (int) (p4 / (gran / (1000 * 60 * 15)));
-                    p5 = (int) (p5 / (gran / (1000 * 60 * 15)));
-                    p6 = (int) (p6 / (gran / (1000 * 60 * 15)));
-                    p7 = (int) (p7 / (gran / (1000 * 60 * 15)));
-                    p8 = (int) (p8 / (gran / (1000 * 60 * 15)));
-                    p9 = (int) (p9 / (gran / (1000 * 60 * 15)));
+                    p0 = (int) (p0 / (4*gran));
+                    p1 = (int) (p1 / (4*gran));
+                    p2 = (int) (p2 / (4*gran));
+                    p3 = (int) (p3 / (4*gran));
+                    p4 = (int) (p4 / (4*gran));
+                    p5 = (int) (p5 / (4*gran));
+                    p6 = (int) (p6 / (4*gran));
+                    p7 = (int) (p7 / (4*gran));
+                    p8 = (int) (p8 / (4*gran));
+                    p9 = (int) (p9 / (4*gran));
 
-                    p10 = (int) (p10 / (gran / (1000 * 60 * 15)));
-                    p11 = (int) (p11 / (gran / (1000 * 60 * 15)));
-                    p12 = (int) (p12 / (gran / (1000 * 60 * 15)));
-                    p13 = (int) (p13 / (gran / (1000 * 60 * 15)));
-                    p14 = (int) (p14 / (gran / (1000 * 60 * 15)));
-                    p15 = (int) (p15 / (gran / (1000 * 60 * 15)));
-                    p16 = (int) (p16 / (gran / (1000 * 60 * 15)));
-                    p17 = (int) (p17 / (gran / (1000 * 60 * 15)));
-                    p18 = (int) (p18 / (gran / (1000 * 60 * 15)));
-                    p19 = (int) (p19 / (gran / (1000 * 60 * 15)));
+                    p10 = (int) (p10 / (4*gran));
+                    p11 = (int) (p11 / (4*gran));
+                    p12 = (int) (p12 / (4*gran));
+                    p13 = (int) (p13 / (4*gran));
+                    p14 = (int) (p14 / (4*gran));
+                    p15 = (int) (p15 / (4*gran));
+                    p16 = (int) (p16 / (4*gran));
+                    p17 = (int) (p17 / (4*gran));
+                    p18 = (int) (p18 / (4*gran));
+                    p19 = (int) (p19 / (4*gran));
 
-                    p20 = (int) (p20 / (gran / (1000 * 60 * 15)));
-                    p21 = (int) (p21 / (gran / (1000 * 60 * 15)));
-                    p22 = (int) (p22 / (gran / (1000 * 60 * 15)));
-                    p23 = (int) (p23 / (gran / (1000 * 60 * 15)));
-                    p24 = (int) (p24 / (gran / (1000 * 60 * 15)));
-                    p25 = (int) (p25 / (gran / (1000 * 60 * 15)));
-                    p26 = (int) (p26 / (gran / (1000 * 60 * 15)));
-                    p27 = (int) (p27 / (gran / (1000 * 60 * 15)));
-                    p28 = (int) (p28 / (gran / (1000 * 60 * 15)));
-                    p29 = (int) (p29 / (gran / (1000 * 60 * 15)));
+                    p20 = (int) (p20 / (4*gran));
+                    p21 = (int) (p21 / (4*gran));
+                    p22 = (int) (p22 / (4*gran));
+                    p23 = (int) (p23 / (4*gran));
+                    p24 = (int) (p24 / (4*gran));
+                    p25 = (int) (p25 / (4*gran));
+                    p26 = (int) (p26 / (4*gran));
+                    p27 = (int) (p27 / (4*gran));
+                    p28 = (int) (p28 / (4*gran));
+                    p29 = (int) (p29 / (4*gran));
 
-                    p30 = (int) (p30 / (gran / (1000 * 60 * 15)));
-                    p31 = (int) (p31 / (gran / (1000 * 60 * 15)));
-                    p32 = (int) (p32 / (gran / (1000 * 60 * 15)));
-                    p33 = (int) (p33 / (gran / (1000 * 60 * 15)));
-                    p34 = (int) (p34 / (gran / (1000 * 60 * 15)));
-                    p35 = (int) (p35 / (gran / (1000 * 60 * 15)));
-                    p36 = (int) (p36 / (gran / (1000 * 60 * 15)));
-                    p37 = (int) (p37 / (gran / (1000 * 60 * 15)));
-                    p38 = (int) (p38 / (gran / (1000 * 60 * 15)));
-                    p39 = (int) (p39 / (gran / (1000 * 60 * 15)));
+                    p30 = (int) (p30 / (4*gran));
+                    p31 = (int) (p31 / (4*gran));
+                    p32 = (int) (p32 / (4*gran));
+                    p33 = (int) (p33 / (4*gran));
+                    p34 = (int) (p34 / (4*gran));
+                    p35 = (int) (p35 / (4*gran));
+                    p36 = (int) (p36 / (4*gran));
+                    p37 = (int) (p37 / (4*gran));
+                    p38 = (int) (p38 / (4*gran));
+                    p39 = (int) (p39 / (4*gran));
 
-                    p40 = (int) (p40 / (gran / (1000 * 60 * 15)));
-                    p41 = (int) (p41 / (gran / (1000 * 60 * 15)));
-                    p42 = (int) (p42 / (gran / (1000 * 60 * 15)));
-                    p43 = (int) (p43 / (gran / (1000 * 60 * 15)));
-                    p44 = (int) (p44 / (gran / (1000 * 60 * 15)));
-                    p45 = (int) (p45 / (gran / (1000 * 60 * 15)));
-                    p46 = (int) (p46 / (gran / (1000 * 60 * 15)));
-                    p47 = (int) (p47 / (gran / (1000 * 60 * 15)));
-                    p48 = (int) (p48 / (gran / (1000 * 60 * 15)));
-                    p49 = (int) (p49 / (gran / (1000 * 60 * 15)));
+                    p40 = (int) (p40 / (4*gran));
+                    p41 = (int) (p41 / (4*gran));
+                    p42 = (int) (p42 / (4*gran));
+                    p43 = (int) (p43 / (4*gran));
+                    p44 = (int) (p44 / (4*gran));
+                    p45 = (int) (p45 / (4*gran));
+                    p46 = (int) (p46 / (4*gran));
+                    p47 = (int) (p47 / (4*gran));
+                    p48 = (int) (p48 / (4*gran));
+                    p49 = (int) (p49 / (4*gran));
 
-                    p50 = (int) (p50 / (gran / (1000 * 60 * 15)));
-                    p51 = (int) (p51 / (gran / (1000 * 60 * 15)));
-                    p52 = (int) (p52 / (gran / (1000 * 60 * 15)));
-                    p53 = (int) (p53 / (gran / (1000 * 60 * 15)));
-                    p54 = (int) (p54 / (gran / (1000 * 60 * 15)));
-                    p55 = (int) (p55 / (gran / (1000 * 60 * 15)));
-                    p56 = (int) (p56 / (gran / (1000 * 60 * 15)));
-                    p57 = (int) (p57 / (gran / (1000 * 60 * 15)));
-                    p58 = (int) (p58 / (gran / (1000 * 60 * 15)));
-                    p59 = (int) (p59 / (gran / (1000 * 60 * 15)));
+                    p50 = (int) (p50 / (4*gran));
+                    p51 = (int) (p51 / (4*gran));
+                    p52 = (int) (p52 / (4*gran));
+                    p53 = (int) (p53 / (4*gran));
+                    p54 = (int) (p54 / (4*gran));
+                    p55 = (int) (p55 / (4*gran));
+                    p56 = (int) (p56 / (4*gran));
+                    p57 = (int) (p57 / (4*gran));
+                    p58 = (int) (p58 / (4*gran));
+                    p59 = (int) (p59 / (4*gran));
 
-                    p60 = (int) (p60 / (gran / (1000 * 60 * 15)));
-                    p61 = (int) (p61 / (gran / (1000 * 60 * 15)));
-                    p62 = (int) (p62 / (gran / (1000 * 60 * 15)));
-                    p63 = (int) (p63 / (gran / (1000 * 60 * 15)));
-                    p64 = (int) (p64 / (gran / (1000 * 60 * 15)));
-                    p65 = (int) (p65 / (gran / (1000 * 60 * 15)));
-                    p66 = (int) (p66 / (gran / (1000 * 60 * 15)));
-                    p67 = (int) (p67 / (gran / (1000 * 60 * 15)));
-                    p68 = (int) (p68 / (gran / (1000 * 60 * 15)));
-                    p69 = (int) (p69 / (gran / (1000 * 60 * 15)));
+                    p60 = (int) (p60 / (4*gran));
+                    p61 = (int) (p61 / (4*gran));
+                    p62 = (int) (p62 / (4*gran));
+                    p63 = (int) (p63 / (4*gran));
+                    p64 = (int) (p64 / (4*gran));
+                    p65 = (int) (p65 / (4*gran));
+                    p66 = (int) (p66 / (4*gran));
+                    p67 = (int) (p67 / (4*gran));
+                    p68 = (int) (p68 / (4*gran));
+                    p69 = (int) (p69 / (4*gran));
 
-                    p70 = (int) (p70 / (gran / (1000 * 60 * 15)));
-                    p71 = (int) (p71 / (gran / (1000 * 60 * 15)));
-                    p72 = (int) (p72 / (gran / (1000 * 60 * 15)));
-                    p73 = (int) (p73 / (gran / (1000 * 60 * 15)));
-                    p74 = (int) (p74 / (gran / (1000 * 60 * 15)));
-                    p75 = (int) (p75 / (gran / (1000 * 60 * 15)));
-                    p76 = (int) (p76 / (gran / (1000 * 60 * 15)));
-                    p77 = (int) (p77 / (gran / (1000 * 60 * 15)));
-                    p78 = (int) (p78 / (gran / (1000 * 60 * 15)));
-                    p79 = (int) (p79 / (gran / (1000 * 60 * 15)));
+                    p70 = (int) (p70 / (4*gran));
+                    p71 = (int) (p71 / (4*gran));
+                    p72 = (int) (p72 / (4*gran));
+                    p73 = (int) (p73 / (4*gran));
+                    p74 = (int) (p74 / (4*gran));
+                    p75 = (int) (p75 / (4*gran));
+                    p76 = (int) (p76 / (4*gran));
+                    p77 = (int) (p77 / (4*gran));
+                    p78 = (int) (p78 / (4*gran));
+                    p79 = (int) (p79 / (4*gran));
 
-                    p80 = (int) (p80 / (gran / (1000 * 60 * 15)));
-                    p81 = (int) (p81 / (gran / (1000 * 60 * 15)));
-                    p82 = (int) (p82 / (gran / (1000 * 60 * 15)));
-                    p83 = (int) (p83 / (gran / (1000 * 60 * 15)));
-                    p84 = (int) (p84 / (gran / (1000 * 60 * 15)));
-                    p85 = (int) (p85 / (gran / (1000 * 60 * 15)));
-                    p86 = (int) (p86 / (gran / (1000 * 60 * 15)));
-                    p87 = (int) (p87 / (gran / (1000 * 60 * 15)));
-                    p88 = (int) (p88 / (gran / (1000 * 60 * 15)));
-                    p89 = (int) (p89 / (gran / (1000 * 60 * 15)));
+                    p80 = (int) (p80 / (4*gran));
+                    p81 = (int) (p81 / (4*gran));
+                    p82 = (int) (p82 / (4*gran));
+                    p83 = (int) (p83 / (4*gran));
+                    p84 = (int) (p84 / (4*gran));
+                    p85 = (int) (p85 / (4*gran));
+                    p86 = (int) (p86 / (4*gran));
+                    p87 = (int) (p87 / (4*gran));
+                    p88 = (int) (p88 / (4*gran));
+                    p89 = (int) (p89 / (4*gran));
 
-                    p90 = (int) (p90 / (gran / (1000 * 60 * 15)));
-                    p91 = (int) (p91 / (gran / (1000 * 60 * 15)));
-                    p92 = (int) (p92 / (gran / (1000 * 60 * 15)));
-                    p93 = (int) (p93 / (gran / (1000 * 60 * 15)));
-                    p94 = (int) (p94 / (gran / (1000 * 60 * 15)));
-                    p95 = (int) (p95 / (gran / (1000 * 60 * 15)));
-                    p96 = (int) (p96 / (gran / (1000 * 60 * 15)));
-                    p97 = (int) (p97 / (gran / (1000 * 60 * 15)));
-                    p98 = (int) (p98 / (gran / (1000 * 60 * 15)));
-                    p99 = (int) (p99 / (gran / (1000 * 60 * 15)));
+                    p90 = (int) (p90 / (4*gran));
+                    p91 = (int) (p91 / (4*gran));
+                    p92 = (int) (p92 / (4*gran));
+                    p93 = (int) (p93 / (4*gran));
+                    p94 = (int) (p94 / (4*gran));
+                    p95 = (int) (p95 / (4*gran));
+                    p96 = (int) (p96 / (4*gran));
+                    p97 = (int) (p97 / (4*gran));
+                    p98 = (int) (p98 / (4*gran));
+                    p99 = (int) (p99 / (4*gran));
 
                     ave = ( p0 + p1 + p2 + p3 + p4 + p5 + p6 + p7 + p8 + p9 +
                             p10 + p11 + p12 + p13 + p14 + p15 + p16 + p17 + p18 + p19 +
@@ -770,617 +772,617 @@ public class PRBService {
                     if(P.equals("0"))
                     {
                         prb.setSTARTTIME(list.get(i).getSTARTTIME());
-                        prb.setENDTIME(list.get(i).getSTARTTIME().getTime()+gran);
+                        prb.setENDTIME(list.get(i).getSTARTTIME().getTime()+gran*(1000*60*15));
                         prb.setX(p0);
                     }
                     if(P.equals("1"))
                     {
                         prb.setSTARTTIME(list.get(i).getSTARTTIME());
-                        prb.setENDTIME(list.get(i).getSTARTTIME().getTime()+gran);
+                        prb.setENDTIME(list.get(i).getSTARTTIME().getTime()+gran*(1000*60*15));
                         prb.setX(p1);
                     }
                     if(P.equals("2"))
                     {
                         prb.setSTARTTIME(list.get(i).getSTARTTIME());
-                        prb.setENDTIME(list.get(i).getSTARTTIME().getTime()+gran);
+                        prb.setENDTIME(list.get(i).getSTARTTIME().getTime()+gran*(1000*60*15));
                         prb.setX(p2);
                     }
                     if(P.equals("3"))
                     {
                         prb.setSTARTTIME(list.get(i).getSTARTTIME());
-                        prb.setENDTIME(list.get(i).getSTARTTIME().getTime()+gran);
+                        prb.setENDTIME(list.get(i).getSTARTTIME().getTime()+gran*(1000*60*15));
                         prb.setX(p3);
                     }
                     if(P.equals("4"))
                     {
                         prb.setSTARTTIME(list.get(i).getSTARTTIME());
-                        prb.setENDTIME(list.get(i).getSTARTTIME().getTime()+gran);
+                        prb.setENDTIME(list.get(i).getSTARTTIME().getTime()+gran*(1000*60*15));
                         prb.setX(p4);
                     }
                     if(P.equals("5"))
                     {
                         prb.setSTARTTIME(list.get(i).getSTARTTIME());
-                        prb.setENDTIME(list.get(i).getSTARTTIME().getTime()+gran);
+                        prb.setENDTIME(list.get(i).getSTARTTIME().getTime()+gran*(1000*60*15));
                         prb.setX(p5);
                     }
                     if(P.equals("6"))
                     {
                         prb.setSTARTTIME(list.get(i).getSTARTTIME());
-                        prb.setENDTIME(list.get(i).getSTARTTIME().getTime()+gran);
+                        prb.setENDTIME(list.get(i).getSTARTTIME().getTime()+gran*(1000*60*15));
                         prb.setX(p6);
                     }
                     if(P.equals("7"))
                     {
                         prb.setSTARTTIME(list.get(i).getSTARTTIME());
-                        prb.setENDTIME(list.get(i).getSTARTTIME().getTime()+gran);
+                        prb.setENDTIME(list.get(i).getSTARTTIME().getTime()+gran*(1000*60*15));
                         prb.setX(p7);
                     }
                     if(P.equals("8"))
                     {
                         prb.setSTARTTIME(list.get(i).getSTARTTIME());
-                        prb.setENDTIME(list.get(i).getSTARTTIME().getTime()+gran);
+                        prb.setENDTIME(list.get(i).getSTARTTIME().getTime()+gran*(1000*60*15));
                         prb.setX(p8);
                     }
                     if(P.equals("9"))
                     {
                         prb.setSTARTTIME(list.get(i).getSTARTTIME());
-                        prb.setENDTIME(list.get(i).getSTARTTIME().getTime()+gran);
+                        prb.setENDTIME(list.get(i).getSTARTTIME().getTime()+gran*(1000*60*15));
                         prb.setX(p9);
                     }
 
                     if(P.equals("10"))
                     {
                         prb.setSTARTTIME(list.get(i).getSTARTTIME());
-                        prb.setENDTIME(list.get(i).getSTARTTIME().getTime()+gran);
+                        prb.setENDTIME(list.get(i).getSTARTTIME().getTime()+gran*(1000*60*15));
                         prb.setX(p10);
                     }
                     if(P.equals("11"))
                     {
                         prb.setSTARTTIME(list.get(i).getSTARTTIME());
-                        prb.setENDTIME(list.get(i).getSTARTTIME().getTime()+gran);
+                        prb.setENDTIME(list.get(i).getSTARTTIME().getTime()+gran*(1000*60*15));
                         prb.setX(p11);
                     }
                     if(P.equals("12"))
                     {
                         prb.setSTARTTIME(list.get(i).getSTARTTIME());
-                        prb.setENDTIME(list.get(i).getSTARTTIME().getTime()+gran);
+                        prb.setENDTIME(list.get(i).getSTARTTIME().getTime()+gran*(1000*60*15));
                         prb.setX(p12);
                     }
                     if(P.equals("13"))
                     {
                         prb.setSTARTTIME(list.get(i).getSTARTTIME());
-                        prb.setENDTIME(list.get(i).getSTARTTIME().getTime()+gran);
+                        prb.setENDTIME(list.get(i).getSTARTTIME().getTime()+gran*(1000*60*15));
                         prb.setX(p13);
                     }
                     if(P.equals("14"))
                     {
                         prb.setSTARTTIME(list.get(i).getSTARTTIME());
-                        prb.setENDTIME(list.get(i).getSTARTTIME().getTime()+gran);
+                        prb.setENDTIME(list.get(i).getSTARTTIME().getTime()+gran*(1000*60*15));
                         prb.setX(p14);
                     }
                     if(P.equals("15"))
                     {
                         prb.setSTARTTIME(list.get(i).getSTARTTIME());
-                        prb.setENDTIME(list.get(i).getSTARTTIME().getTime()+gran);
+                        prb.setENDTIME(list.get(i).getSTARTTIME().getTime()+gran*(1000*60*15));
                         prb.setX(p15);
                     }
                     if(P.equals("16"))
                     {
                         prb.setSTARTTIME(list.get(i).getSTARTTIME());
-                        prb.setENDTIME(list.get(i).getSTARTTIME().getTime()+gran);
+                        prb.setENDTIME(list.get(i).getSTARTTIME().getTime()+gran*(1000*60*15));
                         prb.setX(p16);
                     }
                     if(P.equals("17"))
                     {
                         prb.setSTARTTIME(list.get(i).getSTARTTIME());
-                        prb.setENDTIME(list.get(i).getSTARTTIME().getTime()+gran);
+                        prb.setENDTIME(list.get(i).getSTARTTIME().getTime()+gran*(1000*60*15));
                         prb.setX(p17);
                     }
                     if(P.equals("18"))
                     {
                         prb.setSTARTTIME(list.get(i).getSTARTTIME());
-                        prb.setENDTIME(list.get(i).getSTARTTIME().getTime()+gran);
+                        prb.setENDTIME(list.get(i).getSTARTTIME().getTime()+gran*(1000*60*15));
                         prb.setX(p18);
                     }
                     if(P.equals("19"))
                     {
                         prb.setSTARTTIME(list.get(i).getSTARTTIME());
-                        prb.setENDTIME(list.get(i).getSTARTTIME().getTime()+gran);
+                        prb.setENDTIME(list.get(i).getSTARTTIME().getTime()+gran*(1000*60*15));
                         prb.setX(p19);
                     }
 
                     if(P.equals("20"))
                     {
                         prb.setSTARTTIME(list.get(i).getSTARTTIME());
-                        prb.setENDTIME(list.get(i).getSTARTTIME().getTime()+gran);
+                        prb.setENDTIME(list.get(i).getSTARTTIME().getTime()+gran*(1000*60*15));
                         prb.setX(p20);
                     }
                     if(P.equals("21"))
                     {
                         prb.setSTARTTIME(list.get(i).getSTARTTIME());
-                        prb.setENDTIME(list.get(i).getSTARTTIME().getTime()+gran);
+                        prb.setENDTIME(list.get(i).getSTARTTIME().getTime()+gran*(1000*60*15));
                         prb.setX(p21);
                     }
                     if(P.equals("22"))
                     {
                         prb.setSTARTTIME(list.get(i).getSTARTTIME());
-                        prb.setENDTIME(list.get(i).getSTARTTIME().getTime()+gran);
+                        prb.setENDTIME(list.get(i).getSTARTTIME().getTime()+gran*(1000*60*15));
                         prb.setX(p22);
                     }
                     if(P.equals("23"))
                     {
                         prb.setSTARTTIME(list.get(i).getSTARTTIME());
-                        prb.setENDTIME(list.get(i).getSTARTTIME().getTime()+gran);
+                        prb.setENDTIME(list.get(i).getSTARTTIME().getTime()+gran*(1000*60*15));
                         prb.setX(p23);
                     }
                     if(P.equals("24"))
                     {
                         prb.setSTARTTIME(list.get(i).getSTARTTIME());
-                        prb.setENDTIME(list.get(i).getSTARTTIME().getTime()+gran);
+                        prb.setENDTIME(list.get(i).getSTARTTIME().getTime()+gran*(1000*60*15));
                         prb.setX(p24);
                     }
                     if(P.equals("25"))
                     {
                         prb.setSTARTTIME(list.get(i).getSTARTTIME());
-                        prb.setENDTIME(list.get(i).getSTARTTIME().getTime()+gran);
+                        prb.setENDTIME(list.get(i).getSTARTTIME().getTime()+gran*(1000*60*15));
                         prb.setX(p25);
                     }
                     if(P.equals("26"))
                     {
                         prb.setSTARTTIME(list.get(i).getSTARTTIME());
-                        prb.setENDTIME(list.get(i).getSTARTTIME().getTime()+gran);
+                        prb.setENDTIME(list.get(i).getSTARTTIME().getTime()+gran*(1000*60*15));
                         prb.setX(p26);
                     }
                     if(P.equals("27"))
                     {
                         prb.setSTARTTIME(list.get(i).getSTARTTIME());
-                        prb.setENDTIME(list.get(i).getSTARTTIME().getTime()+gran);
+                        prb.setENDTIME(list.get(i).getSTARTTIME().getTime()+gran*(1000*60*15));
                         prb.setX(p27);
                     }
                     if(P.equals("28"))
                     {
                         prb.setSTARTTIME(list.get(i).getSTARTTIME());
-                        prb.setENDTIME(list.get(i).getSTARTTIME().getTime()+gran);
+                        prb.setENDTIME(list.get(i).getSTARTTIME().getTime()+gran*(1000*60*15));
                         prb.setX(p28);
                     }
                     if(P.equals("29"))
                     {
                         prb.setSTARTTIME(list.get(i).getSTARTTIME());
-                        prb.setENDTIME(list.get(i).getSTARTTIME().getTime()+gran);
+                        prb.setENDTIME(list.get(i).getSTARTTIME().getTime()+gran*(1000*60*15));
                         prb.setX(p29);
                     }
 
                     if(P.equals("30"))
                     {
                         prb.setSTARTTIME(list.get(i).getSTARTTIME());
-                        prb.setENDTIME(list.get(i).getSTARTTIME().getTime()+gran);
+                        prb.setENDTIME(list.get(i).getSTARTTIME().getTime()+gran*(1000*60*15));
                         prb.setX(p30);
                     }
                     if(P.equals("31"))
                     {
                         prb.setSTARTTIME(list.get(i).getSTARTTIME());
-                        prb.setENDTIME(list.get(i).getSTARTTIME().getTime()+gran);
+                        prb.setENDTIME(list.get(i).getSTARTTIME().getTime()+gran*(1000*60*15));
                         prb.setX(p31);
                     }
                     if(P.equals("32"))
                     {
                         prb.setSTARTTIME(list.get(i).getSTARTTIME());
-                        prb.setENDTIME(list.get(i).getSTARTTIME().getTime()+gran);
+                        prb.setENDTIME(list.get(i).getSTARTTIME().getTime()+gran*(1000*60*15));
                         prb.setX(p32);
                     }
                     if(P.equals("33"))
                     {
                         prb.setSTARTTIME(list.get(i).getSTARTTIME());
-                        prb.setENDTIME(list.get(i).getSTARTTIME().getTime()+gran);
+                        prb.setENDTIME(list.get(i).getSTARTTIME().getTime()+gran*(1000*60*15));
                         prb.setX(p33);
                     }
                     if(P.equals("34"))
                     {
                         prb.setSTARTTIME(list.get(i).getSTARTTIME());
-                        prb.setENDTIME(list.get(i).getSTARTTIME().getTime()+gran);
+                        prb.setENDTIME(list.get(i).getSTARTTIME().getTime()+gran*(1000*60*15));
                         prb.setX(p34);
                     }
                     if(P.equals("35"))
                     {
                         prb.setSTARTTIME(list.get(i).getSTARTTIME());
-                        prb.setENDTIME(list.get(i).getSTARTTIME().getTime()+gran);
+                        prb.setENDTIME(list.get(i).getSTARTTIME().getTime()+gran*(1000*60*15));
                         prb.setX(p35);
                     }
                     if(P.equals("36"))
                     {
                         prb.setSTARTTIME(list.get(i).getSTARTTIME());
-                        prb.setENDTIME(list.get(i).getSTARTTIME().getTime()+gran);
+                        prb.setENDTIME(list.get(i).getSTARTTIME().getTime()+gran*(1000*60*15));
                         prb.setX(p36);
                     }
                     if(P.equals("37"))
                     {
                         prb.setSTARTTIME(list.get(i).getSTARTTIME());
-                        prb.setENDTIME(list.get(i).getSTARTTIME().getTime()+gran);
+                        prb.setENDTIME(list.get(i).getSTARTTIME().getTime()+gran*(1000*60*15));
                         prb.setX(p37);
                     }
                     if(P.equals("38"))
                     {
                         prb.setSTARTTIME(list.get(i).getSTARTTIME());
-                        prb.setENDTIME(list.get(i).getSTARTTIME().getTime()+gran);
+                        prb.setENDTIME(list.get(i).getSTARTTIME().getTime()+gran*(1000*60*15));
                         prb.setX(p38);
                     }
                     if(P.equals("39"))
                     {
                         prb.setSTARTTIME(list.get(i).getSTARTTIME());
-                        prb.setENDTIME(list.get(i).getSTARTTIME().getTime()+gran);
+                        prb.setENDTIME(list.get(i).getSTARTTIME().getTime()+gran*(1000*60*15));
                         prb.setX(p39);
                     }
 
                     if(P.equals("40"))
                     {
                         prb.setSTARTTIME(list.get(i).getSTARTTIME());
-                        prb.setENDTIME(list.get(i).getSTARTTIME().getTime()+gran);
+                        prb.setENDTIME(list.get(i).getSTARTTIME().getTime()+gran*(1000*60*15));
                         prb.setX(p40);
                     }
                     if(P.equals("41"))
                     {
                         prb.setSTARTTIME(list.get(i).getSTARTTIME());
-                        prb.setENDTIME(list.get(i).getSTARTTIME().getTime()+gran);
+                        prb.setENDTIME(list.get(i).getSTARTTIME().getTime()+gran*(1000*60*15));
                         prb.setX(p41);
                     }
                     if(P.equals("42"))
                     {
                         prb.setSTARTTIME(list.get(i).getSTARTTIME());
-                        prb.setENDTIME(list.get(i).getSTARTTIME().getTime()+gran);
+                        prb.setENDTIME(list.get(i).getSTARTTIME().getTime()+gran*(1000*60*15));
                         prb.setX(p42);
                     }
                     if(P.equals("43"))
                     {
                         prb.setSTARTTIME(list.get(i).getSTARTTIME());
-                        prb.setENDTIME(list.get(i).getSTARTTIME().getTime()+gran);
+                        prb.setENDTIME(list.get(i).getSTARTTIME().getTime()+gran*(1000*60*15));
                         prb.setX(p43);
                     }
                     if(P.equals("44"))
                     {
                         prb.setSTARTTIME(list.get(i).getSTARTTIME());
-                        prb.setENDTIME(list.get(i).getSTARTTIME().getTime()+gran);
+                        prb.setENDTIME(list.get(i).getSTARTTIME().getTime()+gran*(1000*60*15));
                         prb.setX(p44);
                     }
                     if(P.equals("45"))
                     {
                         prb.setSTARTTIME(list.get(i).getSTARTTIME());
-                        prb.setENDTIME(list.get(i).getSTARTTIME().getTime()+gran);
+                        prb.setENDTIME(list.get(i).getSTARTTIME().getTime()+gran*(1000*60*15));
                         prb.setX(p45);
                     }
                     if(P.equals("46"))
                     {
                         prb.setSTARTTIME(list.get(i).getSTARTTIME());
-                        prb.setENDTIME(list.get(i).getSTARTTIME().getTime()+gran);
+                        prb.setENDTIME(list.get(i).getSTARTTIME().getTime()+gran*(1000*60*15));
                         prb.setX(p46);
                     }
                     if(P.equals("47"))
                     {
                         prb.setSTARTTIME(list.get(i).getSTARTTIME());
-                        prb.setENDTIME(list.get(i).getSTARTTIME().getTime()+gran);
+                        prb.setENDTIME(list.get(i).getSTARTTIME().getTime()+gran*(1000*60*15));
                         prb.setX(p47);
                     }
                     if(P.equals("48"))
                     {
                         prb.setSTARTTIME(list.get(i).getSTARTTIME());
-                        prb.setENDTIME(list.get(i).getSTARTTIME().getTime()+gran);
+                        prb.setENDTIME(list.get(i).getSTARTTIME().getTime()+gran*(1000*60*15));
                         prb.setX(p48);
                     }
                     if(P.equals("49"))
                     {
                         prb.setSTARTTIME(list.get(i).getSTARTTIME());
-                        prb.setENDTIME(list.get(i).getSTARTTIME().getTime()+gran);
+                        prb.setENDTIME(list.get(i).getSTARTTIME().getTime()+gran*(1000*60*15));
                         prb.setX(p49);
                     }
 
                     if(P.equals("50"))
                     {
                         prb.setSTARTTIME(list.get(i).getSTARTTIME());
-                        prb.setENDTIME(list.get(i).getSTARTTIME().getTime()+gran);
+                        prb.setENDTIME(list.get(i).getSTARTTIME().getTime()+gran*(1000*60*15));
                         prb.setX(p50);
                     }
                     if(P.equals("51"))
                     {
                         prb.setSTARTTIME(list.get(i).getSTARTTIME());
-                        prb.setENDTIME(list.get(i).getSTARTTIME().getTime()+gran);
+                        prb.setENDTIME(list.get(i).getSTARTTIME().getTime()+gran*(1000*60*15));
                         prb.setX(p51);
                     }
                     if(P.equals("52"))
                     {
                         prb.setSTARTTIME(list.get(i).getSTARTTIME());
-                        prb.setENDTIME(list.get(i).getSTARTTIME().getTime()+gran);
+                        prb.setENDTIME(list.get(i).getSTARTTIME().getTime()+gran*(1000*60*15));
                         prb.setX(p52);
                     }
                     if(P.equals("53"))
                     {
                         prb.setSTARTTIME(list.get(i).getSTARTTIME());
-                        prb.setENDTIME(list.get(i).getSTARTTIME().getTime()+gran);
+                        prb.setENDTIME(list.get(i).getSTARTTIME().getTime()+gran*(1000*60*15));
                         prb.setX(p53);
                     }
                     if(P.equals("54"))
                     {
                         prb.setSTARTTIME(list.get(i).getSTARTTIME());
-                        prb.setENDTIME(list.get(i).getSTARTTIME().getTime()+gran);
+                        prb.setENDTIME(list.get(i).getSTARTTIME().getTime()+gran*(1000*60*15));
                         prb.setX(p54);
                     }
                     if(P.equals("55"))
                     {
                         prb.setSTARTTIME(list.get(i).getSTARTTIME());
-                        prb.setENDTIME(list.get(i).getSTARTTIME().getTime()+gran);
+                        prb.setENDTIME(list.get(i).getSTARTTIME().getTime()+gran*(1000*60*15));
                         prb.setX(p55);
                     }
                     if(P.equals("56"))
                     {
                         prb.setSTARTTIME(list.get(i).getSTARTTIME());
-                        prb.setENDTIME(list.get(i).getSTARTTIME().getTime()+gran);
+                        prb.setENDTIME(list.get(i).getSTARTTIME().getTime()+gran*(1000*60*15));
                         prb.setX(p56);
                     }
                     if(P.equals("57"))
                     {
                         prb.setSTARTTIME(list.get(i).getSTARTTIME());
-                        prb.setENDTIME(list.get(i).getSTARTTIME().getTime()+gran);
+                        prb.setENDTIME(list.get(i).getSTARTTIME().getTime()+gran*(1000*60*15));
                         prb.setX(p57);
                     }
                     if(P.equals("58"))
                     {
                         prb.setSTARTTIME(list.get(i).getSTARTTIME());
-                        prb.setENDTIME(list.get(i).getSTARTTIME().getTime()+gran);
+                        prb.setENDTIME(list.get(i).getSTARTTIME().getTime()+gran*(1000*60*15));
                         prb.setX(p58);
                     }
                     if(P.equals("59"))
                     {
                         prb.setSTARTTIME(list.get(i).getSTARTTIME());
-                        prb.setENDTIME(list.get(i).getSTARTTIME().getTime()+gran);
+                        prb.setENDTIME(list.get(i).getSTARTTIME().getTime()+gran*(1000*60*15));
                         prb.setX(p59);
                     }
 
                     if(P.equals("60"))
                     {
                         prb.setSTARTTIME(list.get(i).getSTARTTIME());
-                        prb.setENDTIME(list.get(i).getSTARTTIME().getTime()+gran);
+                        prb.setENDTIME(list.get(i).getSTARTTIME().getTime()+gran*(1000*60*15));
                         prb.setX(p60);
                     }
                     if(P.equals("61"))
                     {
                         prb.setSTARTTIME(list.get(i).getSTARTTIME());
-                        prb.setENDTIME(list.get(i).getSTARTTIME().getTime()+gran);
+                        prb.setENDTIME(list.get(i).getSTARTTIME().getTime()+gran*(1000*60*15));
                         prb.setX(p61);
                     }
                     if(P.equals("62"))
                     {
                         prb.setSTARTTIME(list.get(i).getSTARTTIME());
-                        prb.setENDTIME(list.get(i).getSTARTTIME().getTime()+gran);
+                        prb.setENDTIME(list.get(i).getSTARTTIME().getTime()+gran*(1000*60*15));
                         prb.setX(p62);
                     }
                     if(P.equals("63"))
                     {
                         prb.setSTARTTIME(list.get(i).getSTARTTIME());
-                        prb.setENDTIME(list.get(i).getSTARTTIME().getTime()+gran);
+                        prb.setENDTIME(list.get(i).getSTARTTIME().getTime()+gran*(1000*60*15));
                         prb.setX(p63);
                     }
                     if(P.equals("64"))
                     {
                         prb.setSTARTTIME(list.get(i).getSTARTTIME());
-                        prb.setENDTIME(list.get(i).getSTARTTIME().getTime()+gran);
+                        prb.setENDTIME(list.get(i).getSTARTTIME().getTime()+gran*(1000*60*15));
                         prb.setX(p64);
                     }
                     if(P.equals("65"))
                     {
                         prb.setSTARTTIME(list.get(i).getSTARTTIME());
-                        prb.setENDTIME(list.get(i).getSTARTTIME().getTime()+gran);
+                        prb.setENDTIME(list.get(i).getSTARTTIME().getTime()+gran*(1000*60*15));
                         prb.setX(p65);
                     }
                     if(P.equals("66"))
                     {
                         prb.setSTARTTIME(list.get(i).getSTARTTIME());
-                        prb.setENDTIME(list.get(i).getSTARTTIME().getTime()+gran);
+                        prb.setENDTIME(list.get(i).getSTARTTIME().getTime()+gran*(1000*60*15));
                         prb.setX(p66);
                     }
                     if(P.equals("67"))
                     {
                         prb.setSTARTTIME(list.get(i).getSTARTTIME());
-                        prb.setENDTIME(list.get(i).getSTARTTIME().getTime()+gran);
+                        prb.setENDTIME(list.get(i).getSTARTTIME().getTime()+gran*(1000*60*15));
                         prb.setX(p67);
                     }
                     if(P.equals("68"))
                     {
                         prb.setSTARTTIME(list.get(i).getSTARTTIME());
-                        prb.setENDTIME(list.get(i).getSTARTTIME().getTime()+gran);
+                        prb.setENDTIME(list.get(i).getSTARTTIME().getTime()+gran*(1000*60*15));
                         prb.setX(p68);
                     }
                     if(P.equals("69"))
                     {
                         prb.setSTARTTIME(list.get(i).getSTARTTIME());
-                        prb.setENDTIME(list.get(i).getSTARTTIME().getTime()+gran);
+                        prb.setENDTIME(list.get(i).getSTARTTIME().getTime()+gran*(1000*60*15));
                         prb.setX(p69);
                     }
 
                     if(P.equals("70"))
                     {
                         prb.setSTARTTIME(list.get(i).getSTARTTIME());
-                        prb.setENDTIME(list.get(i).getSTARTTIME().getTime()+gran);
+                        prb.setENDTIME(list.get(i).getSTARTTIME().getTime()+gran*(1000*60*15));
                         prb.setX(p70);
                     }
                     if(P.equals("71"))
                     {
                         prb.setSTARTTIME(list.get(i).getSTARTTIME());
-                        prb.setENDTIME(list.get(i).getSTARTTIME().getTime()+gran);
+                        prb.setENDTIME(list.get(i).getSTARTTIME().getTime()+gran*(1000*60*15));
                         prb.setX(p71);
                     }
                     if(P.equals("72"))
                     {
                         prb.setSTARTTIME(list.get(i).getSTARTTIME());
-                        prb.setENDTIME(list.get(i).getSTARTTIME().getTime()+gran);
+                        prb.setENDTIME(list.get(i).getSTARTTIME().getTime()+gran*(1000*60*15));
                         prb.setX(p72);
                     }
                     if(P.equals("73"))
                     {
                         prb.setSTARTTIME(list.get(i).getSTARTTIME());
-                        prb.setENDTIME(list.get(i).getSTARTTIME().getTime()+gran);
+                        prb.setENDTIME(list.get(i).getSTARTTIME().getTime()+gran*(1000*60*15));
                         prb.setX(p73);
                     }
                     if(P.equals("74"))
                     {
                         prb.setSTARTTIME(list.get(i).getSTARTTIME());
-                        prb.setENDTIME(list.get(i).getSTARTTIME().getTime()+gran);
+                        prb.setENDTIME(list.get(i).getSTARTTIME().getTime()+gran*(1000*60*15));
                         prb.setX(p74);
                     }
                     if(P.equals("75"))
                     {
                         prb.setSTARTTIME(list.get(i).getSTARTTIME());
-                        prb.setENDTIME(list.get(i).getSTARTTIME().getTime()+gran);
+                        prb.setENDTIME(list.get(i).getSTARTTIME().getTime()+gran*(1000*60*15));
                         prb.setX(p75);
                     }
                     if(P.equals("76"))
                     {
                         prb.setSTARTTIME(list.get(i).getSTARTTIME());
-                        prb.setENDTIME(list.get(i).getSTARTTIME().getTime()+gran);
+                        prb.setENDTIME(list.get(i).getSTARTTIME().getTime()+gran*(1000*60*15));
                         prb.setX(p76);
                     }
                     if(P.equals("77"))
                     {
                         prb.setSTARTTIME(list.get(i).getSTARTTIME());
-                        prb.setENDTIME(list.get(i).getSTARTTIME().getTime()+gran);
+                        prb.setENDTIME(list.get(i).getSTARTTIME().getTime()+gran*(1000*60*15));
                         prb.setX(p77);
                     }
                     if(P.equals("78"))
                     {
                         prb.setSTARTTIME(list.get(i).getSTARTTIME());
-                        prb.setENDTIME(list.get(i).getSTARTTIME().getTime()+gran);
+                        prb.setENDTIME(list.get(i).getSTARTTIME().getTime()+gran*(1000*60*15));
                         prb.setX(p78);
                     }
                     if(P.equals("79"))
                     {
                         prb.setSTARTTIME(list.get(i).getSTARTTIME());
-                        prb.setENDTIME(list.get(i).getSTARTTIME().getTime()+gran);
+                        prb.setENDTIME(list.get(i).getSTARTTIME().getTime()+gran*(1000*60*15));
                         prb.setX(p79);
                     }
 
                     if(P.equals("80"))
                     {
                         prb.setSTARTTIME(list.get(i).getSTARTTIME());
-                        prb.setENDTIME(list.get(i).getSTARTTIME().getTime()+gran);
+                        prb.setENDTIME(list.get(i).getSTARTTIME().getTime()+gran*(1000*60*15));
                         prb.setX(p80);
                     }
                     if(P.equals("81"))
                     {
                         prb.setSTARTTIME(list.get(i).getSTARTTIME());
-                        prb.setENDTIME(list.get(i).getSTARTTIME().getTime()+gran);
+                        prb.setENDTIME(list.get(i).getSTARTTIME().getTime()+gran*(1000*60*15));
                         prb.setX(p81);
                     }
                     if(P.equals("82"))
                     {
                         prb.setSTARTTIME(list.get(i).getSTARTTIME());
-                        prb.setENDTIME(list.get(i).getSTARTTIME().getTime()+gran);
+                        prb.setENDTIME(list.get(i).getSTARTTIME().getTime()+gran*(1000*60*15));
                         prb.setX(p82);
                     }
                     if(P.equals("83"))
                     {
                         prb.setSTARTTIME(list.get(i).getSTARTTIME());
-                        prb.setENDTIME(list.get(i).getSTARTTIME().getTime()+gran);
+                        prb.setENDTIME(list.get(i).getSTARTTIME().getTime()+gran*(1000*60*15));
                         prb.setX(p83);
                     }
                     if(P.equals("84"))
                     {
                         prb.setSTARTTIME(list.get(i).getSTARTTIME());
-                        prb.setENDTIME(list.get(i).getSTARTTIME().getTime()+gran);
+                        prb.setENDTIME(list.get(i).getSTARTTIME().getTime()+gran*(1000*60*15));
                         prb.setX(p84);
                     }
                     if(P.equals("85"))
                     {
                         prb.setSTARTTIME(list.get(i).getSTARTTIME());
-                        prb.setENDTIME(list.get(i).getSTARTTIME().getTime()+gran);
+                        prb.setENDTIME(list.get(i).getSTARTTIME().getTime()+gran*(1000*60*15));
                         prb.setX(p85);
                     }
                     if(P.equals("86"))
                     {
                         prb.setSTARTTIME(list.get(i).getSTARTTIME());
-                        prb.setENDTIME(list.get(i).getSTARTTIME().getTime()+gran);
+                        prb.setENDTIME(list.get(i).getSTARTTIME().getTime()+gran*(1000*60*15));
                         prb.setX(p86);
                     }
                     if(P.equals("87"))
                     {
                         prb.setSTARTTIME(list.get(i).getSTARTTIME());
-                        prb.setENDTIME(list.get(i).getSTARTTIME().getTime()+gran);
+                        prb.setENDTIME(list.get(i).getSTARTTIME().getTime()+gran*(1000*60*15));
                         prb.setX(p87);
                     }
                     if(P.equals("88"))
                     {
                         prb.setSTARTTIME(list.get(i).getSTARTTIME());
-                        prb.setENDTIME(list.get(i).getSTARTTIME().getTime()+gran);
+                        prb.setENDTIME(list.get(i).getSTARTTIME().getTime()+gran*(1000*60*15));
                         prb.setX(p88);
                     }
                     if(P.equals("89"))
                     {
                         prb.setSTARTTIME(list.get(i).getSTARTTIME());
-                        prb.setENDTIME(list.get(i).getSTARTTIME().getTime()+gran);
+                        prb.setENDTIME(list.get(i).getSTARTTIME().getTime()+gran*(1000*60*15));
                         prb.setX(p89);
                     }
 
                     if(P.equals("90"))
                     {
                         prb.setSTARTTIME(list.get(i).getSTARTTIME());
-                        prb.setENDTIME(list.get(i).getSTARTTIME().getTime()+gran);
+                        prb.setENDTIME(list.get(i).getSTARTTIME().getTime()+gran*(1000*60*15));
                         prb.setX(p90);
                     }
                     if(P.equals("91"))
                     {
                         prb.setSTARTTIME(list.get(i).getSTARTTIME());
-                        prb.setENDTIME(list.get(i).getSTARTTIME().getTime()+gran);
+                        prb.setENDTIME(list.get(i).getSTARTTIME().getTime()+gran*(1000*60*15));
                         prb.setX(p91);
                     }
                     if(P.equals("92"))
                     {
                         prb.setSTARTTIME(list.get(i).getSTARTTIME());
-                        prb.setENDTIME(list.get(i).getSTARTTIME().getTime()+gran);
+                        prb.setENDTIME(list.get(i).getSTARTTIME().getTime()+gran*(1000*60*15));
                         prb.setX(p92);
                     }
                     if(P.equals("93"))
                     {
                         prb.setSTARTTIME(list.get(i).getSTARTTIME());
-                        prb.setENDTIME(list.get(i).getSTARTTIME().getTime()+gran);
+                        prb.setENDTIME(list.get(i).getSTARTTIME().getTime()+gran*(1000*60*15));
                         prb.setX(p93);
                     }
                     if(P.equals("94"))
                     {
                         prb.setSTARTTIME(list.get(i).getSTARTTIME());
-                        prb.setENDTIME(list.get(i).getSTARTTIME().getTime()+gran);
+                        prb.setENDTIME(list.get(i).getSTARTTIME().getTime()+gran*(1000*60*15));
                         prb.setX(p94);
                     }
                     if(P.equals("95"))
                     {
                         prb.setSTARTTIME(list.get(i).getSTARTTIME());
-                        prb.setENDTIME(list.get(i).getSTARTTIME().getTime()+gran);
+                        prb.setENDTIME(list.get(i).getSTARTTIME().getTime()+gran*(1000*60*15));
                         prb.setX(p95);
                     }
                     if(P.equals("96"))
                     {
                         prb.setSTARTTIME(list.get(i).getSTARTTIME());
-                        prb.setENDTIME(list.get(i).getSTARTTIME().getTime()+gran);
+                        prb.setENDTIME(list.get(i).getSTARTTIME().getTime()+gran*(1000*60*15));
                         prb.setX(p96);
                     }
                     if(P.equals("97"))
                     {
                         prb.setSTARTTIME(list.get(i).getSTARTTIME());
-                        prb.setENDTIME(list.get(i).getSTARTTIME().getTime()+gran);
+                        prb.setENDTIME(list.get(i).getSTARTTIME().getTime()+gran*(1000*60*15));
                         prb.setX(p97);
                     }
                     if(P.equals("98"))
                     {
                         prb.setSTARTTIME(list.get(i).getSTARTTIME());
-                        prb.setENDTIME(list.get(i).getSTARTTIME().getTime()+gran);
+                        prb.setENDTIME(list.get(i).getSTARTTIME().getTime()+gran*(1000*60*15));
                         prb.setX(p98);
                     }
                     if(P.equals("99"))
                     {
                         prb.setSTARTTIME(list.get(i).getSTARTTIME());
-                        prb.setENDTIME(list.get(i).getSTARTTIME().getTime()+gran);
+                        prb.setENDTIME(list.get(i).getSTARTTIME().getTime()+gran*(1000*60*15));
                         prb.setX(p99);
                     }
 
                     if(P.equals("100"))
                     {
                         prb.setSTARTTIME(list.get(i).getSTARTTIME());
-                        prb.setENDTIME(list.get(i).getSTARTTIME().getTime()+gran);
+                        prb.setENDTIME(list.get(i).getSTARTTIME().getTime()+gran*(1000*60*15));
                         prb.setX(ave);
                     }
 
@@ -1507,7 +1509,7 @@ public class PRBService {
 
                 }
             }
-            start0.setTime(start0.getTime() + gran);
+            start0.setTime(start0.getTime() + gran*(1000*60*15));
         }
 
 //        for (PRB c : list)
