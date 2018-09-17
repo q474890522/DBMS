@@ -82,13 +82,14 @@ layui.use(['upload','form'], function(){
 
     //监听提交
     form.on('submit(formDemo)', function(data){
-        layer.msg(JSON.stringify(data.field));
+
         $.ajax({
             url:"/willupload",
             data: JSON.stringify(data.field),
             type: "POST",
             contentType: "application/JSON;charset=utf-8"
         })
+        //layer.msg("导入成功");
     });
 
   //执行实例

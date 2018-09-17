@@ -365,7 +365,7 @@
 
         //监听KPI提交
         form.on('submit(KPIDemo)', function(data){
-            layer.msg(JSON.stringify(data.field));
+            //layer.msg(JSON.stringify(data.field));
             $.ajax({
                 url: "/kpinewdata",
                 data: JSON.stringify(data.field),
@@ -452,7 +452,7 @@
 
         //监听提交
         form.on('submit(PRBDemo)', function(data){
-            layer.msg(JSON.stringify(data.field));
+            //layer.msg(JSON.stringify(data.field));
             $.ajax({
                 url: "/prbnewdata",
                 data: JSON.stringify(data.field),

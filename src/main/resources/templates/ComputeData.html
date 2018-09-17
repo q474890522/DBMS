@@ -79,7 +79,7 @@
 
         //监听提交
         form.on('submit(Demo)', function(data){
-            layer.msg(JSON.stringify(data.field));
+            //layer.msg(JSON.stringify(data.field));
             $.ajax({
                 url: "/newdata",
                 data: JSON.stringify(data.field),

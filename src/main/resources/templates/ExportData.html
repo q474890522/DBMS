@@ -91,7 +91,7 @@ layui.use('element', function(){
         var form = layui.form;
         //监听提交
         form.on('submit(formDemo)',function (data) {
-            layer.msg(JSON.stringify(data.field));
+
 
             $.ajax({
                 url: "/exportnewdata",
@@ -99,6 +99,7 @@ layui.use('element', function(){
                 type: "POST",
                 contentType: "application/JSON;charset-utf8",
             });
+            //layer.msg("导出成功");
             return false;
 
             return false;
